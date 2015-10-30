@@ -16,4 +16,11 @@ class UserLogic extends UserModel
 		$data = $this->where($map)->find();
 		return $data;
 	}
+
+	public function getAllLists()
+	{
+		$datas = $this->select();
+		echo $this->getLastSql();
+		return $datas;
+	}
 }
