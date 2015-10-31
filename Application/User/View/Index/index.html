@@ -1,13 +1,21 @@
+	<div>
+        <button type="button" onclick="location='{:U('add')}'">添加用户</button>
+    </div>
 	<table>
 		<tr>
+			<th>序号</th>
 			<th>ID</th>
 			<th>name</th>
+			<th>操作</th>
 		</tr>
-		<foreach name="users" item="user">
+		<foreach name="users" item="user" key="k">
 			<tr>
-				<td>{$id}</td>
-				<td>{$name}</td>
+				<td>{$k+1}</td>
+				<td>{$user[id]}</td>
+				<td>{$user[name]}</td>
+				<td><button onclick="location='{$user._url.detail}'">查看</button></td>
+				<td><button onclick="location='{$user._url.edit}'">编辑</button></td>
+				<td><button onclick="location='{$user._url.delete}'">删除</button></td>
 			</tr>
-		</foreach>
-		
+		</foreach>	
 	</table>
