@@ -25,27 +25,39 @@ class IndexController extends Controller
     }
     public function saveAction(){
         //取用户信息
+        $user = I('post.');
         //传给M层
         $UserL = new UserLogic();
-        $status = $UserL->add();
-        dump($status);
-        exit();
+        $status = $UserL->addInfo($user);
+        
         if ($status==true) {
-            $this->sussess("操作成功",U('User/Index/index'));
+            $this->success("操作成功" , U('User/Index/index'));
         }
         else{
             $this->error("添加失败");
         }
     }
+    public function editAction(){
+        //获取用户ID
+        $userId = I('post.id');
+        //传给M
+        $UserL = new UserLogic();
+        $user = $UserL->getListById($userId);
+         //传给前台
+        $this->assign('user',$user);
+        $this->display();
+       
+    }
     public function updateAction(){
         //取用户ID
         $userId = I('post.id');
+        dump($userId);
         //取用户信息
         $user = I('post.');
         dump($user);
         //传给M层
         $UserL = new UserLogic();
-        $status = $UserL->save($userId,$user);
+        $status = $UserL->saveInfo($userId,$user);
         if ($status=true) {
             $this->sussess("操作成功",U('User/Index/index'));
         }
@@ -56,7 +68,7 @@ class IndexController extends Controller
     public function deleteAction(){
         $id = I('get.id');
         $UserL = new UserLogic();
-        $status = $UserL->delete($userId);
+        $status = $UserL->deleteInfo($id);
         if($status){
            $this->success('删除成功', U('User/Index/index')); 
         }
