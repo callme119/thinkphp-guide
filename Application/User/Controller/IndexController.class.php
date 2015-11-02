@@ -71,7 +71,7 @@ class IndexController extends Controller
         $status = $UserL->save($data);
         //传值
         if ($status=true) {
-            $this->sussess("操作成功",U('User/Index/index'));
+            $this->success("操作成功",U('User/Index/index'));
         }
         else{
             $this->error("修改失败" , U('User/Index/index'));
