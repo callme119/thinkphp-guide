@@ -5,14 +5,14 @@ use User\Logic\UserLogic;		//用户表
 class IndexController extends Controller
 {
     public function indexAction(){
-        //取值
+        //取值getAllLists()
     	$UserL = new UserLogic();
     	$users = $UserL->getAllLists();
 
-        //传值
+        //传值assign()
     	$this->assign('users',$users);
         
-    	//显示
+    	//显示display()
    		$this->display();
     }
     public function detailAction(){
@@ -29,13 +29,14 @@ class IndexController extends Controller
     	$this->display();
     }
     public function addAction(){
+        //显示 display
         $this->display();
     }
     public function saveAction(){
         //取用户信息
         $user = I('post.');
 
-        //传给M层
+        //添加 add()
         $UserL = new UserLogic();
         $status = $UserL->add($user);
         //echo $this->getLastSql();
@@ -52,15 +53,15 @@ class IndexController extends Controller
         //获取用户ID
         $userId = I('get.id');
 
-        //传给M
+        //取用户信息 getListById()
         $UserL = new UserLogic();
         $user = $UserL->getListById($userId);
 
         //传给前台
         $this->assign('user',$user);
 
-        $this->display('add');
-       
+        //显示 display('add')
+        $this->display('add'); 
     }
     public function updateAction(){
         //取用户信息
@@ -68,14 +69,8 @@ class IndexController extends Controller
 
         //传给M层
         $UserL = new UserLogic();
-        $status = $UserL->save($data);
-        //传值
-        if ($status=true) {
-            $this->success("操作成功",U('User/Index/index'));
-        }
-        else{
-            $this->error("修改失败" , U('User/Index/index'));
-        }
+        $UserL->save($data);
+        $this->success("操作成功",U('User/Index/index'));
     }
     public function deleteAction(){
 
