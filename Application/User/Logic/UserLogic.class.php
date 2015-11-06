@@ -11,16 +11,28 @@ class UserLogic extends UserModel
 
 	public function getListByName($name)
 	{
-		if($name=="yunzhi"){
-			$this->errors[] = "不能查找yunzhi关键字";
-			return false;
-		}
+		//去空格
+		$nameed=trim($name, " ");
 
+		//判断是否为空
 		if($name == ""){
 			$this->errors[] ="不能为空";
 			return false;
 		}
-		$map['name'] = $name;
+
+		//判断是否是字符串
+		else if (is_string($name)!==true) {
+			$this->errors[] = "请输入字符串";
+			return false;
+		}
+
+		//判断是否是关键字
+		else if($nameed=="yunzhi"){
+			$this->errors[] = "不能查找yunzhi关键字";
+			return false;
+		}
+		
+		$map['name'] = $nameed;
 		$data = $this->where($map)->find();
 		return $data;
 	}
@@ -41,7 +53,7 @@ class UserLogic extends UserModel
 	 public function deleteInfo($id)
     {
         $map['id'] = $id;
-        $where=$this->where($map);
-        return $where->delete();
+        $datas=$this->where($map)->delete();
+        return $datas;
     }
 }

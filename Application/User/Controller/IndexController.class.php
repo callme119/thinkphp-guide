@@ -8,13 +8,7 @@ class IndexController extends Controller
         //取值getAllLists()
     	$UserL = new UserLogic();
     	$users = $UserL->getAllLists();
-        if($users===false){
-            $errors = $UserL->getErrors();
-            $this->error("操作错误".$errors);
-        }
-        if (count($UserL->getErrors())!==null) {
-            # code...
-        }
+        
         //传值assign()
     	$this->assign('users',$users);
         
@@ -44,11 +38,12 @@ class IndexController extends Controller
 
         //添加 add()
         $UserL = new UserLogic();
-        $status = $UserL->add($user);
+        $status = $UserL->add($user);//$status的值是id值
+
         //echo $this->getLastSql();
         
         //判断状态
-        if ($status==true) {
+        if ($status！==false) {
             $this->success("操作成功" , U('User/Index/index'));
         }
         else{
@@ -85,7 +80,7 @@ class IndexController extends Controller
         $UserL = new UserLogic();
         $status = $UserL->deleteInfo($userId);
 
-        if($status){
+        if($status！==false){
            $this->success("删除成功", U('User/Index/index')); 
         }
         else{

@@ -16,6 +16,12 @@ class IndexController extends Controller {
     	$UserL = new UserLogic();
     	$user = $UserL->getListByName($userName);
 
+        //判断用户名是否合法
+        if($user===false){
+            $errors = $UserL->getErrors();
+            $this->error("操作错误".'<br/>'.implode('<br/>', $errors));
+        }
+
     	//判断是否有些用户
     	if($user == null)
     	{
