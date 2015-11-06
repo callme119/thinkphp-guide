@@ -8,7 +8,13 @@ class IndexController extends Controller
         //取值getAllLists()
     	$UserL = new UserLogic();
     	$users = $UserL->getAllLists();
-
+        if($users===false){
+            $errors = $UserL->getErrors();
+            $this->error("操作错误".$errors);
+        }
+        if (count($UserL->getErrors())!==null) {
+            # code...
+        }
         //传值assign()
     	$this->assign('users',$users);
         

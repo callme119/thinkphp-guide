@@ -3,8 +3,23 @@ namespace User\Logic;
 use User\Model\UserModel;
 class UserLogic extends UserModel
 {
+	protected  $errors = array();
+	public function getErrors()
+	{
+		return $this->errors;
+	}
+
 	public function getListByName($name)
 	{
+		if($name=="yunzhi"){
+			$this->errors[] = "不能查找yunzhi关键字";
+			return false;
+		}
+
+		if($name == ""){
+			$this->errors[] ="不能为空";
+			return false;
+		}
 		$map['name'] = $name;
 		$data = $this->where($map)->find();
 		return $data;
