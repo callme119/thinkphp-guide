@@ -38,23 +38,25 @@ class IndexController extends Controller
 
         //添加 add()
         $UserL = new UserLogic();
-        if (!$UserL->create($user)){ // 创建数据对象
-            // 如果创建失败 表示验证没有通过 输出错误提示信息
-            exit($UserL->getError());
-        }else{
-            // 验证通过 写入新增数据
-            $status = $UserL->add($user);//$status的值是id值
-        }
+        $UserL->addList($user);
 
-        //echo $this->getLastSql();
-        
-        //判断状态
-        if ($status！==false) {
+        //判断异常
+        if(count($errors=$UserL->getErrors())!==0)
+        {
+            // dump($errors);
+            //  exit();
+            //数组变字符串
+            $error =implode('<br/>', $errors);
+            
+            
+            //显示错误
+             $this->error("添加失败，原因：".$error,U('User/Index/index'));
+            
+        }else{
             $this->success("操作成功" , U('User/Index/index'));
         }
-        else{
-            $this->error("添加失败" , U('User/Index/index'));
-        }
+        
+        
     }
     public function editAction(){
         //获取用户ID
