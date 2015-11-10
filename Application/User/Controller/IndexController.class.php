@@ -38,7 +38,13 @@ class IndexController extends Controller
 
         //添加 add()
         $UserL = new UserLogic();
-        $status = $UserL->add($user);//$status的值是id值
+        if (!$UserL->create($user)){ // 创建数据对象
+            // 如果创建失败 表示验证没有通过 输出错误提示信息
+            exit($UserL->getError());
+        }else{
+            // 验证通过 写入新增数据
+            $status = $UserL->add($user);//$status的值是id值
+        }
 
         //echo $this->getLastSql();
         

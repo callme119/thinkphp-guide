@@ -20,6 +20,7 @@ class IndexController extends Controller {
         if($user===false){
             $errors = $UserL->getErrors();
             $this->error("操作错误".'<br/>'.implode('<br/>', $errors));
+            //数组变字符串 implode()
         }
 
     	//判断是否有些用户

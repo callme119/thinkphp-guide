@@ -15,13 +15,13 @@ class UserLogic extends UserModel
 		$nameed=trim($name, " ");
 
 		//判断是否为空
-		if($name == ""){
+		if($nameed == ""){
 			$this->errors[] ="不能为空";
 			return false;
 		}
 
 		//判断是否是字符串
-		else if (is_string($name)!==true) {
+		else if (is_string($nameed)!==true) {
 			$this->errors[] = "请输入字符串";
 			return false;
 		}
