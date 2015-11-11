@@ -76,4 +76,23 @@ class UserLogic extends UserModel
     		return false;
     	}
     }
+    public function saveList($list){
+    	try{
+    		if($this->create($list))
+    		{
+    			$id=$this->save();
+    			return $id;
+    		}
+    		else
+    		{
+    			$this->errors[]=$this->getError();
+    			return false;
+    		}
+    	}
+    	catch(\Think\Exception $e)
+    	{
+    		$this->errors[]=$e->getMessage();
+    		return false;
+    	}
+    }
 }

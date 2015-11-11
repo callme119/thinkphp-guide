@@ -13,5 +13,12 @@ class UserModel extends Model
  
      array('email','email','Mailbox format is not correct',0,''), 
      // 验证邮箱格式是否正确
-   );	           
+   );
+   protected $_auto = array ( 
+         array('userstatus','1'),  // 新增的时候把status字段设置为1
+         array('createtime','time',1,'function'), 
+         //对createtime字段在新增的时候自动写入时间戳
+         array('updatetime','time',3,'function'), 
+         // 对updatetime字段在更新的时候写入当前时间戳
+     );	           
 }

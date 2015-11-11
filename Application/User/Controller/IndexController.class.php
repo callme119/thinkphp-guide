@@ -78,8 +78,23 @@ class IndexController extends Controller
 
         //传给M层
         $UserL = new UserLogic();
-        $UserL->save($data);
-        $this->success("操作成功",U('User/Index/index'));
+        $UserL->saveList($data);
+
+        //判断异常
+        if(count($errors=$UserL->getErrors())!==0)
+        {
+            //数组变字符串
+            $error =implode('<br/>', $errors);
+            
+            
+            //显示错误
+             $this->error("添加失败，原因：".$error,U('User/Index/index'));
+            
+        }
+        else
+        {
+            $this->success("操作成功" , U('User/Index/index'));
+        }
     }
     public function deleteAction(){
 
