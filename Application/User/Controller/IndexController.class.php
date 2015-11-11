@@ -8,6 +8,18 @@ class IndexController extends Controller
         //取值getAllLists()
     	$UserL = new UserLogic();
     	$users = $UserL->getAllLists();
+
+        //判断异常
+        if(count($errors=$UserL->getErrors())!==0)
+        {
+            //数组变字符串
+            $error =implode('<br/>', $errors);
+             
+            //显示错误
+             $this->error("查找失败，原因：".$error,U('Home/Index/index'));
+
+             return false;    
+        }
         
         //传值assign()
     	$this->assign('users',$users);
@@ -43,8 +55,6 @@ class IndexController extends Controller
         //判断异常
         if(count($errors=$UserL->getErrors())!==0)
         {
-            // dump($errors);
-            //  exit();
             //数组变字符串
             $error =implode('<br/>', $errors);
             
@@ -52,11 +62,8 @@ class IndexController extends Controller
             //显示错误
              $this->error("添加失败，原因：".$error,U('User/Index/index'));
             
-        }else{
-            $this->success("操作成功" , U('User/Index/index'));
         }
-        
-        
+        $this->success("操作成功" , U('User/Index/index'));    
     }
     public function editAction(){
         //获取用户ID
@@ -89,12 +96,11 @@ class IndexController extends Controller
             
             //显示错误
              $this->error("添加失败，原因：".$error,U('User/Index/index'));
+
+             return false;
             
         }
-        else
-        {
             $this->success("操作成功" , U('User/Index/index'));
-        }
     }
     public function deleteAction(){
 
