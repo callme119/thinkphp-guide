@@ -12,13 +12,14 @@ class UserLogic extends UserModel
 	public function getListByName($name)
 	{
 		//判断是否是字符串
-		if (is_string($nameed)!==true) {
+		if (is_string($name)!==true) {
 			$this->errors[] = "传入变量类型非string";
 			return false;
 		}
 
 		//去空格
 		$nameed=trim((string)$name, " ");
+
 		
 		$map['name'] = $nameed;
 		$status=$this->create($map,4);
