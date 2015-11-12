@@ -1,9 +1,12 @@
 <?php
 namespace Liuxi\Controller;
-
 use Think\Controller;
 use Liuxi\Logic\LiuxiLogic;
-
+use Weijingyun\Logic\WeijingyunLogic;
+use Litian\Logic\LitianLogic;
+use Denghaoyang\Logic\DenghaoyangLogic;
+use Zhangjiahao\Logic\ZhangjiahaoLogic;
+use Anqiang\Logic\AnqiangLogic;
 class IndexController extends Controller
 {
     public function indexAction()
@@ -19,7 +22,7 @@ class IndexController extends Controller
         echo "<br />";
 
         $QuickSortL = new LiuxiLogic();
-        $lists = $QuickSortL->sort($lists);
+        $lists = $QuickSortL->lxsort($lists);
         
         echo "Sorted data is " . implode(",", $lists);
         echo "<br />";
