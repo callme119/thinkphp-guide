@@ -1,25 +1,30 @@
 <?php
 namespace User\Controller;
+
 use Think\Controller;
 use User\Logic\UserLogic;		//用户表
+
 class IndexController extends Controller
 {
     public function indexAction(){
-        //取值getAllLists()
+        //取值getLists()
     	$UserL = new UserLogic();
-    	$users = $UserL->getAllLists();
-
+        $user = $UserL->getLists();
+        
         //判断异常
         if(count($errors=$UserL->getErrors())!==0)
         {
             //数组变字符串
-            $error =implode('<br/>', $errors);
+            $error = implode('<br/>', $errors);
              
             //显示错误
              $this->error("查找失败，原因：".$error,U('Home/Index/index'));
 
              return false;    
         }
+
+        $show = $Page->show();// 分页显示输出
+        $this->assign('page',$show);// 赋值分页输出
         
         //传值assign()
     	$this->assign('users',$users);

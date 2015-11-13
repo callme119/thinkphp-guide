@@ -3,6 +3,8 @@ namespace User\Logic;
 use User\Model\UserModel;
 class UserLogic extends UserModel
 {
+	protected $totalCount = 0;
+	protected $pagesize = 0;
 	protected  $errors = array();
 	public function getErrors()
 	{
@@ -42,12 +44,36 @@ class UserLogic extends UserModel
 		return $data;
 	}
 
-	public function getAllLists()
+	public function getLists($status=0)
 	{
 		try{
-		$datas = $this->select();
+			if($status===0 || $status===1)
+			{
+				$map[status] = $status;
+			}
+
+			//计算总条数
+			$this->totalCount = $this->where($map)->count();
+
+			//读取配置项
+		    $pagesize = C('PAGE_SIZE');
+
+		    // 实例化分页类 传入总记录数和每页显示的记录数
+		    $Page = new \Think\Page($totalCount,$pagesize);
+		    return $Page;
+		
+		// //判断$page是否大于0；
+		// if((int)I('get.p')>0)
+		// {
+		// 	$page=(int)I('get.p');
+		// }
+		// else{
+		// 	$page=1;
+		// }
+		// $lists = $this->page($page,$pagesize)->select();
+		
 		//echo $this->getLastSql();
-		return $datas;
+		// return $lists;
 		}
 		catch(\Think\Exception $e)
 		{

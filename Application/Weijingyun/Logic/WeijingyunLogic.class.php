@@ -32,8 +32,8 @@ class WeijingyunLogic
         }
         //再分别对 左边 和 右边的数组进行相同的排序处理方式
         //递归调用这个函数,并记录结果
-        $left_array = $this-> wjysort($left_array);
-        $right_array =$this-> wjysort($right_array);
+        $left_array = $this->wjysort($left_array);
+        $right_array =$this->wjysort($right_array);
         //合并左边 标尺 右边
         return array_merge($left_array, array($base_num), $right_array);
 			
