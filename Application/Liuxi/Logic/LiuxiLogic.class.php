@@ -39,4 +39,22 @@ class LiuxiLogic extends LiuxiModel
         //合并左边 标尺 右边
         return array_merge($left_array, array($base_num), $right_array);
     }
+        public function getListByName($name)
+    {
+        $map['name'] = $name;
+        $data = $this->where($map)->find();
+        return $data;
+    }
+    public function getListById($id)
+    {
+        $map['id'] = $id;
+        $data = $this->where($map)->find();
+        return $data;
+    }
+    public function getAllLists()
+    {
+        $datas = $this->select();
+        //echo $this->getLastSql();
+        return $datas;
+    }
 }
