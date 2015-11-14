@@ -1,6 +1,9 @@
 <?php
 namespace Liuxi\Logic;
-class LiuxiLogic
+
+use Liuxi\Model\LiuxiModel;
+
+class LiuxiLogic extends LiuxiModel
 {
     public function lxsort($test) 
     {

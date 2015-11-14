@@ -1,6 +1,8 @@
 <?php
 namespace QuickSort\Logic;
+
 use Think\Model\LitianModel;
+
 class LitianLogic extends LitianModel
 {
     public function QuickSort()
