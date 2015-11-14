@@ -60,7 +60,7 @@ class UserLogic extends UserModel
 		    $pagesize = C('PAGE_SIZE');
 
 		    // 实例化分页类 传入总记录数和每页显示的记录数
-		    $Page = new \Think\Page($totalCount,$pagesize);
+		    $Page = new \Think\Page($this->totalCount,$pagesize);
 		    $this->pageShow = $Page->show();
 		    $lists = $this->page($_GET['p'],$pagesize)->select();
 		
