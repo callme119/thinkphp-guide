@@ -8,7 +8,7 @@ use Denghaoyang\Logic\UserLogic;
 use Zhangjiahao\Logic\UserLogic;
 use Anqiang\Logic\UserLogic;
 use Xulinjie\Logic\UserLogic;
-class IndexController extends Controller
+class UserController extends Controller
 {
     // public function indexAction()
     // {

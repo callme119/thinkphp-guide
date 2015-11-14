@@ -3,7 +3,7 @@ namespace Anqiang\Controller;
 
 use Think\Controller;
 
-class IndexController extends Controller
+class UserController extends Controller
 {
     
 }

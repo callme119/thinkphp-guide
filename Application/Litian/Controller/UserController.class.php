@@ -4,7 +4,7 @@ namespace Litian\Controller;
 use Think\Controller;
 use Litian\Logic\UserLogic;
 
-class IndexController extends Controller
+class UserController extends Controller
 {
     public function indexAction(){
         //取值

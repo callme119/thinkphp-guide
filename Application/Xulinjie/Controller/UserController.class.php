@@ -4,7 +4,7 @@ namespace Xulinjie\Controller;
 use Think\Controller;
 use Xulinjie\Logic\UserLogic;
 
-class IndexController extends Controller
+class UserController extends Controller
 {
     // public function indexAction()
     // {
