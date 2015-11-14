@@ -66,15 +66,34 @@ class LitianLogic extends LitianModel
                 $id=$this->add();
                 return $id;
             }
-            else{
+            else
+            {
                 $this->errors[]=$this->getError();
                 return false;
             }
         }
-        catch(Think\Exception $e)
+        catch(\Think\Exception $e)
         {
             $this->errors[]=$e->getMessage();
-            //getMessage()是PHP的一个捕获异常信息的方法
+            return false;
+        }
+    }
+    public function saveList(){
+        try{
+            if($this->create($list))
+            {
+                $id=$this->save();
+                return $id;
+            }
+            else
+            {
+                $this->errors[] = $this->getErrors();
+                return false;
+            }
+        }
+        catch(\Think\Exception $e)
+        {
+            $this->errors[] = $this->getErrors();
             return false;
         }
     }

@@ -36,11 +36,11 @@ class IndexController extends Controller
     }
     public function saveAction(){
         //取用户信息
-        $userId=I('post.');
+        $user=I('post.');
 
         //添加add
         $UserL= new LitianLogic();
-        $UserL=addList($user);
+        $UserL= addList($user);
 
         //判断异常
         if(count($errors=$UserL->getErrors())!==0)
@@ -75,7 +75,7 @@ class IndexController extends Controller
 
         //传给M层
         $UserL = new LitianLogic();
-        $UserL->save($data);//调用PHP的save方法
+        $UserL->saveList($data);//调用PHP的save方法
 
         //判断异常
         if(count($errors=$UserL->getErrors())!== 0){
