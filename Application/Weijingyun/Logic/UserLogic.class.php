@@ -1,9 +1,9 @@
 <?php
 namespace Weijingyun\Logic;
 
-use Weijingyun\Model\WeijingyunModel;
+use Weijingyun\Model\UserModel;
 
-class WeijingyunLogic extends WeijingyunModel
+class UserLogic extends WeijingyunModel
 {
     public function wjysort($test)
     {

@@ -2,7 +2,7 @@
 namespace Litian\Controller;
 
 use Think\Controller;
-use Litian\Logic\LitianLogic;
+use Litian\Logic\UserLogic;
 
 class IndexController extends Controller
 {

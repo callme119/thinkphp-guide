@@ -1,9 +1,9 @@
 <?php
 namespace Litian\Logic;
 
-use Litian\Model\LitianModel;
+use Litian\Model\UserModel;
 
-class LitianLogic extends LitianModel
+class UserLogic extends UserModel
 {
     //保护函数
     protected $errors = array();

@@ -2,7 +2,7 @@
 namespace Weijingyun\Controller;
 
 use Think\Controller;
-use Weijingyun\Logic\WeijingyunLogic;
+use Weijingyun\Logic\UserLogic;
 
 class IndexController extends Controller
 {
