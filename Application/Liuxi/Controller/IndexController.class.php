@@ -1,13 +1,13 @@
 <?php
 namespace Liuxi\Controller;
 use Think\Controller;
-use Liuxi\Logic\LiuxiLogic;
-use Weijingyun\Logic\WeijingyunLogic;
-use Litian\Logic\LitianLogic;
-use Denghaoyang\Logic\DenghaoyangLogic;
-use Zhangjiahao\Logic\ZhangjiahaoLogic;
-use Anqiang\Logic\AnqiangLogic;
-use Xulinjie\Logic\XulinjieLogic;
+use Liuxi\Logic\UserLogic;
+use Weijingyun\Logic\UserLogic;
+use Litian\Logic\UserLogic;
+use Denghaoyang\Logic\UserLogic;
+use Zhangjiahao\Logic\UserLogic;
+use Anqiang\Logic\UserLogic;
+use Xulinjie\Logic\UserLogic;
 class IndexController extends Controller
 {
     // public function indexAction()
