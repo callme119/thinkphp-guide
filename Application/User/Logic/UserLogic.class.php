@@ -52,30 +52,20 @@ class UserLogic extends UserModel
 			{
 				$map[status] = $status;
 			}    
-		// //判断$page是否大于0；
-		// if((int)I('get.p')>0)
-		// {
-		// 	$page=(int)I('get.p');
-		// }
-		// else{
-		// 	$page=1;
-		// }
+		
 		//计算总条数
-		//$count = $User->where('status=1')->count();// 查询满足要求的总记录数
 			$this->totalCount = $this->where($map)->count();
-			dump($totalCount);
-			//exit();
 
 			//读取配置项
-		    $pagesize = C('PAGE_SIZE')
+		    $pagesize = C('PAGE_SIZE');
 
 		    // 实例化分页类 传入总记录数和每页显示的记录数
 		    $Page = new \Think\Page($totalCount,$pagesize);
 		    $this->pageShow = $Page->show();
-		$lists = $this->page($_GET['p'],$pagesize)->select();
+		    $lists = $this->page($_GET['p'],$pagesize)->select();
 		
 		//echo $this->getLastSql();
-		 return $lists;
+		  return $lists;
 		}
 		catch(\Think\Exception $e)
 		{
@@ -85,7 +75,7 @@ class UserLogic extends UserModel
 
 	}
 	public function getPageShow(){
-		
+		return $this->pageShow;
 	}
 	 public function deleteInfo($id)
     {

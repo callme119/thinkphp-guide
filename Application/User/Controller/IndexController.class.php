@@ -7,11 +7,20 @@ use User\Logic\UserLogic;		//用户表
 class IndexController extends Controller
 {
     public function indexAction(){
+        //取值getLists()
     	$UserL = new UserLogic();
         //获取列表
         $users = $UserL->getLists();
         //获取分页信息
         $page = $UserL -> getPageShow();
+        //判断$page是否大于0；
+        if((int)I('get.p')>0)
+        {
+         $page=(int)I('get.p');
+        }
+        else{
+         $page=1;
+        }
         //判断异常
         if(count($errors=$UserL->getErrors())!==0)
         {
@@ -24,7 +33,7 @@ class IndexController extends Controller
              return false;    
         }
         //传入分页信息
-        $this->assign('page',$page);
+        $this->assign('page',$page);// 赋值分页输出
         //传入列表
     	$this->assign('users',$users);
         
