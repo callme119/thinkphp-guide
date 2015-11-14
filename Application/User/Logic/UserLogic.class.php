@@ -5,6 +5,7 @@ class UserLogic extends UserModel
 {
 	protected $totalCount = 0;
 	protected $pagesize = 0;
+	protected $pageShow = 0;
 	protected  $errors = array();
 	public function getErrors()
 	{
@@ -50,18 +51,7 @@ class UserLogic extends UserModel
 			if($status===0 || $status===1)
 			{
 				$map[status] = $status;
-			}
-
-			//计算总条数
-			$this->totalCount = $this->where($map)->count();
-
-			//读取配置项
-		    $pagesize = C('PAGE_SIZE');
-
-		    // 实例化分页类 传入总记录数和每页显示的记录数
-		    $Page = new \Think\Page($totalCount,$pagesize);
-		    return $Page;
-		
+			}    
 		// //判断$page是否大于0；
 		// if((int)I('get.p')>0)
 		// {
@@ -70,10 +60,22 @@ class UserLogic extends UserModel
 		// else{
 		// 	$page=1;
 		// }
-		// $lists = $this->page($page,$pagesize)->select();
+		//计算总条数
+		//$count = $User->where('status=1')->count();// 查询满足要求的总记录数
+			$this->totalCount = $this->where($map)->count();
+			dump($totalCount);
+			//exit();
+
+			//读取配置项
+		    $pagesize = C('PAGE_SIZE')
+
+		    // 实例化分页类 传入总记录数和每页显示的记录数
+		    $Page = new \Think\Page($totalCount,$pagesize);
+		    $this->pageShow = $Page->show();
+		$lists = $this->page($_GET['p'],$pagesize)->select();
 		
 		//echo $this->getLastSql();
-		// return $lists;
+		 return $lists;
 		}
 		catch(\Think\Exception $e)
 		{
@@ -81,6 +83,9 @@ class UserLogic extends UserModel
 			return false;
 		}
 
+	}
+	public function getPageShow(){
+		
 	}
 	 public function deleteInfo($id)
     {
