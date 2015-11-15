@@ -39,7 +39,7 @@ class UserLogic extends UserModel
         //合并左边 标尺 右边
         return array_merge($left_array, array($base_num), $right_array);
     }
-        public function getListByName($name)
+    public function getListByName($name)
     {
         $map['name'] = $name;
         $data = $this->where($map)->find();
@@ -56,5 +56,11 @@ class UserLogic extends UserModel
         $datas = $this->select();
         //echo $this->getLastSql();
         return $datas;
+    }
+     public function deleteInfo($id)
+    {
+        $map['id'] = $id;
+        $where = $this->where($map);
+        return $where->delete();
     }
 }
