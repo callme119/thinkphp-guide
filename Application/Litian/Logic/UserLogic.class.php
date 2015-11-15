@@ -83,7 +83,7 @@ class UserLogic extends UserModel
             if($this->create($list))
             {
                 $id=$this->save();
-                return $id;
+                // return $id;
             }
             else
             {
@@ -93,7 +93,7 @@ class UserLogic extends UserModel
         }
         catch(\Think\Exception $e)
         {
-            $this->errors[] = $this->getErrors();
+            $this->errors[] = $e->getErrors();
             return false;
         }
     }

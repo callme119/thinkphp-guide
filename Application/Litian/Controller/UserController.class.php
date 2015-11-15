@@ -49,11 +49,11 @@ class UserController extends Controller
             $error=implode('<br/>',"$errors");
 
             //显示错误
-            $this->error("添加失败，原因：".$error,U('Litian/Index/index'));
+            $this->error("添加失败，原因：".$error,U('Litian/User/index'));
         }
         else
         {
-            $this->success("添加成功",U('Litian/Index/index'));
+            $this->success("添加成功",U('Litian/User/index'));
         }
     }
     public function editAction(){
@@ -82,11 +82,11 @@ class UserController extends Controller
             //数组变字符串
             $error = implode('<br/>',$errors);
             //显示错误
-            $this->error("添加失败，原因：".$error,U('Litian/Index/index'));
+            $this->error("添加失败，原因：".$error,U('Litian/User/index'));
             return false;
         }
         else{
-            $this->success("操作成功",U('Litian/Index/index'));
+            $this->success("操作成功",U('Litian/User/index'));
         }
 
     }
@@ -100,10 +100,10 @@ class UserController extends Controller
 
         //判断状态
         if($status !==false){
-           $this->success("删除成功", U('Litian/Index/index'));
+           $this->success("删除成功", U('Litian/User/index'));
         }
         else{
-            $this->error("删除失败" , U('Litian/Index/index'));
+            $this->error("删除失败" , U('Litian/User/index'));
         }
     }
     // public function indexAction()
