@@ -28,7 +28,7 @@ class UserLogic extends UserModel
 		$status=$this->create($map,4);
 
 		//判断状态
-		if(!status)
+		if (!$status)
 		{
 			$this->errors[]=$this->getError();
 			return false;
@@ -78,6 +78,23 @@ class UserLogic extends UserModel
 			return false;
 		}
 
+	}
+	public function getSearchLists()
+	{
+		//去空格
+		$keywords=trim(I('get.keywords'));
+
+		//判断是否为空
+		if ($keywords!=="")
+		{
+			$map['name'] = array('like','%'.$keywords.'%');
+			
+			$searchLists=$this->where($map)->select();
+
+			return $searchLists;
+		}
+		else
+			echo "请输入查询关键字";
 	}
 	public function getPageShow(){
 		return $this->pageShow;

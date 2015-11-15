@@ -13,7 +13,10 @@ class IndexController extends Controller
         $users = $UserL->getLists();
 
         //获取分页信息
-        $page = $UserL -> getPageShow();
+        $page = $UserL->getPageShow();
+
+        //获取搜索结果
+        $search = $UserL->getSearchLists();
         
         //判断异常
         if(count($errors=$UserL->getErrors())!==0)
@@ -32,6 +35,9 @@ class IndexController extends Controller
 
         //传入列表
     	$this->assign('users',$users);
+
+        //传搜索结果
+        $this->assign('search',$search);
         
     	//调用V层
    		$this->display();
@@ -118,14 +124,14 @@ class IndexController extends Controller
         $UserL = new UserLogic();
         $status = $UserL->deleteInfo($userId);
 
-        //判断$p是否大于0；
-        if((int)I('get.p')>0)
-        {
-         $p=(int)I('get.p');
-        }
-        else{
-         $p=1;
-        }
+        // //判断$p是否大于0；
+        // if((int)I('get.p')>0)
+        // {
+        //  $p=(int)I('get.p');
+        // }
+        // else{
+        //  $p=1;
+        // }
 
         if($status！==false){
            $this->success("删除成功", U('User/Index/index?p='.$p)); 
