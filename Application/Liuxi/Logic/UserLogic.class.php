@@ -5,6 +5,60 @@ use Liuxi\Model\UserModel;
 
 class UserLogic extends UserModel
 {
+    protected $errors = array();
+    public function getErrors()
+    {
+        return $this->errors;
+    }
+
+    public function getListByName($name)
+    {
+        //去空格
+        $nameed = trim($name," ");
+        //判断是否为空
+        if ($name == "")
+        {
+            $this->errors[] = "不能为空";
+            return false;
+        }
+        //判断是否是字符串
+        else if (is_string($name) !== true)
+        {
+            $this->errors[] = "请输入字符串";
+            return false;
+        }
+        //判断是否为关键字
+        else if ($nameed =="yunzhi")
+        {
+            $this->errors[] = "不能查找yunzhi关键字";
+            return false;
+        }
+
+        $map['name'] = $nameed;
+        $data = $this->where($map)->find();
+        return $data;
+    }
+
+    public function getListById($id)
+    {
+        $map['id'] = $id;
+        $data = $this->where($map)->find();
+        return $data;
+    }
+
+    public function getAllLists()
+    {
+        $datas = $this->select();
+        //echo $this->getLastSql();
+        return $datas;
+    }
+
+     public function deleteInfo($id)
+    {
+        $map['id'] = $id;
+        $datas =$this->where($map)->delete();
+        return $datas;
+    }
     public function lxsort($test) 
     {
         //先判断是否需要继续进行
@@ -38,29 +92,5 @@ class UserLogic extends UserModel
         $right_array =$this-> lxsort($right_array);
         //合并左边 标尺 右边
         return array_merge($left_array, array($base_num), $right_array);
-    }
-    public function getListByName($name)
-    {
-        $map['name'] = $name;
-        $data = $this->where($map)->find();
-        return $data;
-    }
-    public function getListById($id)
-    {
-        $map['id'] = $id;
-        $data = $this->where($map)->find();
-        return $data;
-    }
-    public function getAllLists()
-    {
-        $datas = $this->select();
-        //echo $this->getLastSql();
-        return $datas;
-    }
-     public function deleteInfo($id)
-    {
-        $map['id'] = $id;
-        $where = $this->where($map);
-        return $where->delete();
     }
 }
