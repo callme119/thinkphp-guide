@@ -8,7 +8,7 @@ class UserController extends Controller
 {
     public function indexAction(){
         //取值
-        $UserL = new LitianLogic();
+        $UserL = new UserLogic();
         $Users =$UserL->getAllLists();
 
         //传值
@@ -22,7 +22,7 @@ class UserController extends Controller
         $userId = I('get.id');
 
         //抓取用户信息
-        $UserL = new LitianLogic();
+        $UserL = new UserLogic();
         $user = $UserL->getListById($userId);
 
         //传值
@@ -39,8 +39,8 @@ class UserController extends Controller
         $user=I('post.');
 
         //添加add
-        $UserL= new LitianLogic();
-        $UserL= addList($user);
+        $UserL= new UserLogic();
+        $UserL-> addList($user);
 
         //判断异常
         if(count($errors=$UserL->getErrors())!==0)
@@ -60,7 +60,7 @@ class UserController extends Controller
         //取用户ID
         $UserId=I('get.id');
         //取用户信息
-        $UserL = new LitianLogic();
+        $UserL = new UserLogic();
         $user = $UserL->getListById($UserId);
         //dump($user)
         //传值
@@ -74,7 +74,7 @@ class UserController extends Controller
         $data = I('post.id');
 
         //传给M层
-        $UserL = new LitianLogic();
+        $UserL = new UserLogic();
         $UserL->saveList($data);//调用PHP的save方法
 
         //判断异常
@@ -95,7 +95,7 @@ class UserController extends Controller
         $userId = I('get.id');
 
         //调用M层方法
-        $UserL = new LitianLogic();
+        $UserL = new UserLogic();
         $status = $UserL->deleteInfo($userId);
 
         //判断状态
