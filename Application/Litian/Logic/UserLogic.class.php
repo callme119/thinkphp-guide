@@ -45,7 +45,10 @@ class UserLogic extends UserModel
         $data = $this->where($map)->find();
         return $data;
     }
-
+    // 定义私有变量
+    protected $totalCount;
+    protected $pageSize;
+    protected $pageShow;
     //取页面
     public function getAllLists($status){
         try{
@@ -54,17 +57,38 @@ class UserLogic extends UserModel
             }
 
             // 计算总条数
-            $this->totalCount = $this->where($map)->count();
+            $counts = $this->totalCount = $this->where($map)->count();
 
             // 读取配置信息
-            $page_size = C('PAGE_SIZE');
-            $page = (int)I("get.p");
-            $lists = $this->page($page,$page_size);
+            $pageSize = C('PAGE_SIZE');
+
+            // 实例化page类
+            $Page = new \Think\Page($counts,$pageSize);
+            // 分页 对象要大写
+            $Page->setConfig('header','<li class="rows">共<b>%TOTAL_ROW%</b>条记录&nbsp;&nbsp;每页<b>%LIST_ROW%</b>条&nbsp;&nbsp;第<b>%NOW_PAGE%</b>页/共<b>%TOTAL_PAGE%</b>页</li>');
+            $Page->setConfig('prev','上一页');
+            $Page->setConfig('next','下一页');
+            $Page->setConfig('last','末页');
+            $Page->setConfig('first','首页');
+            $Page->setConfig('theme','%FIRST% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE% %END% %HEADER%');
+
+            //比目运算 判断是否大于0
+            $p = (int)I('get.p')?(int)I('get.p'):1;//变量p
+            $lists = $this->page($p,$pageSize)->select();
+            // 调用show方法
+            $this->pageShow = $Page->show();
             return $lists;
+        }
+        catch(\Think\Exception $e){
+            $this->errors[] = $e->getErrors();
+            return false;
         }
 
     }
-
+    // pageshow方法
+    public function getPageShow(){
+        return $this->pageShow;
+    }
     //删除
     public function deleteInfo($id){
         $map['id'] = $id;

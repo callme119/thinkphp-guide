@@ -9,9 +9,20 @@ class UserController extends Controller
     public function indexAction(){
         //取值
         $UserL = new UserLogic();
-        $Users =$UserL->getAllLists();
-
-        //传值
+        // 获取所有信息列表
+        $Users = $UserL->getAllLists();
+        // 获取分页信息
+        $page = $UserL -> getPageShow();
+        // 判断异常
+        if(count($errors=$UserL->getErrors())!==0){
+            $error = implode("<br/>",$errors);
+            // 显示错误信息
+            $this->error("操作失败,原因".U('Litian\User\Index'));
+            return false;
+        }
+        // 传入分页信息
+        $this->assign('page',$page);
+        // 传入所有列表
         $this ->assign('users',$Users);
 
         //前台显示
