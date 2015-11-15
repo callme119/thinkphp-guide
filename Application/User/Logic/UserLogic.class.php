@@ -61,6 +61,9 @@ class UserLogic extends UserModel
 
 		    // 实例化分页类 传入总记录数和每页显示的记录数
 		    $Page = new \Think\Page($this->totalCount,$pagesize);
+		    $Page->setConfig('prev','上一页');
+        	$Page->setConfig('next','下一页');
+        	$Page->setConfig('theme', ' %UP_PAGE% %LINK_PAGE% %DOWN_PAGE%');
 		    $this->pageShow = $Page->show();
 		    $lists = $this->page($_GET['p'],$pagesize)->select();
 		

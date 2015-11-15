@@ -14,17 +14,7 @@ class IndexController extends Controller
 
         //获取分页信息
         $page = $UserL -> getPageShow();
-        // var_dump($page);
-        // exit();
-
-        // //判断$page是否大于0；
-        // if((int)I('get.p')>0)
-        // {
-        //  $page=(int)I('get.p');
-        // }
-        // else{
-        //  $page=1;
-        // }
+        
         //判断异常
         if(count($errors=$UserL->getErrors())!==0)
         {
@@ -36,8 +26,10 @@ class IndexController extends Controller
 
              return false;    
         }
+
         //传入分页信息
-        $this->assign('page',$page);// 赋值分页输出
+        $this->assign('page',$page);
+
         //传入列表
     	$this->assign('users',$users);
         
@@ -126,11 +118,20 @@ class IndexController extends Controller
         $UserL = new UserLogic();
         $status = $UserL->deleteInfo($userId);
 
-        if($status！==false){
-           $this->success("删除成功", U('User/Index/index?p='.I('get.p'))); 
+        //判断$p是否大于0；
+        if((int)I('get.p')>0)
+        {
+         $p=(int)I('get.p');
         }
         else{
-            $this->error("删除失败" , U('User/Index/index?p='.I('get.p')));
+         $p=1;
+        }
+
+        if($status！==false){
+           $this->success("删除成功", U('User/Index/index?p='.$p)); 
+        }
+        else{
+            $this->error("删除失败" , U('User/Index/index?p='.$p));
         }
     }
 }
