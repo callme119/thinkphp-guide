@@ -47,9 +47,22 @@ class UserLogic extends UserModel
     }
 
     //取页面
-    public function getAllLists(){
-        $datas = $this->select();
-        return $datas;
+    public function getAllLists($status){
+        try{
+            if($status === 0 || $status === 1){
+                $map[]=$status;
+            }
+
+            // 计算总条数
+            $this->totalCount = $this->where($map)->count();
+
+            // 读取配置信息
+            $page_size = C('PAGE_SIZE');
+            $page = (int)I("get.p");
+            $lists = $this->page($page,$page_size);
+            return $lists;
+        }
+
     }
 
     //删除
