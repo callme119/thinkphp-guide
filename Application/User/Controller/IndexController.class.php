@@ -14,6 +14,8 @@ class IndexController extends Controller
 
         //获取分页信息
         $page = $UserL -> getPageShow();
+        // var_dump($page);
+        // exit();
 
         // //判断$page是否大于0；
         // if((int)I('get.p')>0)
@@ -75,10 +77,10 @@ class IndexController extends Controller
             
             
             //显示错误
-             $this->error("添加失败，原因：".$error,U('User/Index/index'));
+             $this->error("添加失败，原因：".$error,U('User/Index/index?p='.I('get.p')));
             
         }
-        $this->success("操作成功" , U('User/Index/index'));    
+        $this->success("操作成功" , U('User/Index/index?p='.I('get.p')));    
     }
     public function editAction(){
         //获取用户ID
@@ -110,12 +112,12 @@ class IndexController extends Controller
             
             
             //显示错误
-             $this->error("添加失败，原因：".$error,U('User/Index/index'));
+             $this->error("添加失败，原因：".$error,U('User/Index/index?p='.I('get.p')));
 
              return false;
             
         }
-            $this->success("操作成功" , U('User/Index/index'));
+            $this->success("操作成功" , U('User/Index/index?p='.I('get.p')));
     }
     public function deleteAction(){
 
@@ -125,10 +127,10 @@ class IndexController extends Controller
         $status = $UserL->deleteInfo($userId);
 
         if($status！==false){
-           $this->success("删除成功", U('User/Index/index')); 
+           $this->success("删除成功", U('User/Index/index?p='.I('get.p'))); 
         }
         else{
-            $this->error("删除失败" , U('User/Index/index'));
+            $this->error("删除失败" , U('User/Index/index?p='.I('get.p')));
         }
     }
 }
