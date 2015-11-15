@@ -6,6 +6,7 @@ use Liuxi\Model\UserModel;
 class UserLogic extends UserModel
 {
     protected $errors = array();
+
     public function getErrors()
     {
         return $this->errors;
@@ -15,20 +16,23 @@ class UserLogic extends UserModel
     {
         //去空格
         $nameed = trim($name," ");
+
         //判断是否为空
         if ($name == "")
         {
             $this->errors[] = "不能为空";
             return false;
         }
+
         //判断是否是字符串
-        else if (is_string($name) !== true)
+        if (is_string($name) !== true)
         {
             $this->errors[] = "请输入字符串";
             return false;
         }
+        
         //判断是否为关键字
-        else if ($nameed =="yunzhi")
+        if ($nameed =="yunzhi")
         {
             $this->errors[] = "不能查找yunzhi关键字";
             return false;

@@ -42,14 +42,20 @@ class UserController extends Controller
         $status = $UserL->add($user);//$status的值是id值
         //echo $this->getLastSql();
         
-        //审判状态
-        if ($status !== false)
+        //判断异常
+        if(count($errors = $UserL->getErrors())!==0)
         {
-            $this->success("操作成功",U('Liuxi/User/index'));
+            //dump($errors);
+            //exit();
+            //数组变字符串
+            $errors = implode('<br/>',$errors);
+
+            //显示错误
+            $this->error("添加失败，原因：".$error,U('Liuxi/User/index'));
         }
         else
         {
-            $this->error("添加失败",U('Liuxi/User/index'));
+            $this->success("操作成功",U('Liuxi/User/index'));
         }
     }
 
