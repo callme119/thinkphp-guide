@@ -54,9 +54,9 @@ class UserLogic extends UserModel
 
     //删除
     public function deleteInfo($id){
-        $map['id']=$id;
-        $data= $this->where($map)->find();
-        return $data;
+        $map['id'] = $id;
+        $datas = $this->where($map)->delete();
+        return $datas;
     }
     //增加数据时验证
     public function addList($list){

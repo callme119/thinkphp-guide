@@ -32,16 +32,17 @@ class UserController extends Controller
     }
     public function addAction(){
 
-        $this->display();
+        $this->display("edit");
     }
     public function saveAction(){
         //取用户信息
         $user=I('post.');
-
+        // dump($user);
+        // exit();
         //添加add
         $UserL= new UserLogic();
         $UserL-> addList($user);
-
+        // dump($userL);
         //判断异常
         if(count($errors=$UserL->getErrors())!==0)
         {
@@ -97,8 +98,8 @@ class UserController extends Controller
         //调用M层方法
         $UserL = new UserLogic();
         $status = $UserL->deleteInfo($userId);
-
-        //判断状态
+        // echo $status;
+        // 判断状态
         if($status !==false){
            $this->success("删除成功", U('Litian/User/index'));
         }
