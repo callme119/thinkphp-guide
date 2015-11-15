@@ -67,34 +67,30 @@ class UserLogic extends UserModel
         	$Page->setConfig('next','下一页');
         	$Page->setConfig('theme', '%HEADER% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE%');
 		    $this->pageShow = $Page->show();
-		    $lists = $this->page($_GET['p'],$pagesize)->select();
-		
-		//echo $this->getLastSql();
-		  return $lists;
-		}
-		catch(\Think\Exception $e)
-		{
-			$this->errors[]=$e->getMessage();
-			return false;
-		}
+		    
+			//去空格
+			$keywords=trim(I('get.keywords'));
 
-	}
-	public function getSearchLists()
-	{
-		//去空格
-		$keywords=trim(I('get.keywords'));
+			//判断是否为空
+			if ($keywords!=="")
+			{
+				$map['name'] = array('like',$keywords.'%');
+				
+				$lists=$this->page($_GET['p'],$pagesize)->where($map)->select();
 
-		//判断是否为空
-		if ($keywords!=="")
-		{
-			$map['name'] = array('like','%'.$keywords.'%');
-			
-			$searchLists=$this->where($map)->select();
+				return $lists;
+			}
+			else{
+				$lists = $this->page($_GET['p'],$pagesize)->select();
+				return $lists;
+			}
+			}
+			catch(\Think\Exception $e)
+			{
+				$this->errors[]=$e->getMessage();
+				return false;
+		    }
 
-			return $searchLists;
-		}
-		else
-			echo "请输入查询关键字";
 	}
 	public function getPageShow(){
 		return $this->pageShow;

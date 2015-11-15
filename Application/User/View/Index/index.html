@@ -18,31 +18,6 @@
 			<th>邮箱</th>
 			<th>操作</th>
 		</tr>
-		<foreach name="search" item="user" key="k">
-			<tr>
-				<td>{$k+1}</td>
-				<td>{$user[id]}</td>
-				<td>{$user[name]}</td>
-				<td>{$user[phonenumber]}</td>
-				<td>{$user[address]}</td>
-				<td>{$user[email]}</td>
-				<td><a class="button" href="{:U('detail?id='.$user['id'].'&p='.I('get.p'))}">查看</a></td>
-				<td><a class="button" href="{:U('edit?id='.$user['id'].'&p='.I('get.p'))}">编辑</a></td>
-				<td><a class="button" href="{:U('delete?id='.$user['id'].'&p='.I('get.p'))}">删除</a></td>
-			</tr>
-		</foreach>	
-	</table>
-	</form>
-	 <table>
-		<tr>
-			<th>序号</th>
-			<th>ID</th>
-			<th>name</th>
-			<th>手机号</th>
-			<th>地址</th>
-			<th>邮箱</th>
-			<th>操作</th>
-		</tr>
 		<foreach name="users" item="user" key="k">
 			<tr>
 				<td>{$k+1}</td>
@@ -57,4 +32,6 @@
 			</tr>
 		</foreach>	
 	</table>
+	</form>
+	 
 	{$page}
