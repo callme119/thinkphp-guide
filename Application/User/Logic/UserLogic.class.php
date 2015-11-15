@@ -45,7 +45,7 @@ class UserLogic extends UserModel
 		return $data;
 	}
 
-	public function getLists($status=0)
+	public function getLists()
 	{
 		try{
 			if($status===0 || $status===1)
@@ -55,6 +55,8 @@ class UserLogic extends UserModel
 		
 		//计算总条数
 			$this->totalCount = $this->where($map)->count();
+			// dump($this->totalCount);
+			// exit();
 
 			//读取配置项
 		    $pagesize = C('PAGE_SIZE');
@@ -63,7 +65,7 @@ class UserLogic extends UserModel
 		    $Page = new \Think\Page($this->totalCount,$pagesize);
 		    $Page->setConfig('prev','上一页');
         	$Page->setConfig('next','下一页');
-        	$Page->setConfig('theme', ' %UP_PAGE% %LINK_PAGE% %DOWN_PAGE%');
+        	$Page->setConfig('theme', '%HEADER% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE%');
 		    $this->pageShow = $Page->show();
 		    $lists = $this->page($_GET['p'],$pagesize)->select();
 		
