@@ -23,7 +23,7 @@ class IndexController extends Controller {
             //数组变字符串 implode()
         }
 
-    	//判断是否有些用户
+    	//判断是否有此用户
     	if($user == null)
     	{
     		echo "the username is not ";
