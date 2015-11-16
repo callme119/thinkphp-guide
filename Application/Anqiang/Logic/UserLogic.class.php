@@ -16,24 +16,24 @@ class UserLogic extends UserModel
     //登陆时获取用户信息判断是否存在
     public function getListByName($name)
     {
-    	$named=trim($name," ");
+    	$name=trim($name," ");
 
-    	if($named=="")
+    	if($name=="")
     	{
     		$this->errors[]="请输入用户名";
     	}
 
-    	else if(is_string($named)!==true)
+    	else if(is_string($name)!==true)
     	{
     		$this->errors[]="请输入正确格式的用户名";
     	}
 
-    	else if($named=="yunzhi")
+    	else if($name=="yunzhi")
     	{
     		$this->errors[]="yunzhi不可作为用户名";
     	}
 
-    	$map['name']=$named;
+    	$map['name']=$name;
     	$data=$this->where($map)->find();
     	return $data;
     }
@@ -51,6 +51,7 @@ class UserLogic extends UserModel
     {
     	$datas=$this->select();
     	return $datas;
+        
     }
 
     //删除函数
@@ -63,7 +64,8 @@ class UserLogic extends UserModel
 
 
      //增加数据时验证
-    public function addList($list){
+    public function addList($list)
+    {
         try{
             if($this->create($list))
             {
@@ -89,17 +91,17 @@ class UserLogic extends UserModel
             if($this->create($list))
             {
                 $id=$this->save();
-                // return $id;
+                 return $id;
             }
             else
             {
-                $this->errors[] = $this->getErrors();
+                $this->errors[] = $this->getError();
                 return false;
             }
         }
         catch(\Think\Exception $e)
         {
-            $this->errors[] = $e->getErrors();
+            $this->errors[] = $e->getMessage();
             return false;
         }
     }

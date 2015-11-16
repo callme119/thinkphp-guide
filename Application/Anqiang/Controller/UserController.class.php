@@ -34,6 +34,16 @@ class UserController extends Controller
     	$UserL=new UserLogic();//实例化
     	$Users=$UserL->getAllLists();//对象调用方法再赋给$Users
 
+        //进行判断
+        if(count($errors=$UserL->getErrors())!==0)
+        {
+            //数组变字符串
+            $error=implode('<br/>',$errors);
+
+            //显示错误
+            $this->error('');
+        }
+
     	//传值
     	$this->assign('users',$Users);//将Users给模板
 
@@ -102,9 +112,10 @@ class UserController extends Controller
     	$UserL=new UserLogic();
     	$UserL->saveList($data);//新增L层saveList方法
 
-    	if(count($error=$UserL->getErrors())!==0)
+    	if(count($errors=$UserL->getErrors())!==0)
     	{
     		$error=implode('<br/>',$errors);
+            
 
     		$this->error("添加失败，原因：".$error,U('Anqiang/User/index'));
     		return false;
