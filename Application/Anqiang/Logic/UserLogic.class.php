@@ -7,6 +7,9 @@ class UserLogic extends UserModel
 {
     //定义保护型数据
     protected $errors=array();
+    protected $totalCount=0;
+    protected $pagesize=0;
+    protected $pageShow=0;
 
     //报错函数
     public function getErrors()
@@ -23,12 +26,12 @@ class UserLogic extends UserModel
     		$this->errors[]="请输入用户名";
     	}
 
-    	else if(is_string($name)!==true)
+    	if(is_string($name)!==true)
     	{
     		$this->errors[]="请输入正确格式的用户名";
     	}
 
-    	else if($name=="yunzhi")
+    	if($name=="yunzhi")
     	{
     		$this->errors[]="yunzhi不可作为用户名";
     	}
@@ -47,11 +50,69 @@ class UserLogic extends UserModel
     }
 
     //取所有信息
-    public function getAllLists()
-    {
-    	$datas=$this->select();
-    	return $datas;
+    // public function getAllLists()
+    // {
+    // 	$datas=$this->select();
+    // 	return $datas;
         
+    // }
+
+    public function getLists($status=0)
+    {
+        try
+        {
+            if($status==0||$status==1)
+            {
+                $map[status]=$status;
+            }
+            //去空格
+            $keywords=trim(I('get.keywords'));
+            //判断是否为空
+            if($keywords!=="")
+            {
+                $map['name']=array('like','%'.$keywords.'%');
+            }
+
+            //计算总条数
+            $totalCount=$this->where($map)->count();
+
+            //读取配置项
+            $pagesize=C('PAGE_SIZE');//如何读取？
+
+            //实例化分页类 传入总记录数和每页显示的记录数
+            $Page = new \Think\Page($totalCount,$pagesize);
+
+
+            //设置分页样式
+            $Page->setConfig('prev','上一页');
+            $Page->setConfig('next','下一页');
+            $Page->setConfig('theme','%HEADER% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE%');
+
+            $this->pageShow = $Page->show();
+
+            //判断$p是否大于0；
+            if((int)I('get.p')>0)
+            {
+                $p=(int)I('get.p');
+            }
+            else
+            {
+                $p=1;
+            }
+            $lists=$this->page($_GET['p'],$pagesize)->where($map)->select();
+
+            return $lists;
+        }
+        catch(\Think\Exception $e)
+        {
+            $this->errors[]=$e->getMessage();
+            return false;
+        }
+    }
+
+    public function getPageShow()
+    {
+        return $this->pageShow;
     }
 
     //删除函数

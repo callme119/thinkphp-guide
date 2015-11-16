@@ -32,8 +32,10 @@ class UserController extends Controller
     public function indexAction()
     {
     	$UserL=new UserLogic();//实例化
-    	$Users=$UserL->getAllLists();//对象调用方法再赋给$Users
+    	//$Users=$UserL->getAllLists();//对象调用方法再赋给$Users
+        $users=$UserL->getLists();
 
+        $page=$UserL->getPageShow();
         //进行判断
         if(count($errors=$UserL->getErrors())!==0)
         {
@@ -41,11 +43,16 @@ class UserController extends Controller
             $error=implode('<br/>',$errors);
 
             //显示错误
-            $this->error('');
+            $this->error("查找失败，原因:".$error,U('Anqiang/User/index'));
+            return false;
         }
 
+
+        
+        $this->assign('page',$page);//传入分页信息
+
     	//传值
-    	$this->assign('users',$Users);//将Users给模板
+    	$this->assign('users',$users);//将Users给模板
 
     	//展示页面
     	$this->display();
@@ -78,15 +85,16 @@ class UserController extends Controller
 
     	$UserL=new UserLogic();
     	$UserL->addList($user);//调用新增L层addList方法
+        echo "$UserL->addList($user)";
 
     	if(count($errors=$UserL->geterrors())!==0)
     	{
     		$error=implode('<br/>',"$errors");
-    		$this->error("添加失败，原因：".error,U('Anqiang/User/index'));
+    		$this->error("添加失败，原因：".error,U('Anqiang/User/index?p='.I('get.p')));
     	}
     	else
     	{
-    		$this->success("添加成功",U('Anqiang/User/index'));
+    		$this->success("添加成功",U('Anqiang/User/index?p='.I('get.p')));
     	}
     }
 
@@ -117,12 +125,12 @@ class UserController extends Controller
     		$error=implode('<br/>',$errors);
             
 
-    		$this->error("添加失败，原因：".$error,U('Anqiang/User/index'));
+    		$this->error("添加失败，原因：".$error,U('Anqiang/User/index?p='.I('get.p')));
     		return false;
     	}
     	else
     	{
-    		$this->success("操作成功",U('Anqiang/User/index'));
+    		$this->success("操作成功",U('Anqiang/User/index?p='.I('get.p')));
     	}
     }
 
@@ -137,11 +145,11 @@ class UserController extends Controller
 
     	if($status!==false)
     	{
-    		$this->success("删除成功",U('Anqiang/User/index'));
+    		$this->success("删除成功",U('Anqiang/User/index?p='.$p));
     	}
     	else
     	{
-    		$this->error("删除失败",U('Anqiang/User/index'));
+    		$this->error("删除失败",U('Anqiang/User/index?p='.$p));
     	}
 
     }
