@@ -1,7 +1,10 @@
 <?php
 namespace Liuxi\Controller;
+
 use Think\Controller;
+
 use Liuxi\Logic\UserLogic;
+
 class UserController extends Controller
 {
     public function indexAction()
@@ -97,26 +100,6 @@ class UserController extends Controller
             $this->error("删除失败",U('Liuxi/User/index'));
         }
     }
-
-    // public function indexAction()
-    // {
-    //     $lists = array();
-    //     $i = 0;
-
-    //     do
-    //     {
-    //         $lists[] = rand(1, 1000);
-    //     }
-    //     while ( $i++ <= 20);
-
-    //     echo "Source data is " . implode(",", $lists);
-    //     echo "<br />";
-
-    //     $QuickSortL = new LiuxiLogic();
-    //     $lists = $QuickSortL->lxsort($lists);
-    //     echo "Sorted data is " . implode(",", $lists);
-    //     echo "<br />";
-    // }
 }
 
 
