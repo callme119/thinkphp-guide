@@ -65,12 +65,12 @@ class UserLogic extends UserModel
             // 实例化page类
             $Page = new \Think\Page($counts,$pageSize);
             // 分页 对象要大写
-            $Page->setConfig('header','<li class="rows">共<b>%TOTAL_ROW%</b>条记录&nbsp;&nbsp;每页<b>%LIST_ROW%</b>条&nbsp;&nbsp;第<b>%NOW_PAGE%</b>页/共<b>%TOTAL_PAGE%</b>页</li>');
+            $Page->setConfig('header','<li class="rows">共<b>%TOTAL_ROW%</b>条记录&nbsp;&nbsp;每页<b>'.$pageSize.'</b>条&nbsp;&nbsp;第<b>%NOW_PAGE%</b>页/共<b>%TOTAL_PAGE%</b>页</li>');
             $Page->setConfig('prev','上一页');
             $Page->setConfig('next','下一页');
             $Page->setConfig('last','末页');
             $Page->setConfig('first','首页');
-            $Page->setConfig('theme','%FIRST% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE% %END% %HEADER%');
+            $Page->setConfig('theme','%FIRST% %UP_PAGE%  %LINK_PAGE% %DOWN_PAGE% %END% %HEADER%');
 
             //比目运算 判断是否大于0
             $p = (int)I('get.p')?(int)I('get.p'):1;//变量p

@@ -7,6 +7,7 @@ use User\Logic\UserLogic;		//用户表
 class IndexController extends Controller
 {
     public function indexAction(){
+
     	$UserL = new UserLogic();
 
         //获取列表
@@ -117,15 +118,6 @@ class IndexController extends Controller
 
         $UserL = new UserLogic();
         $status = $UserL->deleteInfo($userId);
-
-        // //判断$p是否大于0；
-        // if((int)I('get.p')>0)
-        // {
-        //  $p=(int)I('get.p');
-        // }
-        // else{
-        //  $p=1;
-        // }
 
         if($status！==false){
            $this->success("删除成功", U('User/Index/index?p='.$p)); 
