@@ -7,7 +7,7 @@ use Litian\Logic\UserLogic;
 class UserController extends Controller
 {
     public function indexAction(){
-        //取值
+        //实例化
         $UserL = new UserLogic();
         // 获取所有信息列表
         $Users = $UserL->getAllLists();
@@ -61,11 +61,11 @@ class UserController extends Controller
             $error=implode('<br/>',"$errors");
 
             //显示错误
-            $this->error("添加失败，原因：".$error,U('Litian/User/index'));
+            $this->error("添加失败，原因：".$error,U('Litian/User/index?p='.I('get.p')));
         }
         else
         {
-            $this->success("添加成功",U('Litian/User/index'));
+            $this->success("添加成功",U('Litian/User/index?p='.I('get.p')));
         }
     }
     public function editAction(){
@@ -94,11 +94,11 @@ class UserController extends Controller
             //数组变字符串
             $error = implode('<br/>',$errors);
             //显示错误
-            $this->error("添加失败，原因：".$error,U('Litian/User/index'));
+            $this->error("操作失败，原因：".$error,U('Litian/User/index?p='.I('get.p')));
             return false;
         }
         else{
-            $this->success("操作成功",U('Litian/User/index'));
+            $this->success("操作成功",U('Litian/User/index?p='.I('get.p')));
         }
 
     }
@@ -112,10 +112,10 @@ class UserController extends Controller
         // echo $status;
         // 判断状态
         if($status !==false){
-           $this->success("删除成功", U('Litian/User/index'));
+           $this->success("删除成功", U('Litian/User/index?p='.I('get.p')));
         }
         else{
-            $this->error("删除失败" , U('Litian/User/index'));
+            $this->error("删除失败" , U('Litian/User/index?p='.I('get.p')));
         }
     }
     // public function indexAction()
