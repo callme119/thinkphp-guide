@@ -24,16 +24,19 @@ class UserLogic extends UserModel
     	if($name=="")
     	{
     		$this->errors[]="请输入用户名";
+            return false;
     	}
 
     	if(is_string($name)!==true)
     	{
-    		$this->errors[]="请输入正确格式的用户名";
+    		$this->errors[]="请输入正确格式（字符串类型）的用户名";
+            return false;
     	}
 
     	if($name=="yunzhi")
     	{
     		$this->errors[]="yunzhi不可作为用户名";
+            return false;
     	}
 
     	$map['name']=$name;
@@ -99,6 +102,7 @@ class UserLogic extends UserModel
             {
                 $p=1;
             }
+            
             $lists=$this->page($_GET['p'],$pagesize)->where($map)->select();
 
             return $lists;

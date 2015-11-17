@@ -44,7 +44,7 @@ class UserController extends Controller
 
             //显示错误
             $this->error("查找失败，原因:".$error,U('Anqiang/User/index'));
-            return false;
+            
         }
 
 
@@ -68,7 +68,10 @@ class UserController extends Controller
 
     	$UserL=new UserLogic();
     	$user=$UserL->getListById($userId);
-    	$this->assign('user',$user);
+
+    	$this->assign('user',$user);//传参数
+
+        //显示
     	$this->display();
     }
 
@@ -89,7 +92,7 @@ class UserController extends Controller
 
     	if(count($errors=$UserL->getErrors())!==0)
     	{
-    		$error=implode('<br/>',"$errors");
+    		$error=implode('<br/>',$errors);
     		$this->error("添加失败，原因：".$error,U('Anqiang/User/index?p='.I('get.p')));
     	}
     	else
@@ -101,13 +104,14 @@ class UserController extends Controller
     //编辑
     public function editAction()
     {
+
     	$UserId=I('get.id');
 
     	$UserL=new UserLogic();
     	$user =$UserL->getListById($UserId);
 
     	$this->assign('user',$user);
-        dump($user);
+
     	$this->display();
     }
 
@@ -126,7 +130,7 @@ class UserController extends Controller
             
 
     		$this->error("添加失败，原因：".$error,U('Anqiang/User/index?p='.I('get.p')));
-    		return false;
+    		
     	}
     	else
     	{
