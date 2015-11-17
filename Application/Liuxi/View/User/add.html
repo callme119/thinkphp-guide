@@ -6,6 +6,7 @@
 </head>
 <body>
     <form <eq name = "Think.Action_NAME" value = "add"> action = "{:U('save')}"<else/>action = "{:U('update')}"</eq>method = 'post'>
+        <input type="hidden" name="id" value="{$user.id}"></input>
         <label>用户名：</label> <input type ="text" name ="name" value ="{$user.name}"/></br>
         <label>密码：</label><input type = "password" name = "password" value = "{$user.password}"/></br>
         <label>确认密码：</label><input type = "password" name="repassword" value="{$user.repassword}"/></br>

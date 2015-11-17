@@ -23,7 +23,7 @@ class UserController extends Controller
             $this->error("查找失败，原因：".$error,U('Home/Index/index'));
             return false;
         }
-        
+
         //传值assign()
         $this->assign('users',$users);
         
@@ -58,18 +58,6 @@ class UserController extends Controller
         $UserL = new UserLogic();
         //$status = $UserL->add($user);//$status的值是id的值
 
-        if (!$UserL->create($user))
-        {
-            //创建数据对象
-            //如果创建失败 表示验证没有通过 输出错误信息
-            exit($UserL->getError());
-        }
-        else
-        {
-            //验证通过 写入新增数据
-            $status = $UserL->add($user);//$status的值是id值
-        }
-
         $UserL->addList($user);
         //echo $this->getlastsql();
 
@@ -79,7 +67,7 @@ class UserController extends Controller
             //dump($errors);
             //exit();
             //数组变字符串
-            $errors = implode('<br/>',$errors);
+            $error = implode('<br/>',$errors);
 
             //显示错误
             $this->error("添加失败，原因：".$error,U('Liuxi/User/index'));

@@ -60,14 +60,14 @@ class UserLogic extends UserModel
         }
     }
 
-     public function deleteInfo($id)
+    public function deleteInfo($id)
     {
         $map['id'] = $id;
         $datas =$this->where($map)->delete();
         return $datas;
     }
 
-        public function addList($list)
+    public function addList($list)
     {
         try
         {
