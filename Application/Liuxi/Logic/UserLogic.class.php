@@ -14,31 +14,26 @@ class UserLogic extends UserModel
 
     public function getListByName($name)
     {
-        //去空格
-        $nameed = trim($name," ");
-
-        //判断是否为空
-        if ($nameed == "")
-        {
-            $this->errors[] = "不能为空";
-            return false;
-        }
-
         //判断是否是字符串
-        if (is_string($nameed) !== true)
+        if (is_string($name) !== true)
         {
             $this->errors[] = "请输入字符串";
             return false;
         }
-        
-        //判断是否为关键字
-        if ($nameed =="yunzhi")
+
+        //去空格
+        $nameed = trim((string)$name," ");
+
+        $map['name'] = $nameed;
+        $status = $this->create($map,4);
+
+        //判断是否为空
+        if (!$status)
         {
-            $this->errors[] = "不能查找yunzhi关键字";
+            $this->errors[] = $this->getError();
             return false;
         }
 
-        $map['name'] = $nameed;
         $data = $this->where($map)->find();
         return $data;
     }
@@ -52,9 +47,17 @@ class UserLogic extends UserModel
 
     public function getAllLists()
     {
-        $datas = $this->select();
-        //echo $this->getLastSql();
-        return $datas;
+        try
+        {
+            $datas = $this->select();
+            //echo $this->getLastSql();
+            return $datas;
+        }
+        catch (\Think\Exception $e)
+        {
+            $this->errors[] = $e->getMessage();
+            return false;
+        }
     }
 
      public function deleteInfo($id)
@@ -62,5 +65,49 @@ class UserLogic extends UserModel
         $map['id'] = $id;
         $datas =$this->where($map)->delete();
         return $datas;
+    }
+
+        public function addList($list)
+    {
+        try
+        {
+            if($this->create($list))
+            {
+                $id = $this->add();
+                return $id;
+            }
+            else
+            {
+                $this->errors[] = $this->getError();
+                return false;
+            }
+        }
+        catch(\Think\Exception $e)
+        {
+            $this->errors[] = $e->getMessage();
+            return false;
+        }
+    }
+
+    public function saveList($list)
+    {
+        try
+        {
+            if ($this->create($list))
+            {
+                $id = $this->save();
+                return $id;
+            }
+            else
+            {
+                $this->errors[] = $this->getError();
+                return false;
+            }
+        }
+        catch(\Think\Exception $e)
+        {
+            $this->errors[] = $e->getMessage();
+            return false;
+        }
     }
 }
