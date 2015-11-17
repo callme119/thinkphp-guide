@@ -85,12 +85,12 @@ class UserController extends Controller
 
     	$UserL=new UserLogic();
     	$UserL->addList($user);//调用新增L层addList方法
-        echo "$UserL->addList($user)";
+        
 
-    	if(count($errors=$UserL->geterrors())!==0)
+    	if(count($errors=$UserL->getErrors())!==0)
     	{
     		$error=implode('<br/>',"$errors");
-    		$this->error("添加失败，原因：".error,U('Anqiang/User/index?p='.I('get.p')));
+    		$this->error("添加失败，原因：".$error,U('Anqiang/User/index?p='.I('get.p')));
     	}
     	else
     	{
@@ -107,7 +107,7 @@ class UserController extends Controller
     	$user =$UserL->getListById($UserId);
 
     	$this->assign('user',$user);
-
+        dump($user);
     	$this->display();
     }
 
@@ -115,7 +115,7 @@ class UserController extends Controller
     public function updateAction()
     {
         //获得id
-    	$data=I('post.id');
+    	$data=I('post.');
         //实例化
     	$UserL=new UserLogic();
     	$UserL->saveList($data);//新增L层saveList方法

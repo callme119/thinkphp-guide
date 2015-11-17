@@ -85,7 +85,7 @@ class IndexController extends Controller
 
         //传给前台
         $this->assign('user',$user);
-
+        
         //显示 display('add')
         $this->display('add'); 
     }
@@ -119,7 +119,7 @@ class IndexController extends Controller
         $UserL = new UserLogic();
         $status = $UserL->deleteInfo($userId);
 
-        if($status！==false){
+        if($status!==false){
            $this->success("删除成功", U('User/Index/index?p='.$p)); 
         }
         else{
