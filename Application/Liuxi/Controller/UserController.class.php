@@ -9,11 +9,13 @@ class UserController extends Controller
 {
     public function indexAction()
     {
-        //取值getAllLists()
+              //获取列表
         $UserL = new UserLogic();
-        $users = $UserL->getAllLists();
+        $users = $UserL->getLists();
+        //获取分页信息
+        //dump($users);
+        $page = $UserL->getPageShow();
 
-        //判断异常
         if (count ($error = $UserL->getErrors())!==0)
         {
             //数组变字符串
@@ -24,10 +26,13 @@ class UserController extends Controller
             return false;
         }
 
-        //传值assign()
+        //传入分页信息
+        $this->assign('page',$page);//赋值分页输出
+
+        //传入列表
         $this->assign('users',$users);
-        
-        //显示display()
+
+        //调用v层
         $this->display();
     }
 
@@ -38,7 +43,7 @@ class UserController extends Controller
         //取用户信息getListById()
         $UserL = new UserLogic();
         $user = $UserL->getListById($userId);
-        //dump($user);
+        
         //传值
         $this->assign('user',$user);
         $this->display();
@@ -56,9 +61,8 @@ class UserController extends Controller
         $user =I('post.');
         //添加add()
         $UserL = new UserLogic();
-        //$status = $UserL->add($user);//$status的值是id的值
-
         $UserL->addList($user);
+
         //echo $this->getlastsql();
 
         //判断异常
@@ -70,11 +74,11 @@ class UserController extends Controller
             $error = implode('<br/>',$errors);
 
             //显示错误
-            $this->error("添加失败，原因：".$error,U('Liuxi/User/index'));
+            $this->error("添加失败，原因：".$error,U('Liuxi/User/index?p ='.I('get.p')));
         }
         else
         {
-            $this->success("操作成功",U('Liuxi/User/index'));
+            $this->success("操作成功",U('Liuxi/User/index?p ='.I('get.p')));
         }
     }
 
@@ -95,7 +99,7 @@ class UserController extends Controller
     {
         //取用户信息
         $data = I('post.');
-       //保存修改save()
+        //保存修改save()
         $UserL = new UserLogic();
         $UserL->saveList($data);
 
@@ -106,12 +110,12 @@ class UserController extends Controller
             $error = implode('<br/>',$errors);
 
             //显示错误
-            $this->error("添加失败，原因：".$error,U('Liuxi/User/index'));
+            $this->error("添加失败，原因：".$error,U('Liuxi/User/index?p='.I('get.p')));
         }
         else
         {
             //保存成功success()
-            $this->success("操作成功",U('Liuxi/User/index'));
+            $this->success("操作成功",U('Liuxi/User/index?p='.I('get.p')));
         }
     }
 
@@ -123,13 +127,13 @@ class UserController extends Controller
         $UserL = new UserLogic();
         $status = $UserL->deleteInfo($userId);
         //判断是否删除成功
-        if($status !== false)
+        if($status!==false)
         {
-            $this->success("删除成功",U('Liuxi/User/index'));
+            $this->success("删除成功",U('Liuxi/User/index?p='.I('get.p')));
         }
         else
         {
-            $this->error("删除失败",U('Liuxi/User/index'));
+            $this->error("删除失败",U('Liuxi/User/index?p='.I('get.p')));
         }
     }
 }
