@@ -117,13 +117,8 @@ class IndexController extends Controller
         $UserL = new UserLogic();
         $status = $UserL->deleteInfo($userId);
 
-<<<<<<< HEAD
         if($status！==false){
            $this->success("删除成功", U('User/Index/index?p='.I('get.p'))); 
-=======
-        if($status!==false){
-           $this->success("删除成功", U('User/Index/index?p='.$p)); 
->>>>>>> origin/master
         }
         else{
             $this->error("删除失败" , U('User/Index/index?p='.I('get.p')));
