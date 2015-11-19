@@ -920,7 +920,8 @@ function U($url='',$vars='',$suffix=true,$domain=false) {
     }
     if(isset($info['query'])) { // 解析地址里面参数 合并到vars
         parse_str($info['query'],$params);
-        $vars = array_merge($params,$vars);
+        //$vars = array_merge($params,$vars);
+        $vars = array_merge($vars,$params); //更改合并数组的顺序 
     }
     
     // URL组装
