@@ -31,8 +31,8 @@ class UserController extends Controller
     //用户管理
     public function indexAction()
     {
-    	$UserL=new UserLogic();//实例化
-    	//$Users=$UserL->getAllLists();//对象调用方法再赋给$Users
+        $UserL=new UserLogic();//实例化
+        //$Users=$UserL->getAllLists();//对象调用方法再赋给$Users
         $users=$UserL->getLists();
 
         $page=$UserL->getPageShow();
@@ -51,11 +51,11 @@ class UserController extends Controller
         
         $this->assign('page',$page);//传入分页信息
 
-    	//传值
-    	$this->assign('users',$users);//将Users给模板
+        //传值
+        $this->assign('users',$users);//将Users给模板
 
-    	//展示页面
-    	$this->display();
+        //展示页面
+        $this->display();
     }
 
 
@@ -64,97 +64,97 @@ class UserController extends Controller
     //个人详细信息
     public function detailAction()
     {
-    	$userId=I('get.id');
+        $userId=I('get.id');
 
-    	$UserL=new UserLogic();
-    	$user=$UserL->getListById($userId);
+        $UserL=new UserLogic();
+        $user=$UserL->getListById($userId);
 
-    	$this->assign('user',$user);//传参数
+        $this->assign('user',$user);//传参数
 
         //显示
-    	$this->display();
+        $this->display();
     }
 
     //添加用户
     public function addAction()
     {
-    	$this->display('edit');
+        $this->display('edit');
     }
 
     //添加用户进行保存
     public function saveAction()
     {
-    	$user=I('post.');
+        $user=I('post.');
 
-    	$UserL=new UserLogic();
-    	$UserL->addList($user);//调用新增L层addList方法
+        $UserL=new UserLogic();
+        $UserL->addList($user);//调用新增L层addList方法
         
 
-    	if(count($errors=$UserL->getErrors())!==0)
-    	{
-    		$error=implode('<br/>',$errors);
-    		$this->error("添加失败，原因：".$error,U('Anqiang/User/index?p='.I('get.p')));
-    	}
-    	else
-    	{
-    		$this->success("添加成功",U('Anqiang/User/index?p='.I('get.p')));
-    	}
+        if(count($errors=$UserL->getErrors())!==0)
+        {
+            $error=implode('<br/>',$errors);
+            $this->error("添加失败，原因：".$error,U('Anqiang/User/index?p='.I('get.p')));
+        }
+        else
+        {
+            $this->success("添加成功",U('Anqiang/User/index?p='.I('get.p')));
+        }
     }
 
     //编辑
     public function editAction()
     {
 
-    	$UserId=I('get.id');
+        $UserId=I('get.id');
 
-    	$UserL=new UserLogic();
-    	$user =$UserL->getListById($UserId);
+        $UserL=new UserLogic();
+        $user =$UserL->getListById($UserId);
 
-    	$this->assign('user',$user);
+        $this->assign('user',$user);
 
-    	$this->display();
+        $this->display();
     }
 
     //编辑后保存更新
     public function updateAction()
     {
         //获得id
-    	$data=I('post.');
+        $data=I('post.');
         //实例化
-    	$UserL=new UserLogic();
-    	$UserL->saveList($data);//新增L层saveList方法
+        $UserL=new UserLogic();
+        $UserL->saveList($data);//新增L层saveList方法
 
-    	if(count($errors=$UserL->getErrors())!==0)
-    	{
-    		$error=implode('<br/>',$errors);
+        if(count($errors=$UserL->getErrors())!==0)
+        {
+            $error=implode('<br/>',$errors);
             
 
-    		$this->error("添加失败，原因：".$error,U('Anqiang/User/index?p='.I('get.p')));
-    		
-    	}
-    	else
-    	{
-    		$this->success("操作成功",U('Anqiang/User/index?p='.I('get.p')));
-    	}
+            $this->error("添加失败，原因：".$error,U('Anqiang/User/index?p='.I('get.p')));
+            
+        }
+        else
+        {
+            $this->success("操作成功",U('Anqiang/User/index?p='.I('get.p')));
+        }
     }
 
     //删除用户信息
     public function deleteAction()
     {
-    	$userId=I('get.id');
+        $userId=I('get.id');
 
-    	$UserL=new UserLogic();
+        $UserL=new UserLogic();
 
-    	$status=$UserL->deleteInfo($userId);
+        $status=$UserL->deleteInfo($userId);
 
-    	if($status!==false)
-    	{
-    		$this->success("删除成功",U('Anqiang/User/index?p='.$p));
-    	}
-    	else
-    	{
-    		$this->error("删除失败",U('Anqiang/User/index?p='.$p));
-    	}
+        if($status!==false)
+        {
+            $this->success("删除成功",U('Anqiang/User/index?p='.$p));
+        }
+        else
+        {
+            $this->error("删除失败",U('Anqiang/User/index?p='.$p));
+        }
 
     }
 }
