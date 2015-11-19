@@ -115,12 +115,12 @@ class UserLogic extends UserModel
             return false;
         }
     }
-    public function saveList(){
+    public function saveList($list){
         try{
             if($this->create($list))
             {
                 $id=$this->save();
-                // return $id;
+                return $id;
             }
             else
             {
