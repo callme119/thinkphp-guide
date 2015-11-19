@@ -7,11 +7,12 @@
          ></input>
     	<button id="search" type="submit">搜索</button>
     </div>
-   
 	<table>
 		<tr>
 			<th>序号</th>
-			<th>ID</th>
+			<?php $order = I('get.order') ?>
+			<th><a href="<eq name='order' value="desc"> {:U('index?order=asc')}  
+			<else/> {:U('index?order=desc')} </eq>">ID</a></th>	
 			<th>name</th>
 			<th>手机号</th>
 			<th>地址</th>

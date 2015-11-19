@@ -7,7 +7,6 @@ use User\Logic\UserLogic;		//用户表
 class IndexController extends Controller
 {
     public function indexAction(){
-
     	$UserL = new UserLogic();
 
         //获取列表
@@ -15,7 +14,6 @@ class IndexController extends Controller
 
         //获取分页信息
         $page = $UserL->getPageShow();
-
         //判断异常
         if(count($errors=$UserL->getErrors())!==0)
         {
@@ -85,7 +83,7 @@ class IndexController extends Controller
 
         //传给前台
         $this->assign('user',$user);
-
+        
         //显示 display('add')
         $this->display('add'); 
     }
@@ -119,11 +117,16 @@ class IndexController extends Controller
         $UserL = new UserLogic();
         $status = $UserL->deleteInfo($userId);
 
+<<<<<<< HEAD
         if($status！==false){
+           $this->success("删除成功", U('User/Index/index?p='.I('get.p'))); 
+=======
+        if($status!==false){
            $this->success("删除成功", U('User/Index/index?p='.$p)); 
+>>>>>>> origin/master
         }
         else{
-            $this->error("删除失败" , U('User/Index/index?p='.$p));
+            $this->error("删除失败" , U('User/Index/index?p='.I('get.p')));
         }
     }
 }
