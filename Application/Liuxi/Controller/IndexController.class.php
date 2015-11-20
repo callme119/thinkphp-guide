@@ -1,5 +1,6 @@
 <?php
 namespace Liuxi\Controller;
+
 use Think\Controller;
 use Liuxi\Logic\LiuxiLogic;
 use Weijingyun\Logic\WeijingyunLogic;
@@ -28,4 +29,5 @@ class IndexController extends Controller
         echo "<br />";
 
     }
+
 }
