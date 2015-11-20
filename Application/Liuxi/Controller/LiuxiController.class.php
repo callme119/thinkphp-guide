@@ -25,4 +25,5 @@ class LiuxiController extends Controller
         echo "Sorted data is " . implode(",", $lists);
         echo "<br />";
     }
+
 }
