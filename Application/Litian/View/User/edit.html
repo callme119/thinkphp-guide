@@ -1,5 +1,7 @@
 <form <eq name="Think.ACTION_NAME" value="edit"> action="{:U('update')}"<else />action="{:U('save')}"</eq> method="post">
 
+<input type="hidden" name="" value="{$p}"></input>
+
     <input type="hidden" name="id" value="{$user.id}"></input>
     <label for="name">用户名:</label>
     <input type="text" name="name" value="{$user.name}"/>

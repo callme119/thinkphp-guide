@@ -21,7 +21,7 @@
             <td>{$user[phone]}</td>
             <td>
             <a class="button" href="{:U('detail?id='.$user['id'])}">查看</a>
-            <a class="button" href="{:U('edit?id='.$user['id'])}">编辑</a>
+            <a class="button" href="{:U('edit?id='.$user['id'].'p='.$p)}">编辑</a>
             <a class="button" href="{:U('delete?id='.$user['id'])}">删除</a>
         </tr>
     </foreach>

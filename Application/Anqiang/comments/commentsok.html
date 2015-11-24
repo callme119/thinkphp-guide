@@ -14,16 +14,7 @@
 
 <body>
 	
-	<img src="img/ok.png" class="full-image hello" > 
-
-	
-
-
-
-
-
-	
-
+	<img src="img/newok.png" class="full-image hello" > 
 
 
 </body>
