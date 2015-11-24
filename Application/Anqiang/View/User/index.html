@@ -2,39 +2,40 @@
 <a class="buttom" href="{:U('add?p='.I('get.p'))}">
     添加用户
 </a>
+<a class="buttom" href="{:U('sort')}">
 
 <form action="{:U('index')}" method="get">
-<div>
-    <input type="text" placeholder="search" name="keywords" value="{:I('get.keyword')}"></input>
-    <button id="search" type="submit">搜索</button>
-</div>
-<table>
-    <thead>
-        <tr>
-            <th>序号</th>
-            <th>用户名</th>
-            <th>手机号</th>
-            <th>邮箱</th>
-
-        </tr>
-    </thead>
-    <tbody>
-        <foreach name="users" item="user" key="k">
+    <div>
+        <input type="text" placeholder="search" name="keywords" value="{:I('get.keyword')}"></input>
+        <button id="search" type="submit">搜索</button>
+    </div>
+    <table>
+        <thead>
             <tr>
-                <td>{$k+1}</td>
-                <td>{$user[name]}</td>
-                <td>{$user[phonenumber]}</td>
-                <td>{$user[mailbox]}</td>
+                <th>序号</th>
+                <th>用户名</th>
+                <th>手机号</th>
+                <th>邮箱</th>
 
-                <td>
-                    <a class="button" href="{:U('detail?id='.$user['id'].'&p='.I('get.p'))}">查看</a>
-                    <a class="button" href="{:U('edit?id='.$user['id'].'&p='.I('get.p'))}">编辑</a>
-                    <a class="button" href="{:U('delete?id='.$user['id'].'&p='.I('get.p'))}">删除</a>
-                </td>
             </tr>
-        </foreach>
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            <foreach name="users" item="user" key="k">
+                <tr>
+                    <td>{$k+1}</td>
+                    <td>{$user[name]}</td>
+                    <td>{$user[phonenumber]}</td>
+                    <td>{$user[mailbox]}</td>
+
+                    <td>
+                        <a class="button" href="{:U('detail?id='.$user['id'].'&p='.I('get.p'))}">查看</a>
+                        <a class="button" href="{:U('edit?id='.$user['id'].'&p='.I('get.p'))}">编辑</a>
+                        <a class="button" href="{:U('delete?id='.$user['id'].'&p='.I('get.p'))}">删除</a>
+                    </td>
+                </tr>
+            </foreach>
+        </tbody>
+    </table>
 </form>
 
 {$page}

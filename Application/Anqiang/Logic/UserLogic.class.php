@@ -103,7 +103,7 @@ class UserLogic extends UserModel
                 $p=1;
             }
             
-            $lists=$this->page($_GET['p'],$pagesize)->where($map)->select();
+            $lists=$this->page($_GET['p'],$pagesize)->where($map)->order('id desc')->select();
 
             return $lists;
         }

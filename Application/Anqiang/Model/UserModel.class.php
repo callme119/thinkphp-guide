@@ -20,8 +20,8 @@ class UserModel extends UserM
    );
 
 		protected $_auto = array(
-			//array('update_time','time',2),
-			//array('create_time','time',1),
+			array('update_time','time',2,'function'),
+			array('create_time','time',1,'function'),
 			array('state','1'),
 			);
 }

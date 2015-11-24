@@ -7,7 +7,7 @@ use Anqiang\Logic\UserLogic;
 class UserController extends Controller
 {
     //快速排序的使用
-    // public function indexAction()
+    // public function sortAction()
     // {
     //     $lists = array();
     //     $i = 0;
