@@ -78,7 +78,10 @@ class UserController extends Controller
     //添加用户
     public function addAction()
     {
+        $UserP=I('get.p');//传给C层页号
+        $this->assign('p',$UserP);//传给V层页号
         $this->display('edit');
+
     }
 
     //添加用户进行保存
@@ -93,11 +96,11 @@ class UserController extends Controller
         if(count($errors=$UserL->getErrors())!==0)
         {
             $error=implode('<br/>',$errors);
-            $this->error("添加失败，原因：".$error,U('Anqiang/User/index?p='.I('get.p')));
+            $this->error("添加失败，原因：".$error,U('Anqiang/User/index?p='.I('post.p')));
         }
         else
         {
-            $this->success("添加成功",U('Anqiang/User/index?p='.I('get.p')));
+            $this->success("添加成功",U('Anqiang/User/index?p='.I('post.p')));
         }
     }
 
@@ -106,10 +109,14 @@ class UserController extends Controller
     {
 
         $UserId=I('get.id');
+        $UserP=I('get.p');//传给C页号
+        
 
         $UserL=new UserLogic();
         $user =$UserL->getListById($UserId);
 
+
+        $this->assign('p',$UserP);//传给V层页号
         $this->assign('user',$user);
 
         $this->display();
@@ -129,12 +136,14 @@ class UserController extends Controller
             $error=implode('<br/>',$errors);
             
 
-            $this->error("添加失败，原因：".$error,U('Anqiang/User/index?p='.I('get.p')));
+            $this->error("添加失败，原因：".$error,U('Anqiang/User/index?p='.I('post.p')));
             
         }
         else
-        {
-            $this->success("操作成功",U('Anqiang/User/index?p='.I('get.p')));
+        {   
+            
+            
+            $this->success("操作成功",U('Anqiang/User/index?p='.I('post.p')));
         }
     }
 
