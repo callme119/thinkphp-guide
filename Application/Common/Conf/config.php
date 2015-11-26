@@ -2,6 +2,13 @@
 return array(
 	'DEFAULT_MODULE'        => 'Login',  // 默认模块
     'ACTION_SUFFIX'         => 'Action',//设置ACTION前缀为action
+    /* 模板相关配置 */
+    'TMPL_PARSE_STRING' => array(
+        '__IMG__'       => __ROOT__ . '/public/image',
+        '__CSS__'       => __ROOT__ . '/public/css',
+        '__JS__'        => __ROOT__ . '/public/js',
+        '__LIB__'       => __ROOT__ . '/public/lib',
+    ),
 
    	'DB_PREFIX' => 'yunzhi_', // 数据库表前缀
    	'DB_TYPE'   => 'mysqli', // 数据库类型
