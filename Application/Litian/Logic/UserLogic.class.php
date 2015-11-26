@@ -55,7 +55,12 @@ class UserLogic extends UserModel
             if($status === 0 || $status === 1){
                 $map[]=$status;
             }
-
+            //去空格
+            $keywords = trim(I('get.keywords'));
+            //判断是否为空
+            if($keywords !== ""){
+                $map['name'] = array('like','%'.$keywords.'%');
+            }
             // 计算总条数
             $counts = $this->totalCount = $this->where($map)->count();
 
@@ -74,7 +79,10 @@ class UserLogic extends UserModel
 
             //比目运算 判断是否大于0
             $p = (int)I('get.p')?(int)I('get.p'):1;//变量p
-            $lists = $this->page($p,$pageSize)->select();
+            //点击ID排序
+            $order = 'id '.I('get.order');
+
+            $lists = $this->page($p,$pageSize)->where($map)->order($order)->select();
             // 调用show方法
             $this->pageShow = $Page->show();
             return $lists;
@@ -134,6 +142,7 @@ class UserLogic extends UserModel
             return false;
         }
     }
+
     //快速排序函数
     public function QuickSort()
     {
@@ -165,4 +174,5 @@ class UserLogic extends UserModel
 
         }
     }
+
 }
