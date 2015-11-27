@@ -9,7 +9,7 @@ class UserLogic extends UserModel
     protected $errors=array();
    // protected $totalCount=0;
    // protected $pagesize=0;
-    protected $pageShow=0;
+    protected $pageShow="";
 
     //报错函数
     public function getErrors()

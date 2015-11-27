@@ -78,8 +78,8 @@ class UserController extends Controller
     //添加用户
     public function addAction()
     {
-        $UserP=I('get.p');//传给C层页号
-        $this->assign('p',$UserP);//传给V层页号
+        $userP=I('get.p');//传给C层页号
+        $this->assign('p',$userP);//传给V层页号
         $this->display('edit');
 
     }
@@ -108,15 +108,15 @@ class UserController extends Controller
     public function editAction()
     {
 
-        $UserId=I('get.id');
-        $UserP=I('get.p');//传给C页号
+        $userId=I('get.id');
+        $userP=I('get.p');//传给C页号
         
 
         $UserL=new UserLogic();
-        $user =$UserL->getListById($UserId);
+        $user =$UserL->getListById($userId);
 
 
-        $this->assign('p',$UserP);//传给V层页号
+        $this->assign('p',$userP);//传给V层页号
         $this->assign('user',$user);
 
         $this->display();
