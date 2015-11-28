@@ -15,6 +15,15 @@ app.controller('checkboxCtrl',
         $scope.emailNotification = "Subscribed";
     }]);
 app.controller('MyController', ['$scope', '$ionicModal', function($scope, $ionicModal){
+    
+    $scope.contacts = [
+        {id:"0", firstName:"shijiangcheng"},
+        {id:"1", firstName:"xingyannian"},
+        {id:"2", firstName:"panjie"}
+    ];
+
+    $scope.newUser = {firstName:"hello"};
+
     $ionicModal.fromTemplateUrl('{:U("my-modal")}',{
         scope: $scope,
         animation: 'slide-in-up'
@@ -22,7 +31,8 @@ app.controller('MyController', ['$scope', '$ionicModal', function($scope, $ionic
         $scope.modal = modal;
     });
 
-    $scope.openModal = function(){
+    $scope.openModal = function(user){
+        $scope.newUser.firstName = user.firstName;
         $scope.modal.show();
     };
 
@@ -34,5 +44,8 @@ app.controller('MyController', ['$scope', '$ionicModal', function($scope, $ionic
         $scope.modal.remove();
     });
 
-    $scope.$on('modal')
+    $scope.create = function(user){
+        $scope.contacts.push({id:"+$scope.contacts.length()+", firstName:user.firstName}) 
+        $scope.modal.hide();
+    };
 }]);
