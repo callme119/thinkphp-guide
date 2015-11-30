@@ -19,7 +19,7 @@ class UserController extends Controller
         if (count ($error = $UserL->getErrors())!==0)
         {
             //数组变字符串
-            $errors = implode('<br/>',$errors);
+            $error = implode('<br/>',$errors);
 
             //显示错误
             $this->error("查找失败，原因：".$error,U('Home/Index/index'));
