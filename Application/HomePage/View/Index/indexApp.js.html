@@ -27,6 +27,15 @@ app.config(function($stateProvider, $urlRouterProvider){
             }
         }
     })
+    .state('tabs.evaluationing',{
+        url: "/evaluationing",
+        views:{
+        	//评论界面
+            'home-tab':{
+                templateUrl: "templates/indexEvaluationing.html"
+            }
+        }
+    })
     .state("tabs.rim",{
         url: "/rim",
         views: {
