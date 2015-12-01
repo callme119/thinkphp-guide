@@ -1,5 +1,5 @@
 <?php
-namespace Ionic\Controller;
+namespace HomePage\Controller;
 
 use Think\Controller;
 

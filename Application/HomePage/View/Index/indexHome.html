@@ -1,41 +1,6 @@
-<!DOCTYPE html>
-<html ng-app="yunzhiclub">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-  <title></title>
-
-  <link href="__LIB__/ionic/css/ionic.css" rel="stylesheet">
-  <link href="__CSS__/style.css" rel="stylesheet">
-
-    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
-    <link href="css/ionic.app.css" rel="stylesheet">
-  -->
-
-<!-- include -->
-<include file="indexFullTime" />
-<include file="indexHours" />
-<include file="indexEvaluation" />
-<include file="indexEvaluationing" />
-<include file="indexActivity" />
-<include file="indexActivityDetails" />
-<include file="indexPersonalCenter">
-<include file="indexToBePaid" />
-<include file="indexToBeStay" />
-<include file="indexToBeEvaluation" />
-
-
-  <!-- ionic/angularjs js -->
-  <script src="__LIB__/ionic/js/ionic.bundle.js"></script>
-
-  <!-- your app's js -->
-  <script src="{:U(indexJs.js)}"></script>
-   <!-- <script src="__JS__/app.js"></script>
-   <script src="__JS__/controllers.js"></script> -->
-
-</head>
-<body ng-controller="MyCtrl">
-<div class="bar bar-header bar-dark">
+<script id="templates/indexHome.html" type="text/ng-template">
+<ion-view view-title="首页">
+	<div class="bar bar-header bar-dark">
     <a href="" class="button button-icon icon ion-close-round"></a>
     <h1 class="title">洛克酒店预订</h1>
   </div>
@@ -56,7 +21,7 @@
     </a>
 </div>
 <!-- 查看评论 -->
-<div style="margin-bottom: 0px; margin-top: -9px;"><button class="button button-full">查看评论</button></div>
+<a href="#/tab/evaluation"><div style="margin-bottom: 0px; margin-top: -9px;"><button class="button button-full">查看评论</button></div></a>
 <!-- 选择房型 -->
 <div class="row" style="margin-top: -25px;">
   <a class="button button-stable button-full button-positive col">全日房</a>
@@ -75,26 +40,8 @@
       </div>
       <a class="col button button-icon icon ion-chevron-right"></a>
 </div>
-  <div class="tabs tabs-icon-top tabs-positive">
-  <a class="tab-item">
-    <i class="icon ion-home"></i>
-      首页
-  </a>
-  <a class="tab-item">
-    <i class="icon ion-location"></i>
-      搜周边
-  </a>
-  <a class="tab-item">
-    <i class="icon ion-ios-list"></i>
-      活动
-  </a>
-  <a class="tab-item">
-    <i class="icon ion-person"></i>
-      个人中心
-  </a>
-</div>
-</body>
-</html>
+</ion-view>
+</script>
 <style type="text/css">
   .line{
     border: 1px solid #B2B2B2;height: 51px;margin-top: 11px;
@@ -109,5 +56,3 @@
     margin-top: 45px;
   }
 </style>
-
-

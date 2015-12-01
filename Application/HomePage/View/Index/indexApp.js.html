@@ -1,0 +1,62 @@
+var app = angular.module('yunzhiclub', ['ionic']);
+
+app.config(function($stateProvider, $urlRouterProvider){
+    $stateProvider
+    .state('tabs',
+    {
+        url: "/tab",
+        abstract: true,
+        templateUrl: "templates/indexTabs.html"
+    })
+    .state('tabs.home',{
+        url: "/home",
+        views:{
+        	//首页
+            'home-tab':{
+                templateUrl: "templates/indexHome.html",
+                controller: "HomeTabCtrl"
+            }
+        }
+    })
+    .state('tabs.evaluation',{
+        url: "/evaluation",
+        views:{
+        	//首页的查看评论
+            'home-tab':{
+                templateUrl: "templates/indexEvaluation.html"
+            }
+        }
+    })
+    .state("tabs.rim",{
+        url: "/rim",
+        views: {
+            "rim-tab":{
+            	//搜周边
+                templateUrl: "templates/indexRim.html"
+            }
+        }
+    })
+    .state("tabs.activity",{
+        url: "/activity",
+        views: {
+            "activity-tab":{
+            	//活动
+                templateUrl: "templates/indexActivity.html"
+            }
+        }
+    })
+    .state('tabs.personal', {
+      url: "/personal",
+      views: {
+        'personal-tab': {
+        	//个人中心
+          templateUrl: "templates/indexPersonalCenter.html"
+        }
+      }
+    });
+   $urlRouterProvider.otherwise("/tab/home");
+});
+
+app.controller("HomeTabCtrl", ['$scope', function(){
+    console.log('HomeTabCtrl');
+}]);
