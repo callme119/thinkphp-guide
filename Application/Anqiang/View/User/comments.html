@@ -39,12 +39,12 @@
               $scope.show = function() {
 
                   var hideSheet = $ionicActionSheet.show({
-                      // buttons: [
-                      //   { text: '<b>Share</b> This' },
-                      //   { text: 'Move' }
-                      // ],
+                      buttons: [
+                        { text: '我的积分' },
+                        // { text: 'Move' }
+                      ],
                       // destructiveText: 'Delete',
-                      titleText: '评价成功',
+                      titleText: '<b>评价成功，积分+5<b>',
                       cancelText: '确定',
                       cancel: function() {
                            // add cancel code..
@@ -101,7 +101,11 @@
 		</button>
 		</div>
 		<div class="col col-33">
+    <div class="list">
+    <div class=" item-avatar">
 		<img src="__IMG__/rujia1.png">
+    </div>
+    </div>
 		</div>
 	</div>
 	<!-- </div> -->
