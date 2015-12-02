@@ -54,12 +54,48 @@ app.config(function($stateProvider, $urlRouterProvider){
             }
         }
     })
+    .state("tabs.activityDetail",{
+        url: "/activityDetail",
+        views: {
+            "activity-tab":{
+                //活动
+                templateUrl: "templates/indexActivityDetail.html"
+            }
+        }
+    })
     .state('tabs.personal', {
       url: "/personal",
       views: {
         'personal-tab': {
         	//个人中心
           templateUrl: "templates/indexPersonalCenter.html"
+        }
+      }
+    })
+    .state('tabs.toBePaid', {
+      url: "/toBePaid",
+      views: {
+        'personal-tab': {
+            //个人中心
+          templateUrl: "templates/indexToBePaid.html"
+        }
+      }
+    })
+    .state('tabs.toBeEvaluation', {
+      url: "/toBeEvaluation",
+      views: {
+        'personal-tab': {
+            //个人中心
+          templateUrl: "templates/indexToBeEvaluation.html"
+        }
+      }
+    })
+    .state('tabs.toBeStay', {
+      url: "/toBeStay",
+      views: {
+        'personal-tab': {
+            //个人中心
+          templateUrl: "templates/indexToBeStay.html"
         }
       }
     });
@@ -69,3 +105,13 @@ app.config(function($stateProvider, $urlRouterProvider){
 app.controller("HomeTabCtrl", ['$scope', function(){
     console.log('HomeTabCtrl');
 }]);
+
+app.controller('SlideCtrl', function($scope) {
+  $scope.countEm = [
+    '__IMG__/gundong.jpg',
+    '__IMG__/jiudian.jpg',
+    '__IMG__/big.jpg',
+    '__IMG__/rujia.jpg',
+    '__IMG__/tupian.png',
+  ];
+});

@@ -1,10 +1,5 @@
 <script id="templates/indexPersonalCenter.html" type="text/ng-template">
-	<div class="bar bar-header bar-positive">
-		<a href="#/app/capture" class="button button-icon icon ion-chevron-left"></a>
-		<h1 class="title">个人中心</h1>
-		<a href="#/app/capture" class="button button-icon icon ion-gear-a"></a>
-	</div>
-
+	<ion-view view-title="个人中心">
 	<ion-content class="bar-content">
 	<div class="list has-header">
 		<a class="item item-avatar" href="#">
@@ -18,15 +13,15 @@
 		</div>
 
 		<div class="button-bar">
-			<a class="button button-light">
+			<a href="#/tab/toBePaid" class="button button-light">
 				<i class="icon  ion-ios-folder-outline"></i>
 				<p>待支付</p>
 			</a>
-			<a class="button button-light">
+			<a href="#/tab/toBeEvaluation" class="button button-light">
 				<i class="icon ion-ios-rose-outline"></i>
 				<p>待评价</p>
 			</a>
-			<a class="button button-light">
+			<a href="#/tab/toBeStay" class="button button-light">
 				<i class="icon ion-ios-browsers-outline"></i>
 				<p>待入住</p>
 			</a>
@@ -53,4 +48,5 @@
 	</a>
 </div>
 </ion-content>
+</ion-view>
 </script>

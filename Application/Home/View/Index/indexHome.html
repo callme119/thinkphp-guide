@@ -1,11 +1,17 @@
 <script id="templates/indexHome.html" type="text/ng-template">
-<ion-view view-title="首页">
+<ion-view view-title="首页" ng-controller="SlideCtrl">
 	<div class="bar bar-header bar-dark">
     <a href="" class="button button-icon icon ion-close-round"></a>
     <h1 class="title">洛克酒店预订</h1>
   </div>
 <!-- 图片轮播 -->
-<div class="gundong"><img src="__IMG__/gundong.jpg"></div>
+      <ion-slide-box class="slides">
+        <ion-slide class="box" ng-repeat="item in countEm">
+          <ion-content>
+            <img ng-src="{{ item }}">
+          </ion-content> 
+        </ion-slide>
+      </ion-slide-box>
 <!-- 各大网站好评 -->
 <div><img src="__IMG__/dianping.png"></div>
 <!-- 酒店介绍 -->
@@ -52,7 +58,14 @@
   .fangxing{
     padding-top: 0px;padding-bottom: 0px;
   }
-  .gundong{
-    margin-top: 45px;
-  }
+  .slides {
+  height: 200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.box img {
+  height: auto;
+  width: 100%;
+}
 </style>
