@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html ng-app="yunzhiclub">
+
+
+
+
+
+
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
@@ -19,8 +26,19 @@
   <!-- your app's js -->
   <script src="__JS__/app.js"></script>
 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+  <style type="text/css">
+    body, html,#allmap {width: 100%;height: 100%;overflow: hidden;margin:0;font-family:"微软雅黑";}
+  </style>
+  <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=U7N6PIKHKGEKgXmi5wqNfItn"></script>
+  <title>地址解析</title>
+
 </head>
 <body ng-controller="MyCtrl">
+
+
+<div id="allmap"></div>
 
 <div class="bar bar-header bar-positive">
   <a href="#/app/capture" class="button button-icon icon ion-chevron-left"></a>
@@ -28,13 +46,7 @@
   <a href="#/app/capture" class="button button-icon icon ion-gear-a"></a>
 </div>
 
-<ion-content class="has-header">
-<div class="list ">
-  <img src="__IMG__/ditu.png">
 
-
- 
-</div>
 </ion-content>
 
 <div class="tabs tabs-icon-top tabs-positive">
@@ -57,4 +69,23 @@
 </div>
 </body>
 </html>
+
+<script type="text/javascript">
+  // 百度地图API功能
+  var map = new BMap.Map("allmap");
+  var point = new BMap.Point(117.223579,39.119671);
+  map.centerAndZoom(point,12);
+  // 创建地址解析器实例
+  var myGeo = new BMap.Geocoder();
+  // 将地址解析结果显示在地图上,并调整地图视野
+  myGeo.getPoint("天津市河西区凯德国贸中心C座（近小白楼地铁站C出口）", function(point){
+    if (point) {
+      map.centerAndZoom(point, 16);
+      map.addOverlay(new BMap.Marker(point));
+    }else{
+      alert("您选择地址没有解析到结果!");
+    }
+  }, "天津市");
+</script>
+
 
