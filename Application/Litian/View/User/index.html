@@ -2,10 +2,19 @@
 <a class="buttom" href="{:U('add')}">
     添加用户
 </a>
+<form action="{:U('index')}" method="get">
+<div>
+    <input type="text" placeholder="search" name="keywords" value ="{:I('get.keywords')}"
+     ></input>
+    <button id="search" type="submit">搜索</button>
+</div>
 <table>
     <thead>
         <tr>
             <th>序号</th>
+            <?php $order = I('get.order') ?>
+            <th><a href="<eq name='order' value="desc"> {:U('index?order=asc')}
+            <else/> {:U('index?order=desc')} </eq>">ID</a></th>
             <th>NAME</th>
             <th>EMAIL</th>
             <th>PHONE</th>
@@ -16,6 +25,7 @@
     <foreach name="users" item="user" key="k">
         <tr>
             <td>{$k+1}</td>
+            <td>{$user[id]}</td>
             <td>{$user[name]}</td>
             <td>{$user[email]}</td>
             <td>{$user[phone]}</td>
@@ -27,4 +37,5 @@
     </foreach>
     </tbody>
 </table>
+</form>
 <div>{$page}</div>
