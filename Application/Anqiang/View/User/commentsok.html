@@ -21,18 +21,26 @@
 
 </head>
 <body ng-controller="MyCtrl">
-<div class="scroll-content has-header">
-  <div class="list">
-    <div class="item">
-      <h2 class="title">点评成功</h1>
-    </div>
-    <div class="item">
-      <h2 class="title">获得积分+5</h1>
-    </div>
-    <div class="item">
-      <button class="button button-block">我的积分</button>
-    </div>
+  <div class="bar bar-header bar-positive">
+    <a class="button icon button-icon ion-chevron-left"></a>
+    <h1 class="title">所有评论</h1>
+  </div>
+<div class="scroll-content has-header padding commentsok">
+  <img src="__IMG__/mark.png">
+  <h3>点评成功!</h3>
+  <h3>获得积分+5</h3>
+
+  <div class="padding">
+  <button class="button button-positive button-block">我的积分</button>
+  <button class="button button-positive button-block">确定</button>
   </div>
 </div>
 </body>
 </html>
+<style type="text/css">
+.commentsok
+{
+  text-align: center;
+}
+  
+</style>
