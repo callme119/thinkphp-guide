@@ -58,8 +58,8 @@ app.config(function($stateProvider, $urlRouterProvider){
         url: "/activityDetail",
         views: {
             "activity-tab":{
-                //活动
-                templateUrl: "templates/indexActivityDetail.html"
+                //活动详情
+                templateUrl: "templates/indexActivityDetails.html"
             }
         }
     })
@@ -76,7 +76,7 @@ app.config(function($stateProvider, $urlRouterProvider){
       url: "/toBePaid",
       views: {
         'personal-tab': {
-            //个人中心
+            //待支付
           templateUrl: "templates/indexToBePaid.html"
         }
       }
@@ -85,7 +85,7 @@ app.config(function($stateProvider, $urlRouterProvider){
       url: "/toBeEvaluation",
       views: {
         'personal-tab': {
-            //个人中心
+            //待评价
           templateUrl: "templates/indexToBeEvaluation.html"
         }
       }
@@ -94,8 +94,17 @@ app.config(function($stateProvider, $urlRouterProvider){
       url: "/toBeStay",
       views: {
         'personal-tab': {
-            //个人中心
+            //待入住
           templateUrl: "templates/indexToBeStay.html"
+        }
+      }
+    })
+    .state('tabs.integral', {
+      url: "/integral",
+      views: {
+        'personal-tab': {
+            //待入住
+          templateUrl: "templates/indexIntegral.html"
         }
       }
     });
