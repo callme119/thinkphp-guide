@@ -35,50 +35,48 @@
   font-style: normal; }
 
 .ion, .ionicons,
-.icon,.iconfont,
-.icon-computer:before,
-.icon-myfill:before,
-.icon-unie64d:before,
-.icon-unie65c:before,
-.icon-unie63b:before,
-.icon-home:before,
-.icon-unie64a:before,
-.icon-unie64c:before,
-.icon-unie611:before,
-.icon-unie615:before,
-.icon-unie606:before,
-.icon-unie637:before,
-.icon-unie647:before,
-.icon-unie648:before,
-.icon-unie649:before,
-.icon-plane:before,
-.icon-computer:before,
-.icon-studyuser:before,
-.icon-micbfenxiang:before,
-.icon-iconbianqian:before,
-.icon-iconditu:before,
-.icon-iconpingjia:before,
-.icon-iconshezhi:before,
-.icon-iconshijian:before,
-.icon-iconshoucang:before,
-.icon-icontianxie:before,
-.icon-icontupian:before,
-.icon-feedback:before,
-.icon-iconfontunie04b:before,
-.icon-iconfontunie036:before,
-.icon-iconfontunie059:before,
-.icon-iconfontunie60a:before,
-.icon-iconfontunie60b:before,
-.icon-iconfontunie61e:before,
-.icon-iconfontunie61f:before,
-.icon-iconfontunie614:before,
-.icon-iconfontunie616:before,
-.icon-iconfontunie621:before,
-.icon-iconfontunie622:before,
-.icon-iconfontunie623:before,
-.icon-iconfontunie624:before,
-.icon-iconfontunie639:before,
-.icon-iconfontunie657:before,
+.ion-myfill:before,
+.ion-unie64d:before,
+.ion-unie65c:before,
+.ion-unie63b:before,
+.ion-home:before,
+.ion-unie64a:before,
+.ion-unie64c:before,
+.ion-unie611:before,
+.ion-unie615:before,
+.ion-unie606:before,
+.ion-unie637:before,
+.ion-unie647:before,
+.ion-unie648:before,
+.ion-unie649:before,
+.ion-plane:before,
+.ion-computer:before,
+.ion-studyuser:before,
+.ion-micbfenxiang:before,
+.ion-iconbianqian:before,
+.ion-iconditu:before,
+.ion-iconpingjia:before,
+.ion-iconshezhi:before,
+.ion-iconshijian:before,
+.ion-iconshoucang:before,
+.ion-icontianxie:before,
+.ion-icontupian:before,
+.ion-feedback:before,
+.ion-iconfontunie04b:before,
+.ion-iconfontunie036:before,
+.ion-iconfontunie059:before,
+.ion-iconfontunie60a:before,
+.ion-iconfontunie60b:before,
+.ion-iconfontunie61e:before,
+.ion-iconfontunie61f:before,
+.ion-iconfontunie614:before,
+.ion-iconfontunie616:before,
+.ion-iconfontunie621:before,
+.ion-iconfontunie622:before,
+.ion-iconfontunie623:before,
+.ion-iconfontunie624:before,
+.ion-iconfontunie639:before,
+.ion-iconfontunie657:before
 {
   display: inline-block;
   font-family: "Ionicons";
@@ -92,90 +90,48 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
-.icon-myfill:before
-{ content: "\e600"; }
-.icon-touxiang:before
-{ content: "\e603"; }
-.icon-shouhuo:before
-{ content: "\e604"; }
-.icon-caidan:before
-{ content: "\e605"; }
-.icon-home:before
-{ content: "\e606"; }
-.icon-dingdan:before
-{ content: "\e607"; }
-.icon-unie64c:before
-{ content: "\e608"; }
-.icon-unie611:before
-{ content: "\e609"; }
-.icon-unie615:before
-{ content: "\e60a"; }
-.icon-unie606:before
-{ content: "\e60b"; }
-.icon-unie637:before
-{ content: "\e60c"; }
-.icon-unie647:before
-{ content: "\e60d"; }
-.icon-unie648:before
-{ content: "\e60e"; }
-.icon-unie649:before
-{ content: "\e60f"; }
-.icon-plane:before
-{ content: "\e601"; }
-.icon-computer:before
-{ content: "\e602"; }
-.icon-studyuser:before
-{ content: "\e610"; }
-.icon-micbfenxiang:before
-{ content: "\e629"; }
-.icon-iconbianqian:before
-{ content: "\e621"; }
-.icon-iconditu:before
-{ content: "\e622"; }
-.icon-iconpingjia:before
-{ content: "\e623"; }
-.icon-iconshezhi:before
-{ content: "\e624"; }
-.icon-iconshijian:before
-{ content: "\e625"; }
-.icon-iconshoucang:before
-{ content: "\e626"; }
-.icon-icontianxie:before
-{ content: "\e627"; }
-.icon-icontupian:before
-{ content: "\e628"; }
-.icon-feedback:before
-{ content: "\e611"; }
-.icon-iconfontunie04b:before
-{ content: "\e612"; }
-.icon-iconfontunie036:before
-{ content: "\e613"; }
-.icon-iconfontunie059:before
-{ content: "\e614"; }
-.icon-iconfontunie60a:before
-{ content: "\e615"; }
-.icon-iconfontunie60b:before
-{ content: "\e616"; }
-.icon-iconfontunie61e:before
-{ content: "\e617"; }
-.icon-iconfontunie61f:before
-{ content: "\e618"; }
-.icon-iconfontunie614:before
-{ content: "\e619"; }
-.icon-iconfontunie616:before
-{ content: "\e61a"; }
-.icon-iconfontunie621:before
-{ content: "\e61b"; }
-.icon-iconfontunie622:before
-{ content: "\e61c"; }
-.icon-iconfontunie623:before
-{ content: "\e61d"; }
-.icon-iconfontunie624:before
-{ content: "\e61e"; }
-.icon-iconfontunie639:before
-{ content: "\e61f"; }
-.icon-iconfontunie657:before
-{ content: "\e620"; }
+.ion-myfill:before { content: "\e600"; }
+.ion-unie64d:before { content: "\e603"; }
+.ion-unie65c:before { content: "\e604"; }
+.ion-unie63b:before { content: "\e605"; }
+.ion-home:before { content: "\e606"; }
+.ion-unie64a:before { content: "\e607"; }
+.ion-unie64c:before { content: "\e608"; }
+.ion-unie611:before { content: "\e609"; }
+.ion-unie615:before { content: "\e60a"; }
+.ion-unie606:before { content: "\e60b"; }
+.ion-unie637:before { content: "\e60c"; }
+.ion-unie647:before { content: "\e60d"; }
+.ion-unie648:before { content: "\e60e"; }
+.ion-unie649:before { content: "\e60f"; }
+.ion-plane:before { content: "\e601"; }
+.ion-computer:before { content: "\e602"; }
+.ion-studyuser:before { content: "\e610"; }
+.ion-micbfenxiang:before { content: "\e629"; }
+.ion-iconbianqian:before { content: "\e621"; }
+.ion-iconditu:before { content: "\e622"; }
+.ion-iconpingjia:before { content: "\e623"; }
+.ion-iconshezhi:before { content: "\e624"; }
+.ion-iconshijian:before { content: "\e625"; }
+.ion-iconshoucang:before { content: "\e626"; }
+.ion-icontianxie:before { content: "\e627"; }
+.ion-icontupian:before { content: "\e628"; }
+.ion-feedback:before { content: "\e611"; }
+.ion-iconfontunie04b:before { content: "\e612"; }
+.ion-iconfontunie036:before { content: "\e613"; }
+.ion-iconfontunie059:before { content: "\e614"; }
+.ion-iconfontunie60a:before { content: "\e615"; }
+.ion-iconfontunie60b:before { content: "\e616"; }
+.ion-iconfontunie61e:before { content: "\e617"; }
+.ion-iconfontunie61f:before { content: "\e618"; }
+.ion-iconfontunie614:before { content: "\e619"; }
+.ion-iconfontunie616:before { content: "\e61a"; }
+.ion-iconfontunie621:before { content: "\e61b"; }
+.ion-iconfontunie622:before { content: "\e61c"; }
+.ion-iconfontunie623:before { content: "\e61d"; }
+.ion-iconfontunie624:before { content: "\e61e"; }
+.ion-iconfontunie639:before { content: "\e61f"; }
+.ion-iconfontunie657:before { content: "\e620"; }
 
 
 /**
