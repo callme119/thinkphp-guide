@@ -24,21 +24,64 @@
   Modified icons to fit ionicon’s grid from original.
 */
 @font-face {
-  font-family: "Iconfont";
+  font-family: "Ionicons";
   src: url("../iconfont/iconfont.eot");
   src: url("../iconfont/iconfont.eot?#iefix") format("embedded-opentype"),
   url("../iconfont/iconfont.ttf") format("truetype"),
   url("../iconfont/iconfont.woff") format("woff"),
   url("../iconfont/iconfont.woff") format("woff"),
-  url("../iconfont/iconfont.svg?#Iconfont") format("svg");
+  url("../iconfont/iconfont.svg?#Ionicons") format("svg");
   font-weight: normal;
   font-style: normal; }
 
 .ion, .ionicons,
 .icon,.iconfont,
-.icon-computer:before {
+.icon-computer:before,
+.icon-myfill:before,
+.icon-unie64d:before,
+.icon-unie65c:before,
+.icon-unie63b:before,
+.icon-home:before,
+.icon-unie64a:before,
+.icon-unie64c:before,
+.icon-unie611:before,
+.icon-unie615:before,
+.icon-unie606:before,
+.icon-unie637:before,
+.icon-unie647:before,
+.icon-unie648:before,
+.icon-unie649:before,
+.icon-plane:before,
+.icon-computer:before,
+.icon-studyuser:before,
+.icon-micbfenxiang:before,
+.icon-iconbianqian:before,
+.icon-iconditu:before,
+.icon-iconpingjia:before,
+.icon-iconshezhi:before,
+.icon-iconshijian:before,
+.icon-iconshoucang:before,
+.icon-icontianxie:before,
+.icon-icontupian:before,
+.icon-feedback:before,
+.icon-iconfontunie04b:before,
+.icon-iconfontunie036:before,
+.icon-iconfontunie059:before,
+.icon-iconfontunie60a:before,
+.icon-iconfontunie60b:before,
+.icon-iconfontunie61e:before,
+.icon-iconfontunie61f:before,
+.icon-iconfontunie614:before,
+.icon-iconfontunie616:before,
+.icon-iconfontunie621:before,
+.icon-iconfontunie622:before,
+.icon-iconfontunie623:before,
+.icon-iconfontunie624:before,
+.icon-iconfontunie639:before,
+.icon-iconfontunie657:before,
+{
   display: inline-block;
-  font-family: "Iconfont";
+  font-family: "Ionicons";
   speak: none;
   font-style: normal;
   font-weight: normal;
