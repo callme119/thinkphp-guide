@@ -1,19 +1,20 @@
 var app = angular.module('yunzhiclub', ['ionic']);
 
 app.config(function($stateProvider, $urlRouterProvider,$ionicConfigProvider){
-     $ionicConfigProvider.platform.ios.tabs.style('standard'); 
-        $ionicConfigProvider.platform.ios.tabs.position('bottom');
-        $ionicConfigProvider.platform.android.tabs.style('standard');
-        $ionicConfigProvider.platform.android.tabs.position('standard');
+    //用$ionicConfigProvider解决了安卓手机上的导航在顶部的bug
+    $ionicConfigProvider.platform.ios.tabs.style('standard'); 
+    $ionicConfigProvider.platform.ios.tabs.position('bottom');
+    $ionicConfigProvider.platform.android.tabs.style('standard');
+    $ionicConfigProvider.platform.android.tabs.position('standard');
 
-        $ionicConfigProvider.platform.ios.navBar.alignTitle('center'); 
-        $ionicConfigProvider.platform.android.navBar.alignTitle('left');
+    $ionicConfigProvider.platform.ios.navBar.alignTitle('center'); 
+    $ionicConfigProvider.platform.android.navBar.alignTitle('left');
 
-        $ionicConfigProvider.platform.ios.backButton.previousTitleText('').icon('ion-ios-arrow-thin-left');
-        $ionicConfigProvider.platform.android.backButton.previousTitleText('').icon('ion-android-arrow-back');        
+    $ionicConfigProvider.platform.ios.backButton.previousTitleText('').icon('ion-ios-arrow-thin-left');
+    $ionicConfigProvider.platform.android.backButton.previousTitleText('').icon('ion-android-arrow-back');        
 
-        $ionicConfigProvider.platform.ios.views.transition('ios'); 
-        $ionicConfigProvider.platform.android.views.transition('android');
+    $ionicConfigProvider.platform.ios.views.transition('ios'); 
+    $ionicConfigProvider.platform.android.views.transition('android');
     $stateProvider
     .state('tabs',
     {
@@ -46,6 +47,33 @@ app.config(function($stateProvider, $urlRouterProvider,$ionicConfigProvider){
         	//评论界面
             'home-tab':{
                 templateUrl: "templates/indexEvaluationing.html"
+            }
+        }
+    })
+    .state('tabs.success',{
+        url: "/success",
+        views:{
+            //评论成功
+            'home-tab':{
+                templateUrl: "templates/indexSuccess.html"
+            }
+        }
+    })
+    .state('tabs.integral1',{
+        url: "/integral1",
+        views:{
+            //我的积分
+            'home-tab':{
+                templateUrl: "templates/indexIntegral.html"
+            }
+        }
+    })
+    .state('tabs.introduction',{
+        url: "/introduction",
+        views:{
+            //酒店介绍
+            'home-tab':{
+                templateUrl: "templates/indexIntroduction.html"
             }
         }
     })
@@ -121,11 +149,20 @@ app.config(function($stateProvider, $urlRouterProvider,$ionicConfigProvider){
         }
       }
     })
-    .state('tabs.integral', {
-      url: "/integral",
+    .state('tabs.allOrder', {
+      url: "/allOrder",
       views: {
         'personal-tab': {
-            //待入住
+            //我的订单
+          templateUrl: "templates/indexAllOrder.html"
+        }
+      }
+    })
+    .state('tabs.integral2', {
+      url: "/integral2",
+      views: {
+        'personal-tab': {
+            //我的积分
           templateUrl: "templates/indexIntegral.html"
         }
       }
