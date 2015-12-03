@@ -1,1 +1,11 @@
 /* Empty. Add your own CSS if you like */
+ .slides {
+  height: 200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.box img {
+  height: auto;
+  width: 100%;
+}

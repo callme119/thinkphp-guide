@@ -1,9 +1,5 @@
 <script id="templates/indexHome.html" type="text/ng-template">
 <ion-view view-title="首页" ng-controller="SlideCtrl">
-	<div class="bar bar-header bar-dark">
-    <a href="" class="button button-icon icon ion-close-round"></a>
-    <h1 class="title">洛克酒店预订</h1>
-  </div>
 <!-- 图片轮播 -->
       <ion-slide-box class="slides">
         <ion-slide class="box" ng-repeat="item in countEm">
@@ -12,18 +8,14 @@
           </ion-content> 
         </ion-slide>
       </ion-slide-box>
-<!-- 各大网站好评 -->
-<div><img src="__IMG__/dianping.png"></div>
 <!-- 酒店介绍 -->
-<div class="list introduction">
-    <a class="item item-thumbnail-left" href="#/tab/introduction">
-      <img src="__IMG__/logo.jpg">
-      <h2>酒店介绍</h2>
-      <h4>洛克公寓，本来生活。</h4>
-      <div><button class="button button-small button-clear button-icon icon ion-wifi"></button>
-      <button class="button button-small button-clear button-icon icon ion-plane"></button>
-      <button class="button button-small button-clear button-icon icon ion-no-smoking"></button>
-      <button class="button button-small button-clear button-icon icon ion-android-car"></button></div>
+<div class="list">
+    <a class="item item-thumbnail" href="#/tab/introduction">
+      <h1 class="energized">4.9分</h1>
+      <h2 class="energized">棒极了</h2>
+      <p>100%好评</p>
+      <p>84条评论></p>
+      <img src="cover.jpg">
     </a>
 </div>
 <!-- 查看评论 -->
@@ -48,24 +40,3 @@
 </div>
 </ion-view>
 </script>
-<style type="text/css">
-  .line{
-    border: 1px solid #B2B2B2;height: 51px;margin-top: 11px;
-  }
-  .introduction{
-    margin-bottom: 5px;
-  }
-  .fangxing{
-    padding-top: 0px;padding-bottom: 0px;
-  }
-  .slides {
-  height: 200px;
-  margin: 0 auto;
-  width: 100%;
-}
-
-.box img {
-  height: auto;
-  width: 100%;
-}
-</style>
