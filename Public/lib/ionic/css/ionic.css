@@ -25,12 +25,12 @@
 */
 @font-face {
   font-family: "Ionicons";
-  src: url("../iconfont/ionicons.eot");
-  src: url("../iconfont/ionicons.eot?#iefix") format("embedded-opentype"), 
-  url("../iconfont/ionicons.ttf") format("truetype"), 
-  url("../iconfont/ionicons.woff") format("woff"), 
+  src: url("../iconfont/iconfont.eot");
+  src: url("../iconfont/iconfont.eot?#iefix") format("embedded-opentype"), 
+  url("../iconfont/iconfont.ttf") format("truetype"), 
+  url("../iconfont/iconfont.woff") format("woff"), 
   
-  url("../iconfont/ionicons.svg?#Ionicons") format("svg");
+  url("../iconfont/iconfont.svg?#Ionicons") format("svg");
   font-weight: normal;
   font-style: normal; }
 
@@ -111,6 +111,7 @@
   text-transform: none;
   text-rendering: auto;
   line-height: 1;
+  font-size: 20px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
@@ -121,7 +122,7 @@
 .icon-zhoubian:before { content: "\e62f"; }
 .icon-weibiaoti1:before { content: "\e631"; }
 .icon-gerenzhongxin:before { content: "\e632"; }
-.icon-shouye:before { content: "\e633"; }
+.icon-shouye:before { content: "\e633"; font-size: 32px;}
 .icon-kefu:before { content: "\e634"; }
 .icon-daizhifu:before { content: "\e635"; }
 .icon-daipingjia1:before { content: "\e636"; }
