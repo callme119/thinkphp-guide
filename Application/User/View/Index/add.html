@@ -5,7 +5,7 @@
 	<title>添加修改用户</title>
 </head>
 <body>
-	<form <eq name="Think.ACTION_NAME" value="add"> action="{:U('save')}"<else />action="{:U('update')}"</eq> method="post">
+	<form <eq name="Think.ACTION_NAME" value="add"> action="{:U('save', I('get.'))}"<else />action="{:U('update', I('get.'))}"</eq> method="post">
 	<input type="hidden" name="id" value="{$user.id}"></input>
 	<label>用户名：</label><input type ="text" name="name" value="{$user.name}" /></br>
 	<label>密码：</label><input type = "password" name="password" value="{$user.password}"/></br>
