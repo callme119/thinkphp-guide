@@ -1,11 +1,12 @@
 <script id="templates/indexHome.html" type="text/ng-template">
 <ion-view view-title="首页" ng-controller="SlideCtrl">
+   <ion-content>
 <!-- 图片轮播 -->
       <ion-slide-box class="slides">
         <ion-slide class="box" ng-repeat="item in countEm">
-          <ion-content>
+       
             <img ng-src="{{ item }}">
-          </ion-content> 
+          
         </ion-slide>
       </ion-slide-box>
 <!-- 酒店介绍 -->
@@ -21,15 +22,16 @@
         <img src="__IMG__/home-ditu.jpg">
       </div>
     </a>
-</div>
-<div class="list">
-<a class="item item-icon-left" href="#/tab/date">
+    <a class="item item-icon-left" href="#/tab/date">
     <i class="icon ion-ios-calendar-outline"></i>
     12月01日-12月02日
     <span class="item-note positive">
       共1晚>
     </span>
   </a>
+</div>
+<div>
+
   <a class="item item-icon-left" href="#/tab/date">
     <h2>豪华套房</h2>
     <p>暂无房型信息</p>
@@ -52,7 +54,7 @@
     </span>
   </a>
 </div>
-<div class="list">
+<div>
 <a class="item item-icon-left" href="#/tab/date">
     <i class="icon ion-ios-clock-outline"></i>
     钟点房
@@ -62,4 +64,5 @@
   </a>
   </div>
 </ion-view>
+</ion-content> 
 </script>

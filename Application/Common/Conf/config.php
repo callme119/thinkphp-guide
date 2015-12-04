@@ -18,11 +18,4 @@ return array(
     'DB_PWD'    => '',  // 密码b2408cac49ed15d67c390dd08a8b0158
     'DB_PORT'   => '3306', // 端口3306);
     'PAGE_SIZE' => '4',//分页中，每页显示的条数使用C(PAGE_SIZE)读取;
-    /* 模板相关配置 */
-    'TMPL_PARSE_STRING' => array(
-        '__IMG__'       => __ROOT__ . '/Public/img',
-        '__CSS__'       => __ROOT__ . '/Public/css',
-        '__JS__'        => __ROOT__ . '/Public/js',
-        '__LIB__'       => __ROOT__ . '/Public/lib',
-    ),
 );
