@@ -1,18 +1,18 @@
 <?php
 namespace User\Model\Index;
 
-use Think\Model;
 class addModel
 {
-	protected $id=0;
-	protected $userName="";
-	protected $password="";
-	protected $user=array();
+	protected $id = 0;
+	protected $userName = "";
+	protected $password = "";
+	protected $user = array();
 
 	public function setUser($user)
 	{
-		$this->user=$user;
+		$this->user = $user;
 	}
+
 	public function getId()
 	{
 		return $this->user['id'];

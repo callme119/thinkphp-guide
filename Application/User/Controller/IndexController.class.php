@@ -2,19 +2,20 @@
 namespace User\Controller;
 
 use Think\Controller;
-use User\Logic\UserLogic;		//用户表
-use User\Model\Index\indexModel;
+use User\Logic\UserLogic;       //用户表
+use User\Model\Index\indexModel;        //
 
 class IndexController extends Controller
 {
-    public function indexAction(){
-    	$UserL = new UserLogic();
+    public function indexAction(){      
 
         //获取列表
+        $UserL = new UserLogic();
         $users = $UserL->getLists();
 
         //获取分页信息
         $page = $UserL->getPageShow();
+
         //判断异常
         if(count($errors=$UserL->getErrors())!==0)
         {
@@ -24,41 +25,31 @@ class IndexController extends Controller
             //显示错误
              $this->error("查找失败，原因：".$error,U('Home/Index/index'));
 
-             return false;    
+             return false;
         }
 
-     //    //传入分页信息
-     //    $this->assign('page',$page);
-
-     //    //传入列表
-    	// $this->assign('users',$users);
-
-
-        $IndexModel=new IndexModel();
+        $IndexModel = new indexModel();
         $IndexModel->setPageShow($page);
-        dump($IndexModel);
         $IndexModel->setUsers($users);
-        
 
         //传入列表
-
         $this->assign('M',$IndexModel);
         
-    	//调用V层
-   		$this->display();
+        //调用V层
+        $this->display();
     }
     public function detailAction(){
-    	//取用户ID
-    	$userId = I('get.id');
+        //取用户ID
+        $userId = I('get.id');
 
-    	//抓取用户信息
-    	$UserL = new UserLogic();
-    	$user = $UserL->getListById($userId);
+        //抓取用户信息
+        $UserL = new UserLogic();
+        $user = $UserL->getListById($userId);
 
         //传值
         $this->assign('user',$user);
 
-    	$this->display();
+        $this->display();
     }
     public function addAction(){
         //显示 display
@@ -120,7 +111,7 @@ class IndexController extends Controller
              return false;
             
         }
-            $this->success("操作成功" , U('User/Index/index?p='.I('get.p')));
+            $this->success("操作成功" , U('User/Index/index?id=', I('get.')));
     }
     public function deleteAction(){
 
