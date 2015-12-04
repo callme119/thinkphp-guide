@@ -3,6 +3,7 @@ namespace User\Controller;
 
 use Think\Controller;
 use User\Logic\UserLogic;		//用户表
+use User\Model\Index\indexModel;
 
 class IndexController extends Controller
 {
@@ -26,11 +27,22 @@ class IndexController extends Controller
              return false;    
         }
 
-        //传入分页信息
-        $this->assign('page',$page);
+     //    //传入分页信息
+     //    $this->assign('page',$page);
+
+     //    //传入列表
+    	// $this->assign('users',$users);
+
+
+        $IndexModel=new IndexModel();
+        $IndexModel->setPageShow($page);
+        dump($IndexModel);
+        $IndexModel->setUsers($users);
+        
 
         //传入列表
-    	$this->assign('users',$users);
+
+        $this->assign('M',$IndexModel);
         
     	//调用V层
    		$this->display();
