@@ -1,93 +1,38 @@
-<!DOCTYPE html>
-<html ng-app="yunzhiclub">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-  <title></title>
-
-  <link href="__LIB__/ionic/css/ionic.css" rel="stylesheet">
-  <link href="__CSS__/style.css" rel="stylesheet">
-  <link href="__CSS__/iconfont.css" rel="stylesheet">
-
-    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
-    <link href="css/ionic.app.css" rel="stylesheet">
-  -->
-  <!-- ionic/angularjs js -->
-  <script src="__LIB__/ionic/js/ionic.bundle.js"></script>
-
-  <!-- your app's js -->
-  <script src="__JS__/app.js"></script>
-
-</head>
-<body ng-controller="MyCtrl">
-<div class="bar  bar-header bar-positive">
-  <a href="" class="button button-icon icon iconfont icon-iconfontunie61e">首页</a>
-  <h1 class="title">选择日期</h1>
-</div>
-<div class="bar bar-subheader bar-stable">
-  <a href="" class="button button-icon icon iconfont icon-iconfontunie61e"></a>
-  <h6 class="title">2015年12月</h6>
-  <a href="" class="button button-icon icon iconfont icon-iconfontunie61f"></a>
-</div>
-
-<ion-content class="bar-content ">
-<div class="list has-subheader">
-  <div class="item row">
-    <div class="col">日</div>
-    <div class="col">一</div>
-    <div class="col">二</div>
-    <div class="col">三</div>
-    <div class="col">四</div>
-    <div class="col">五</div>
-    <div class="col">六</div>
-  </div>
-  <div class="item row">
-    <div class="col"></div>
-    <div class="col"></div>
-    <div class="col stable">1</div>
-    <div class="col stable">2</div>
-    <div class="col stable">3</div>
-    <div class="col positive">4</div>
-    <div class="col">5</div>
-  </div>
-  <div class="item row">
-    <div class="col">6</div>
-    <div class="col">7</div>
-    <div class="col">8</div>
-    <div class="col">9</div>
-    <div class="col">10</div>
-    <div class="col">11</div>
-    <div class="col">12</div>
-  </div>
-  <div class="item row">
-    <div class="col">13</div>
-    <div class="col">14</div>
-    <div class="col">15</div>
-    <div class="col">16</div>
-    <div class="col">17</div>
-    <div class="col">18</div>
-    <div class="col">19</div>
-  </div>
-  <div class="item row">
-    <div class="col">20</div>
-    <div class="col">21</div>
-    <div class="col">22</div>
-    <div class="col">23</div>
-    <div class="col">24</div>
-    <div class="col">25</div>
-    <div class="col">26</div>
-  </div>
-  <div class="item row">
-    <div class="col">27</div>
-    <div class="col">28</div>
-    <div class="col">29</div>
-    <div class="col">30</div>
-    <div class="col">31</div>
-    <div class="col"></div>
-    <div class="col"></div>
-  </div>
-</div>
-</ion-content>
-</body>
-</html>
-
+	<div>
+        <a class="button"  href="{:U('add')}" >添加用户</a>
+    </div>
+    <form action="{:U('index')}" method="get">
+    <div>
+    	<input type="text" placeholder="search" name="keywords" value ="{:I('get.keywords')}"
+         ></input>
+    	<button id="search" type="submit">搜索</button>
+    </div>
+	<table>
+		<tr>
+			<th>序号</th>
+			<?php $order = I('get.order') ?>
+			<th><a href="<eq name='order' value="desc"> {:U('index?order=asc')}  
+			<else/> {:U('index?order=desc')} </eq>">ID</a></th>	
+			<th>name</th>
+			<th>手机号</th>
+			<th>地址</th>
+			<th>邮箱</th>
+			<th>操作</th>
+		</tr>
+		<foreach name="users" item="user" key="k">
+			<tr>
+				<td>{$k+1}</td>
+				<td>{$user[id]}</td>
+				<td>{$user[name]}</td>
+				<td>{$user[phonenumber]}</td>
+				<td>{$user[address]}</td>
+				<td>{$user[email]}</td>
+				<td><a class="button" href="{:U('detail?id='.$user['id'].'&p='.I('get.p'))}">查看</a></td>
+				<td><a class="button" href="{:U('edit?id='.$user['id'].'&p='.I('get.p'))}">编辑</a></td>
+				<td><a class="button" href="{:U('delete?id='.$user['id'].'&p='.I('get.p'))}">删除</a></td>
+			</tr>
+		</foreach>	
+	</table>
+	</form>
+	 
+	{$page}
