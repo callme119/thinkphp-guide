@@ -92,7 +92,7 @@
 .icon-iconfontunie059:before ,
 .icon-iconfontunie60a:before ,
 .icon-iconfontunie60b:before ,
-.icon-iconfontunie61e:before ,
+.back-button:before ,
 .icon-iconfontunie61f:before ,
 .icon-iconfontunie614:before ,
 .icon-iconfontunie616:before ,
@@ -172,7 +172,7 @@
 .icon-iconfontunie059:before { content: "\e614"; }
 .icon-iconfontunie60a:before { content: "\e615"; }
 .icon-iconfontunie60b:before { content: "\e616"; }
-.icon-iconfontunie61e:before { content: "\e617"; }
+.back-button:before { content: "\e617"; }
 .icon-iconfontunie61f:before { content: "\e618"; }
 .icon-iconfontunie614:before { content: "\e619"; }
 .icon-iconfontunie616:before { content: "\e61a"; }
