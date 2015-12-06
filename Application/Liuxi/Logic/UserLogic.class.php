@@ -72,7 +72,7 @@ class UserLogic extends UserModel
             //设置分页样式
             $Page->setConfig('prev','上一页');
             $Page->setConfig('next','下一页');
-            $Page->setConfig('theme','%HEADER% %UP_PAGE% %DOWN_PAGE% %DOWN_PAGE%');
+            $Page->setConfig('theme','%HEADER% %UP_PAGE% %DOWN_PAGE%');
 
             $this->pageShow = $Page->show();
 

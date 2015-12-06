@@ -16,7 +16,7 @@ class UserController extends Controller
         //dump($users);
         $page = $UserL->getPageShow();
 
-        if (count ($error = $UserL->getErrors())!==0)
+        if (count ($errors = $UserL->getErrors())!==0)
         {
             //数组变字符串
             $error = implode('<br/>',$errors);
