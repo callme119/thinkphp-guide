@@ -12,10 +12,11 @@ class IndexController extends Controller
         //获取列表
         $UserL = new UserLogic();
         $users = $UserL->getLists();
-
+        
         //获取分页信息
         $page = $UserL->getPageShow();
-
+        dump($page);
+        
         //判断异常
         if(count($errors=$UserL->getErrors())!==0)
         {
@@ -31,7 +32,7 @@ class IndexController extends Controller
         $IndexModel = new indexModel();
         $IndexModel->setPageShow($page);
         $IndexModel->setUsers($users);
-
+        // dump($IndexModel);
         //传入列表
         $this->assign('M',$IndexModel);
         
@@ -111,7 +112,7 @@ class IndexController extends Controller
              return false;
             
         }
-            $this->success("操作成功" , U('User/Index/index?id=', I('get.')));
+            $this->success("操作成功" , U('User/Index/index?p=', I('get.')));
     }
     public function deleteAction(){
 

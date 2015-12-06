@@ -75,6 +75,7 @@ class UserLogic extends UserModel
             {
                 $map['name']=array('like','%'.$keywords.'%');
             }
+            
 
             //计算总条数
             $totalCount=$this->where($map)->count();

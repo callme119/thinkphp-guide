@@ -13,11 +13,13 @@ class indexModel
 	public function setPageShow($pageShow)
 	{
 		$this->pageShow = (string)$pageShow;
+		
 	}
 
 	public function getPageShow()
 	{
-		$pageShow = "<a href=" . U('?p=2');
+		// return $pageShow = "<a href=" . U('?p=2');
+		return $this->pageShow;
 	}
 
 	public function setUsers($users)
@@ -27,9 +29,10 @@ class indexModel
 
 	public function getUsers()
 	{
-		$UserM = new UserModel();
-		$lists = $UserM->select();
-		return $lists;
+		// $UserM = new UserModel();
+		// $lists = $UserM->select();
+		// return $lists;
+		return $this->users;
 	}
 
 	public function getPostsByUserId($userId)

@@ -63,6 +63,7 @@ class UserLogic extends UserModel
 				$map['name'] = array('like','%'.$keywords.'%');
 				
 			}
+			dump($map);
 
 		    //计算总条数
 			$totalCount = $this->where($map)->count();
@@ -76,23 +77,23 @@ class UserLogic extends UserModel
 			//设置分页样式
 			$Page->setConfig('prev','上一页');
 			$Page->setConfig('next','下一页');
-			$Page->setConfig('theme', '%HEADER% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE%');
+			$Page->setConfig('theme', '%HEADER% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE%');//共几条记录如何得到的？
 
 			$this->pageShow = $Page->show();
 
-			// //判断$p是否大于0；
-	  //       if((int)I('get.p')>0)
-	  //       {
-	  //        $p=(int)I('get.p');
-	  //       }
-	  //       else{
-	  //        $p=1;
-	  //       }
+			//判断$p是否大于0；
+	        if((int)I('get.p')>0)
+	        {
+	         $p=(int)I('get.p');
+	        }
+	        else{
+	         $p=1;
+	        }
 
 			$order = 'id '.I('get.order');
 
 			$lists=$this->page($_GET['p'],$pagesize)->where($map)->order($order)->select();
-
+			
 			return $lists;
 		}
 		catch(\Think\Exception $e)
