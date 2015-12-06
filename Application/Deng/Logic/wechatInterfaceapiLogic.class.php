@@ -1,7 +1,7 @@
 <?php
-namespace Admin\Logic;
+namespace Deng\Logic;
 
-use Admin\Controller\IndexController;
+use Deng\Controller\IndexController;
 
 class wechatInterfaceapiLogic extends IndexController {
 	 public function getAccessToken($appid, $appsecret){
