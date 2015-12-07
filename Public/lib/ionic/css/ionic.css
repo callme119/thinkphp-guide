@@ -43,6 +43,8 @@
 .ion-zhoubian:before,
 .ion-weibiaoti1:before,
 .ion-wifi:before,
+.ion-weixin:before,
+.ion-friends:before,
 .ion-gerenzhongxin:before,
 .ion-shouye:before,
 .ion-kefu:before,
@@ -52,6 +54,15 @@
 .ion-daipingjia2:before,
 .ion-daifukuan:before,
 .ion-sousu:before,
+.ion-selectfill:before,
+.ion-back:before,
+.ion-top:before,
+.ion-down:before,
+.ion-right:before,
+.ion-lbsfill:before,
+.ion-lbs:before,
+.ion-closefill:before,
+.ion-close:before,
 .ion-myfill:before,
 .ion-unie64d:before,
 .ion-unie65c:before,
@@ -66,6 +77,7 @@
 .ion-unie647:before,
 .ion-unie648:before,
 .ion-unie649:before,
+.ion-rmb:before,
 .ion-tabmeinactive:before,
 .ion-daipinglun:before,
 .ion-plane:before,
@@ -95,17 +107,22 @@
 .ion-rili:before,
 .ion-iconfontunie04b:before,
 .ion-iconfontunie036:before,
+.ion-iconfontunie042:before,
+.ion-iconfontunie044:before,
 .ion-iconfontunie059:before,
-.ion-iconfontunie60a:before,
+.ion-message:before,
 .ion-iconfontunie60b:before,
 .ion-ios-arrow-back:before,
 .ion-iconfontunie61f:before,
 .ion-iconfontunie614:before,
+.ion-iconfontunie615:before,
 .ion-iconfontunie616:before,
 .ion-iconfontunie621:before,
 .ion-iconfontunie622:before,
 .ion-iconfontunie623:before,
 .ion-iconfontunie624:before,
+.ion-iconfontunie635:before,
+.ion-iconfontunie636:before,
 .ion-iconfontunie639:before,
 .ion-iconfontunie657:before,
 .ion-zhongdianfangbeijing:before
@@ -130,6 +147,8 @@
 .ion-zhoubian:before { content: "\e62f"; }
 .ion-weibiaoti1:before { content: "\e631"; }
 .ion-wifi:before { content: "\e639"; }
+.ion-weixin:before { content: "\e64e"; }
+.ion-friends:before { content: "\e64f"; }
 .ion-gerenzhongxin:before { content: "\e632"; }
 .ion-shouye:before { content: "\e633"; }
 .ion-kefu:before { content: "\e634"; }
@@ -139,6 +158,15 @@
 .ion-daipingjia2:before { content: "\e637"; }
 .ion-daifukuan:before { content: "\e638"; }
 .ion-sousu:before { content: "\e630"; }
+.ion-selectfill:before { content: "\e650"; }
+.ion-back:before { content: "\e651"; }
+.ion-top:before { content: "\e652"; }
+.ion-down:before { content: "\e653"; }
+.ion-right:before { content: "\e654"; }
+.ion-lbsfill:before { content: "\e655"; }
+.ion-lbs:before { content: "\e656"; }
+.ion-closefill:before { content: "\e657"; }
+.ion-close:before { content: "\e658"; }
 .ion-myfill:before { content: "\e600"; }
 .ion-unie64d:before { content: "\e603"; }
 .ion-unie65c:before { content: "\e604"; }
@@ -153,6 +181,7 @@
 .ion-unie647:before { content: "\e60d"; }
 .ion-unie648:before { content: "\e60e"; }
 .ion-unie649:before { content: "\e60f"; }
+.ion-rmb:before { content: "\e659"; }
 .ion-tabmeinactive:before { content: "\e63a"; }
 .ion-daipinglun:before { content: "\e63b"; }
 .ion-plane:before { content: "\e601"; }
@@ -182,17 +211,22 @@
 .ion-rili:before { content: "\e647"; }
 .ion-iconfontunie04b:before { content: "\e612"; }
 .ion-iconfontunie036:before { content: "\e613"; }
+.ion-iconfontunie042:before { content: "\e649"; }
+.ion-iconfontunie044:before { content: "\e64a"; }
 .ion-iconfontunie059:before { content: "\e614"; }
-.ion-iconfontunie60a:before { content: "\e615"; }
+.ion-message:before { content: "\e615"; }
 .ion-iconfontunie60b:before { content: "\e616"; }
 .ion-ios-arrow-back:before { content: "\e617"; }
 .ion-iconfontunie61f:before { content: "\e618"; }
 .ion-iconfontunie614:before { content: "\e619"; }
+.ion-iconfontunie615:before { content: "\e64b"; }
 .ion-iconfontunie616:before { content: "\e61a"; }
 .ion-iconfontunie621:before { content: "\e61b"; }
 .ion-iconfontunie622:before { content: "\e61c"; }
 .ion-iconfontunie623:before { content: "\e61d"; }
 .ion-iconfontunie624:before { content: "\e61e"; }
+.ion-iconfontunie635:before { content: "\e64c"; }
+.ion-iconfontunie636:before { content: "\e64d"; }
 .ion-iconfontunie639:before { content: "\e61f"; }
 .ion-iconfontunie657:before { content: "\e620"; }
 .ion-zhongdianfangbeijing:before { content: "\e648"; }
