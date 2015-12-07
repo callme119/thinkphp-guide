@@ -1,8 +1,11 @@
 <?php
 return array(
+    'YUNZHI_PAGE_SIZE'      => 2,          //默认分页大小
+    
 	'DEFAULT_MODULE'        => 'Login',  // 默认模块
     'ACTION_SUFFIX'         => 'Action',//设置ACTION前缀为action
-
+    'TAGLIB_PRE_LOAD'       =>  'Yunzhi',   // 需要额外加载的标签库(须指定标签库名称)，多个以逗号分隔 
+    
    	// 'DB_PREFIX' => 'yunzhi_', // 数据库表前缀
    	// 'DB_TYPE'   => 'mysqli', // 数据库类型
     // 'DB_HOST'   => '127.0.0.1',
