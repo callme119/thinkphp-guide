@@ -4,6 +4,8 @@ namespace User\Controller;
 use Think\Controller;
 use User\Logic\UserLogic;       //用户表
 use User\Model\Index\indexModel;        //
+use User\Model\Index\addModel;
+use User\Model\Index\detailModel;     
 
 class IndexController extends Controller
 {
@@ -47,13 +49,19 @@ class IndexController extends Controller
         $UserL = new UserLogic();
         $user = $UserL->getListById($userId);
 
+        $DetailModel=new detailModel();
+        $DetailModel->setUser($user);
+
+
         //传值
-        $this->assign('user',$user);
+        $this->assign('M',$DetailModel);
 
         $this->display();
     }
     public function addAction(){
         //显示 display
+        $AddModel=new addModel();
+        $this->assign('M',$AddModel);
         $this->display();
     }
     public function saveAction(){
@@ -85,8 +93,11 @@ class IndexController extends Controller
         $UserL = new UserLogic();
         $user = $UserL->getListById($userId);
 
+        $AddModel=new addModel();
+        $AddModel->setUser($user);
+        dump($AddModel);
         //传给前台
-        $this->assign('user',$user);
+        $this->assign('M',$AddModel);
         
         //显示 display('add')
         $this->display('add'); 

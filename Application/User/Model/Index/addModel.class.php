@@ -19,7 +19,7 @@ class addModel
 	}
 	public function getUserName()
 	{
-		return $this->user['username'];
+		return $this->user['name'];
 	}
 	public function getPassword()
 	{

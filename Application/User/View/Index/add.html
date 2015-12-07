@@ -7,8 +7,8 @@
 <body>
 	<form <eq name="Think.ACTION_NAME" value="add"> action="{:U('save',I('get.'))}"<else />action="{:U('update',I('get.'))}"</eq> method="post">
 	<input type="hidden" name="id" value="{$user.id}"></input>
-	<label>用户名：</label><input type ="text" name="name" value="{$user.name}" /></br>
-	<label>密码：</label><input type = "password" name="password" value="{$user.password}"/></br>
+	<label>用户名：</label><input type ="text" name="name" value="{:$M->getUserName()}" /></br>
+	<label>密码：</label><input type = "password" name="password" value="{:$M->getPassword()}"/></br>
 	<label>确认密码：</label><input type = "password" name="repassword" value="{$user.repassword}"/></br>
 	<label>手机号：</label><input type ="text" name="phonenumber" value="{$user.phonenumber}" /></br>
 	<label>地址：</label><input type = "text" name="address" value="{$user.address}"/></br>
