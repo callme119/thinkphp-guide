@@ -13,8 +13,8 @@
         <tr>
             <th>序号</th>
             <?php $order = I('get.order') ?>
-            <th><a href="<eq name='order' value="desc"> {:U('index?order=asc')}
-            <else/> {:U('index?order=desc')} </eq>">ID</a></th>
+            <th><a href="<eq name='order' value="desc"> {:U('index?order=asc',I('get.'))}
+            <else/> {:U('index?order=desc',I('get.'))} </eq>">ID</a></th>
             <th>NAME</th>
             <th>EMAIL</th>
             <th>PHONE</th>
@@ -30,9 +30,9 @@
             <td>{$user[email]}</td>
             <td>{$user[phone]}</td>
             <td>
-            <a class="button" href="{:U('detail?id='.$user['id'])}">查看</a>
-            <a class="button" href="{:U('edit?id='.$user['id'].'p='.$p)}">编辑</a>
-            <a class="button" href="{:U('delete?id='.$user['id'])}">删除</a>
+            <a class="button" href="{:U('detail?id='.$user['id'],I('get.'))}">查看</a>
+            <a class="button" href="{:U('edit',I('get.'))}">编辑</a>
+            <a class="button" href="{:U('delete?id='.$user['id'],I('get.'))}">删除</a>
         </tr>
     </foreach>
     </tbody>
