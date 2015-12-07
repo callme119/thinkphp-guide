@@ -32,15 +32,6 @@ app.config(function($stateProvider, $urlRouterProvider,$ionicConfigProvider){
             }
         }
     })
-    .state('tabs.introduct',{
-        url: "/introduct",
-        views:{
-            //酒店介绍
-            'home-tab':{
-                templateUrl: "templates/indexIntroduction.html"
-            }
-        }
-    })
     .state('tabs.evaluation',{
         url: "/evaluation",
         views:{
@@ -77,12 +68,30 @@ app.config(function($stateProvider, $urlRouterProvider,$ionicConfigProvider){
             }
         }
     })
+    .state('tabs.paySuccess1',{
+        url: "/paySuccess1",
+        views:{
+            //支付成功
+            'home-tab':{
+                templateUrl: "templates/indexPaySuccess.html"
+            }
+        }
+    })
     .state('tabs.date',{
         url: "/date",
         views:{
             //选择日期
             'home-tab':{
                 templateUrl: "templates/indexDate.html"
+            }
+        }
+    })
+     .state('tabs.introduce',{
+        url: "/introduce",
+        views:{
+            //酒店介绍
+            'home-tab':{
+                templateUrl: "templates/indexIntroduce.html"
             }
         }
     })
