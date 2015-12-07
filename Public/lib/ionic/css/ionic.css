@@ -36,6 +36,7 @@
   font-style: normal; }
 
 .Ionicons,.ion, .ionicons,
+.ion-feiji2:before,
 .ion-jifen:before,
 .ion-daipingjia:before,
 .ion-iconzhoubian:before,
@@ -45,11 +46,14 @@
 .ion-wifi:before,
 .ion-weixin:before,
 .ion-friends:before,
+.ion-huilv24xiaoshireshui2:before,
+.ion-24xiaoshireshui:before,
 .ion-gerenzhongxin:before,
 .ion-shouye:before,
 .ion-kefu:before,
 .ion-daizhifu:before,
 .ion-daipingjia1:before,
+.ion-jinzhixiyan:before,
 .ion-tag:before,
 .ion-daipingjia2:before,
 .ion-daifukuan:before,
@@ -77,6 +81,7 @@
 .ion-unie647:before,
 .ion-unie648:before,
 .ion-unie649:before,
+.ion-feiji:before,
 .ion-rmb:before,
 .ion-tabmeinactive:before,
 .ion-daipinglun:before,
@@ -91,6 +96,7 @@
 .ion-feng:before,
 .ion-studyuser:before,
 .ion-iconfonticon:before,
+.ion-tingche1:before,
 .ion-micbfenxiang:before,
 .ion-shouye1:before,
 .ion-iconbianqian:before,
@@ -140,6 +146,7 @@
   -moz-osx-font-smoothing: grayscale;
    }
 
+.ion-feiji2:before { content: "\e65a"; }
 .ion-jifen:before { content: "\e62b"; }
 .ion-daipingjia:before { content: "\e62c"; }
 .ion-iconzhoubian:before { content: "\e62d"; }
@@ -149,11 +156,14 @@
 .ion-wifi:before { content: "\e639"; }
 .ion-weixin:before { content: "\e64e"; }
 .ion-friends:before { content: "\e64f"; }
+.ion-huilv24xiaoshireshui2:before { content: "\e65b"; }
+.ion-24xiaoshireshui:before { content: "\e65c"; }
 .ion-gerenzhongxin:before { content: "\e632"; }
 .ion-shouye:before { content: "\e633"; }
 .ion-kefu:before { content: "\e634"; }
 .ion-daizhifu:before { content: "\e635"; }
 .ion-daipingjia1:before { content: "\e636"; }
+.ion-jinzhixiyan:before { content: "\e65d"; }
 .ion-tag:before { content: "\e62a"; }
 .ion-daipingjia2:before { content: "\e637"; }
 .ion-daifukuan:before { content: "\e638"; }
@@ -181,6 +191,7 @@
 .ion-unie647:before { content: "\e60d"; }
 .ion-unie648:before { content: "\e60e"; }
 .ion-unie649:before { content: "\e60f"; }
+.ion-feiji:before { content: "\e65e"; }
 .ion-rmb:before { content: "\e659"; }
 .ion-tabmeinactive:before { content: "\e63a"; }
 .ion-daipinglun:before { content: "\e63b"; }
@@ -195,6 +206,7 @@
 .ion-feng:before { content: "\e646"; }
 .ion-studyuser:before { content: "\e610"; }
 .ion-iconfonticon:before { content: "\e63f"; }
+.ion-tingche1:before { content: "\e65f"; }
 .ion-micbfenxiang:before { content: "\e629"; }
 .ion-shouye1:before { content: "\e640"; }
 .ion-iconbianqian:before { content: "\e621"; }
@@ -230,8 +242,6 @@
 .ion-iconfontunie639:before { content: "\e61f"; }
 .ion-iconfontunie657:before { content: "\e620"; }
 .ion-zhongdianfangbeijing:before { content: "\e648"; }
-
-
 
 /**
  * Resets
