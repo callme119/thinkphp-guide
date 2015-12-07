@@ -1,10 +1,9 @@
 <script id="templates/indexConfirmOrder.html" type="text/ng-template">
 <ion-view view-title="订单填写">
-	<ion-content>
-		<div class="bar bar-subheader">
-  <h4 class="tittle">预付须知：</h4>
-</div>
-  <div class="list has-header has-subheader">
+	<ion-content class="ion-content">
+		<div class="">
+      <h4 class="tittle">预付须知：</h4>
+    </div>
     <div class="list">
       <a class="item item-thumbnail-left" href="#">
         <img src="__IMG__/big.jpg">
@@ -38,22 +37,29 @@
         <input type="text" />
       </label>
       <div class="item">
-        <span class="danger">温馨提示：注意到店时间为------</span>
+        <span class="danger">温馨提示：注意到店时间为14:00-04:00</span>
       </div>
+
+      <div class="item item-checkbox">
+         <label class="checkbox">
+           <input type="checkbox" checked="">
+         </label>
+         用200积分换打折卡
+      </div>
+      <label class="item item-input">
+        <span class="input-label">积分兑换：</span>
+        <select>
+          <option selected>用200积分换打折卡</option>
+        </select>
+      </label>
     </div>
-    <ul class="list">
-        <li class="item item-checkbox">
-           <label class="checkbox">
-             <input type="checkbox" checked="">
-           </label>
-           用200积分换打折卡
-        </li>
-    </ul>
-  </div>
-  <div class="bar bar-footer bar-stable">
-    <h4 class="dollar pull-right">在线支付：￥365.00</h4>
-    <div class="button button-large button-positive pull-right">提交订单</div>
-</div>
+
+
+
 	</ion-content>
+  <div class="bar bar-footer bar-stable">
+      <h4 class="dollar pull-right">在线支付：￥365.00</h4>
+      <div class="button button-large button-positive pull-right">提交订单</div>
+    </div>
 </ion-view>
 <script>
