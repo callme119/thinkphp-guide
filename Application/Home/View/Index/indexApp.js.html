@@ -2,18 +2,18 @@ var app = angular.module('yunzhiclub', ['ionic']);
 
 app.config(function($stateProvider, $urlRouterProvider,$ionicConfigProvider){
     //用$ionicConfigProvider解决了安卓手机上的导航在顶部的bug
-    $ionicConfigProvider.platform.ios.tabs.style('standard');
+    $ionicConfigProvider.platform.ios.tabs.style('standard'); 
     $ionicConfigProvider.platform.ios.tabs.position('bottom');
     $ionicConfigProvider.platform.android.tabs.style('standard');
     $ionicConfigProvider.platform.android.tabs.position('standard');
 
-    $ionicConfigProvider.platform.ios.navBar.alignTitle('center');
+    $ionicConfigProvider.platform.ios.navBar.alignTitle('center'); 
     $ionicConfigProvider.platform.android.navBar.alignTitle('left');
 
     $ionicConfigProvider.platform.ios.backButton.previousTitleText('').icon('ion-ios-arrow-thin-left');
-    $ionicConfigProvider.platform.android.backButton.previousTitleText('').icon('ion-android-arrow-back');
+    $ionicConfigProvider.platform.android.backButton.previousTitleText('').icon('ion-android-arrow-back');        
 
-    $ionicConfigProvider.platform.ios.views.transition('ios');
+    $ionicConfigProvider.platform.ios.views.transition('ios'); 
     $ionicConfigProvider.platform.android.views.transition('android');
     $stateProvider
     .state('tabs',
@@ -86,12 +86,12 @@ app.config(function($stateProvider, $urlRouterProvider,$ionicConfigProvider){
             }
         }
     })
-    .state('tabs.hotel',{
-        url: "/hotel",
+    .state('tabs.totel',{
+        url: "/totel",
         views:{
             //酒店介绍
             'home-tab':{
-                templateUrl: "templates/indexHotel.html"
+                templateUrl: "templates/indexTotel.html"
             }
         }
     })
@@ -208,6 +208,22 @@ app.config(function($stateProvider, $urlRouterProvider,$ionicConfigProvider){
 
 app.controller("HomeTabCtrl", ['$scope', function(){
     console.log('HomeTabCtrl');
+     // 百度地图API功能
+  var map = new BMap.Map("allmap");
+  var point = new BMap.Point(117.223579,39.119671);
+  map.centerAndZoom(point,12);
+  // 创建地址解析器实例
+  var myGeo = new BMap.Geocoder();
+  // 将地址解析结果显示在地图上,并调整地图视野
+  myGeo.getPoint("天津市河西区凯德国贸中心C座（近小白楼地铁站C出口）", function(point){
+    if (point) {
+      map.centerAndZoom(point, 16);
+      map.addOverlay(new BMap.Marker(point));
+    }else{
+      alert("您选择地址没有解析到结果!");
+    }
+  }, "天津市");
+
 }]);
 
 app.controller('SlideCtrl', function($scope) {
@@ -221,7 +237,7 @@ app.controller('SlideCtrl', function($scope) {
 
 app.controller('MapCtrl', function() {
  // 百度地图API功能
-  var map = new BMap.Map("allmap");
+  var map = new BMap.Map("map");
   var point = new BMap.Point(117.223579,39.119671);
   map.centerAndZoom(point,12);
   // 创建地址解析器实例
