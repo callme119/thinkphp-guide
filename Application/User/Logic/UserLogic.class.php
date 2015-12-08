@@ -80,15 +80,6 @@ class UserLogic extends UserModel
 
 			$this->pageShow = $Page->show();
 
-			// //判断$p是否大于0；
-	  //       if((int)I('get.p')>0)
-	  //       {
-	  //        $p=(int)I('get.p');
-	  //       }
-	  //       else{
-	  //        $p=1;
-	  //       }
-
 			$order = 'id '.I('get.order');
 
 			$lists=$this->page($_GET['p'],$pagesize)->where($map)->order($order)->select();
