@@ -1,5 +1,5 @@
 <?php
-namespace Yunzhi\Model;
+namespace Wjy\Model;
 
 use Think\Model;
 
