@@ -185,6 +185,24 @@ app.config(function($stateProvider, $urlRouterProvider,$ionicConfigProvider){
         }
       }
     })
+    .state('tabs.evaluationing1', {
+      url: "/evaluationing1",
+      views: {
+        'personal-tab': {
+            //个人中心待评价的评价界面
+          templateUrl: "templates/indexEvaluationing.html"
+        }
+      }
+    })
+    .state('tabs.success1',{
+        url: "/success",
+        views:{
+            //个人中心待评价的评论成功
+            'home-tab':{
+                templateUrl: "templates/indexSuccess.html"
+            }
+        }
+    })
     .state('tabs.allOrder', {
       url: "/allOrder",
       views: {
