@@ -13,5 +13,5 @@ Class SampleController extends Controller
 		dump($users);
 		$this->display();
 	}
-
+	
 }
