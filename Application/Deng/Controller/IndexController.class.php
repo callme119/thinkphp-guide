@@ -5,30 +5,48 @@ use Think\Controller;
 use Deng\Logic\wechatInterfaceapiLogic;
 use Deng\Logic\wechatMenuapiLogic;
 use Deng\Logic\CustomMenuLogic;
-use Deng\Model\CustomMenuModel;
+use Deng\Model\Index\IndexModel;
+use Deng\Model\Index\addModel;
 
 class IndexController extends Controller {
-   public function createMenu(){
-   	//调用微信接口获取access_token等基本信息
-		$appid = C("APPID");
-		$appsecret = C("APPSECRET");
-		$wechatInterface = new wechatInterfaceapiLogic();
-		$access_token = $wechatInterface->getAccessToken($appid,$appsecret);
+ 
+    //将后台数据替换前台菜单
+    public function createMenuAction(){
+        //获取access_token
+        $appid = C("APPID");
+        $appsecret = C("APPSECRET");
+        $wechatInterface = new wechatInterfaceapiLogic();
+        $access_token = $wechatInterface->getAccessToken($appid,$appsecret);
 
-		//创建菜单
-		$wechatMenu = new wechatMenuapiLogic();
-		$wechatMenu->setAccessToken($access_token);
-		$wechatMenu->createMenu();
-   }
+        //将数组重排成树
+        $MenuL = new CustomMenuLogic();
+        $lists = $MenuL->getLists();
+
+        $tree = list_to_tree($lists,'id','pid','sub_button');
+                
+        $menus = array();
+        $wechatMenu = new wechatMenuapiLogic();
+
+        $wechatMenu->setAccessToken($access_token);
+        $wechatMenu->deleteMenu();
+        
+        //将树转换成json格式的树
+        $array = $wechatMenu->createJson($tree);
+        
+        //将数组转化成符合要求的json数据
+        $json = my_json_encode('text',$array);
+        $wechatMenu->createMenus($json);
+
+    }
 
    //自定义菜单查询
    public function indexAction(){
-   		$MenuL = new CustomMenuLogic();
+   		  $MenuL = new CustomMenuLogic();
 
         //获取列表
         $menu = $MenuL->getLists();
 
-        $MenuM = new CustomMenuModel();
+        $MenuM = new IndexModel();
         $MenuM->setMenus($menu);
 
         //传入列表
@@ -48,7 +66,7 @@ class IndexController extends Controller {
 		$menu = $MenuL->getListById($menuId);
 		$menu['pid'] = $MenuL->getListById($menu['pid'])['title'];
 
-        $MenuM = new CustomMenuModel();
+        $MenuM = new addModel();
         $MenuM->setMenu($menu);
 
         //传入列表
@@ -88,7 +106,7 @@ class IndexController extends Controller {
    		$titles = $MenuL->getTitles();
 
         //传入列表
-   		$MenuM = new CustomMenuModel();
+   		$MenuM = new addModel();
    		$MenuM->setTitles($titles);
     	$this->assign('M',$MenuM);
 

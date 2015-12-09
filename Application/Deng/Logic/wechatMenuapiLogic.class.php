@@ -1,7 +1,7 @@
 <?php
-namespace Admin\Logic;
+namespace Deng\Logic;
 
-use Admin\Controller\IndexController;
+use Deng\Controller\IndexController;
 
 class wechatMenuapiLogic extends IndexController {
 	 private $access_token;
@@ -10,7 +10,7 @@ class wechatMenuapiLogic extends IndexController {
     	$this->access_token = $access_token;
     }
 
-    public function createMenu(){        
+    public function createMenus($json){        
         $jsonmenu = 
         '{
      "button":[
@@ -33,7 +33,7 @@ class wechatMenuapiLogic extends IndexController {
                "key" : "environment"
             },
             {
-              "type":"click",
+               "type":"click",
                "name":"酒店介绍",
                "key" : "description"
             },
@@ -49,9 +49,12 @@ class wechatMenuapiLogic extends IndexController {
             }]
       	 }]
  		}';
+
+        $json = '{'."\"button\":".$json.'}';
+        var_dump($json);
+
         $url = "https://api.weixin.qq.com/cgi-bin/menu/create?access_token=".$this->access_token;
-        echo "hello";
-        $result = $this->https_request($url, $jsonmenu);
+        $result = $this->https_request($url, $json);
         var_dump($result);
         
     }
@@ -69,5 +72,50 @@ class wechatMenuapiLogic extends IndexController {
         $output = curl_exec($curl);
         curl_close($curl);
         return $output;
+    }
+
+    public function deleteMenu(){
+        $url = "https://api.weixin.qq.com/cgi-bin/menu/delete?access_token=".$this->access_token;
+        $result = $this->https_request($url, $json);
+        var_dump($result);
+    }
+
+    public function createJson($tree){
+        
+        $menus = array();
+        foreach ($tree as $key => $value){
+            //判断value是否含有子项数组2
+            if(array_key_exists('sub_button',$value)){
+                $menus[$key]['name'] = $value['name'];
+
+                //重新排序根数组
+                $child_meus = array();
+                foreach ($value['sub_button'] as $k => $val) {
+                  if ($val['type'] == 'click') {
+                    $child_meus[$k]['type'] = $val['type'];
+                    $child_meus[$k]['name'] = $val['name'];
+                    $child_meus[$k]['key'] = $val['keyword'];
+                  } else {
+                    $child_meus[$k]['type'] = $val['type'];
+                    $child_meus[$k]['name'] = $val['name'];
+                    $child_meus[$k]['url'] = $val['url'];
+                  }  
+                }
+               
+                $menus[$key]['sub_button'] = $child_meus;
+            }else{
+              //判断是否为click类型
+              if ($value['type'] == 'click') {
+                $menus[$key]['type'] = $value['type'];
+                $menus[$key]['name'] = $value['name'];
+                $menus[$key]['key'] = $value['keyword'];
+              }else{
+                $menus[$key]['type'] = $value['type'];
+                $menus[$key]['name'] = $value['name'];
+                $menus[$key]['url'] = $value['url'];
+              }       
+            }
+        }
+        return $menus;
     }
 }

@@ -118,4 +118,19 @@ class CustomMenuLogic extends CustomMenuModel
 			return false;
 		}
 	}
+
+	public function getMenus(){
+
+		try
+		{
+			$lists=$this->select();
+
+			return $lists;
+		}
+		catch(\Think\Exception $e)
+		{
+			$this->errors[]=$e->getMessage();
+			return false;
+		}
+	}
 }

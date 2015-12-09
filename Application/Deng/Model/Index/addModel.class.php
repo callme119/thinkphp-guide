@@ -1,9 +1,7 @@
 <?php
 namespace Deng\Model\Index;
 
-use Think\Model;
-
-class CustomMenuModel extends Model
+class addModel
 {
 	protected $menu = array();
 	protected $menus = array();
