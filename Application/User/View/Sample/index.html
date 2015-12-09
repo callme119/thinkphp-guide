@@ -9,8 +9,8 @@
 		<tr>
 			<th>序号</th>
 			<?php $order = I('get.order') ?>
-			<th><a href="<eq name='order' value="desc"> {:U('index?order=asc', I('get.'))}  
-			<else/> {:U('index?order=desc', I('get.'))} </eq>">ID</a></th>	
+			<th><a href="<eq name='order' value="desc"> {:U('index?by=id&order=asc', I('get.'))}  
+			<else/> {:U('index?by=id&order=desc', I('get.'))} </eq>">ID</a></th>	
 			<th>title</th>
 			<th>name</th>
 			<th>password</th>

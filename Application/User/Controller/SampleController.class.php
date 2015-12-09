@@ -13,14 +13,18 @@ Class SampleController extends Controller
 		//获取列表
         $UserM = new UserModel();
 		$users = $UserM->getLists();
+		echo $UserM->getLastSql();
+		dump($users);
+
+		
 
         $IndexModel = new indexModel();
+     
         $IndexModel->setUsers($users);
 
         //传入列表
     	$this->assign('M',$IndexModel);
         
-    	
 		$this->display();
 	}
 
