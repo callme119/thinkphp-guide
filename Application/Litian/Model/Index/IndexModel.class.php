@@ -12,6 +12,6 @@ class IndexModel extends UserModel
 
     public function getLists()
     {
-        # code...
+
     }
 }

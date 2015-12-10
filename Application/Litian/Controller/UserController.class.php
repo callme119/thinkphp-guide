@@ -21,7 +21,9 @@ class UserController extends Controller
             return false;
         }
         // 传入分页信息
-        $this->assign('page',$page);
+        $IndexM = new IndexModel();
+        $page = $IndexM->getlists();
+        $this->display();
         // 传入所有列表
         $this ->assign('users',$Users);
 
