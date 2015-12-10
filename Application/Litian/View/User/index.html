@@ -2,7 +2,7 @@
 <a class="buttom" href="{:U('add')}">
     添加用户
 </a>
-<form action="{:U('index')}" method="get">
+<form action="{:U('index?p=', I('get.'))}" method="get">
 <div>
     <input type="text" placeholder="search" name="keywords" value ="{:I('get.keywords')}"
      ></input>
@@ -22,7 +22,7 @@
         </tr>
     </thead>
     <tbody>
-    <foreach name="users" item="user" key="k">
+    <foreach name="M:getUsers()" item="user" key="k">
         <tr>
             <td>{$k+1}</td>
             <td>{$user[id]}</td>
@@ -38,4 +38,4 @@
     </tbody>
 </table>
 </form>
-<div>{$page}</div>
+<Yunzhi:page />
