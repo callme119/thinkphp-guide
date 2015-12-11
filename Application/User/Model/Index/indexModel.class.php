@@ -41,7 +41,7 @@ class indexModel
 
 		$UserPostViewM = new UserPostViewModel();
 		$lists = $UserPostViewM->where("user_id = $userId")->select();
-		// echo $UserPostM->getLastSql();
+		 // echo $UserPostViewM->getLastSql();
 		return $lists;
 	}
 

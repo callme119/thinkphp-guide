@@ -12,6 +12,9 @@ return array(
     'DB_PORT'   => '3306', // 端口3306);
     'PAGE_SIZE' => '4',//分页中，每页显示的条数使用C(PAGE_SIZE)读取;
     /* 模板相关配置 */
+    'YUNZHI_PAGE_SIZE'  =>  2   ,//默认分页大小
+    'TAGLIB_PRE_LOAD' =>'Yunzhi',
+
     'TMPL_PARSE_STRING' => array(
         '__IMG__'       => __ROOT__ . '/Public/img',
         '__CSS__'       => __ROOT__ . '/Public/css',
