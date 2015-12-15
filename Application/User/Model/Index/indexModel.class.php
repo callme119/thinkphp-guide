@@ -27,9 +27,7 @@ class indexModel
 
 	public function getUsers()
 	{
-		$UserM = new UserModel();
-		$lists = $UserM->select();
-		return $lists;
+		return $this->users;
 	}
 
 	public function getPostsByUserId($userId)

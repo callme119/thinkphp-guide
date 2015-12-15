@@ -29,7 +29,6 @@
 				<td>{$user[address]}</td>
 				<td>{$user[email]}</td>
 				<td><foreach name="M:getPostsByUserId($user['id'])" item="post">
-				{:dump($post)}
 				{:$post['post_name']}
 				<br />
 				</foreach></td>
@@ -40,4 +39,4 @@
 		</foreach>	
 	</table>
 	</form>
-	 {:$M->getPageShow()}
+	{:$M->getPageShow()}

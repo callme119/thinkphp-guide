@@ -1,0 +1,29 @@
+
+    <form action="{:U('index?p=', I('get.'))}" method="get">
+    <div>
+    	<input type="text" placeholder="search" name="keywords" value ="{:I('get.keywords')}"
+         ></input>
+    	<button id="search" type="submit">搜索</button>
+    </div>
+	<table>
+		<tr>
+			<th>序号</th>
+			<?php $order = I('get.order') ?>
+			<th><a href="<eq name='order' value="desc"> {:U('index?by=id&order=asc', I('get.'))}  
+			<else/> {:U('index?by=id&order=desc', I('get.'))} </eq>">ID</a></th>	
+			<th>title</th>
+			<th>name</th>
+			<th>password</th>
+		</tr>
+		<foreach name="M:getUsers()" item="user" key="k">
+			<tr>
+				<td>{$k+1}</td>
+				<td>{$user[id]}</td>
+				<td>{$user[title]}</td>
+				<td>{$user[name]}</td>
+				<td>{$user[password]}</td>
+			</tr>
+		</foreach>	
+	</table>
+	</form>
+	<Yunzhi:page />
