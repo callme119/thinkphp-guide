@@ -15,9 +15,7 @@ class IndexController extends Controller
         $UserL = new UserLogic();
         $users = $UserL->getLists();
         
-        //获取分页信息
-        $page = $UserL->getPageShow();
-        dump($page);
+    
         
         //判断异常
         if(count($errors=$UserL->getErrors())!==0)
@@ -32,9 +30,9 @@ class IndexController extends Controller
         }
 
         $IndexModel = new indexModel();
-        $IndexModel->setPageShow($page);
+        
         $IndexModel->setUsers($users);
-        // dump($IndexModel);
+     
         //传入列表
         $this->assign('M',$IndexModel);
         
