@@ -3,31 +3,23 @@ namespace Litian\Controller;
 
 use Think\Controller;
 use Litian\Logic\UserLogic;
+use Litian\Model\UserModel;
 use Litian\Model\User\IndexModel;
-use Yunzhi\Model\YunzhiModel as YunzhiM;
 
 class UserController extends Controller
 {
     public function indexAction(){
         //实例化
-        $UserL = new UserLogic();
-        // 获取所有信息列表
-        $Users = $UserL->getAllLists();
-        // 获取分页信息
-        $page = $UserL -> getPageShow();
-        // 判断异常
-        if(count($errors=$UserL->getErrors())!==0){
-            $error = implode("<br/>",$errors);
-            // 显示错误信息
-            $this->error("操作失败,原因".U('Litian\User\Index'));
-            return false;
-        }
+        $UserM = new UserModel();
+        //调用yunzhi里的getlists方法
+        $users = $UserM->getLists();
+        dump($users);
+        $this->assign('users',$users);
         // 传入用户
         $IndexM = new IndexModel();
         $IndexM->setUsers($users);
         //传入分页信息
-        $UserM = new YunzhiM();
-        $users = $UserM->getLists();
+
         // 传入所有列表
         $this ->assign('M',$IndexM);
 

@@ -26,11 +26,7 @@ class IndexModel
     public function getUsers()
     {
         #测试数据
-        $users[] = array('id'=>1, "name"=>"zhangsan");
-        $users[] = array('id'=>2, "name"=>"zhangsan");
-        $users[] = array('id'=>3, "name"=>"zhangsan");
-        $users[] = array('id'=>4, "name"=>"zhangsan");
-        return $users;
+        return $this->users;
     }
     public function getPostsByUserId($userId)
     {

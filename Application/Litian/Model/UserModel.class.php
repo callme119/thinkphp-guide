@@ -1,9 +1,9 @@
 <?php
 namespace Litian\Model;
 
-use User\Model\UserModel as UserM;
+use Yunzhi\Model\YunzhiModel;
 
-class UserModel extends UserM
+class UserModel extends YunzhiModel
 {
     //自动验证
     protected $_validate = array(
@@ -23,4 +23,5 @@ class UserModel extends UserM
          array('update_time','time',3,'function'),
          // 对updatetime字段在更新的时候写入当前时间戳
      );
+
 }

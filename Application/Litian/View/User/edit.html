@@ -4,16 +4,17 @@
 
     <input type="hidden" name="id" value="{$user.id}"></input>
     <label for="name">用户名:</label>
-    <input type="text" name="name" value="{$user.name}"/>
+    <input type="text" name="name" value="{$user.name}"/></br>
 
     <label for="password">密码：</label>
-    <input type="password" name="password" value="{$user.password}" />
+    <input type="password" name="password" value="{$user.password}" /></br>
 
     <label for="password">手机：</label>
-    <input type="text" name="phone" value="{$user.phone}" />
+    <input type="text" name="phone" value="{$user.phone}" /></br>
 
     <label for="password">邮箱：</label>
-    <input type="email" name="email" value="{$user.email}" />
+    <input type="email" name="email" value="{$user.email}" /></br>
 
-    <button type="submit">保存</button>
+    <button type="submit">保存</button></br>
+    <a class="button" href="{:U('index?id= ',I('get.'))}">返回</a>
 </form>
