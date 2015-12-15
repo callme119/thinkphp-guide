@@ -1,6 +1,9 @@
 	<div>
         <a class="button"  href="{:U('add',I('get.'))}" >添加用户</a>
     </div>
+    <div>
+        <a class="button"  href="{:U('Post/Index/index',I('get.'))}" >查看岗位</a>
+    </div>
     <form action="{:U('index?p=', I('get.'))}" method="get">
     <div>
     	<input type="text" placeholder="search" name="keywords" value ="{:I('get.keywords')}"

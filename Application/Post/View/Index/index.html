@@ -1,0 +1,19 @@
+岗位概览
+<table>
+	<tr>
+		<th>序号</th>
+		<?php $order = I('get.order') ?>
+		<th><a href="<eq name='order' value="desc"> {:U('index?order=asc', I('get.'))}  
+		<else/> {:U('index?order=desc', I('get.'))} </eq>">ID</a></th>
+		<th>岗位</th>	
+	</tr>
+	<foreach name="M:getPosts()" item="post" key="k">
+	<tr>
+		<td>{$k+1}</td>
+		<td>{$post[id]}</td>
+		<td>{$post[name]}</td>
+	</tr>
+	</foreach>
+
+
+</table>

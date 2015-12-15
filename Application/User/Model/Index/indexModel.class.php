@@ -8,7 +8,6 @@ use UserPost\Model\UserPostViewModel;
 
 class indexModel
 {
-	protected $pageShow = ""; 
 	protected $users = array();
 
 	public function setUsers($users)

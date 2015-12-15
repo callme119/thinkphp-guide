@@ -1,8 +1,8 @@
 <?php
 namespace Post\Model;
 
-use Think\Model;
+use Yunzhi\Model\YunzhiModel;
 
-class PostModel extends Model{
+class PostModel extends YunzhiModel{
 	
 }
