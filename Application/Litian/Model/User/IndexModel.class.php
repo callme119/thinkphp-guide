@@ -2,23 +2,12 @@
 
 namespace Litian\Model\User;
 
-
+use Yunzhi\Model\YunzhiModel;
 /**
 *
 */
-class IndexModel
+class IndexModel extends YunzhiModel
 {
-
-    protected $pageShow = "";           //
-    protected $users    = array();      //
-    public function setPageShow($pageShow)
-    {
-        $this->pageShow = (string)$pageShow;
-    }
-    // public function getPageShow()
-    // {
-    //     $pageShow = "<a href=" . U('?p=2')>
-    // }
     public function setUsers($users)
     {
         $this->users = $users;

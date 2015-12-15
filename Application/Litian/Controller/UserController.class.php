@@ -4,7 +4,6 @@ namespace Litian\Controller;
 use Think\Controller;
 use Litian\Logic\UserLogic;
 use Litian\Model\UserModel;
-use Litian\Model\User\IndexModel;
 
 class UserController extends Controller
 {
@@ -13,15 +12,14 @@ class UserController extends Controller
         $UserM = new UserModel();
         //调用yunzhi里的getlists方法
         $users = $UserM->getLists();
-        dump($users);
+
         $this->assign('users',$users);
         // 传入用户
-        $IndexM = new IndexModel();
-        $IndexM->setUsers($users);
-        //传入分页信息
+        // $IndexM = new IndexModel();
+        // $IndexM->setUsers($users);
 
         // 传入所有列表
-        $this ->assign('M',$IndexM);
+        // $this ->assign('M',$IndexM);
 
         //前台显示
         $this->display();
