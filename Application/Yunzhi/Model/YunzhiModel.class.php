@@ -89,7 +89,7 @@ class YunzhiModel extends Model
     {
         foreach($this->bys as $key => $value)
         {
-            if ($value = $by)
+            if ($value == $by)
             {
                 unset($this->bys[$key]);
                 unset($this->orders[$key]);

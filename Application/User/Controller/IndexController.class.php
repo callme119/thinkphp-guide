@@ -80,10 +80,10 @@ class IndexController extends Controller
             
             
             //显示错误
-             $this->error("添加失败，原因：".$error,U('User/Index/index?p='.I('get.p')));
+             $this->error("添加失败，原因：".$error,U('User/Index/index?',I('get.p')));
             
         }
-        $this->success("操作成功" , U('User/Index/index?p='.I('get.p')));    
+        $this->success("操作成功" , U('User/Index/index?',I('get.p')));    
     }
     public function editAction(){
         //获取用户ID
@@ -118,12 +118,12 @@ class IndexController extends Controller
             
             
             //显示错误
-             $this->error("添加失败，原因：".$error,U('User/Index/index?p='.I('get.p')));
+             $this->error("添加失败，原因：".$error,U('User/Index/index?',I('get.p')));
 
              return false;
             
         }
-            $this->success("操作成功" , U('User/Index/index?p=', I('get.')));
+            $this->success("操作成功" , U('User/Index/index?',I('get.')));
     }
     public function deleteAction(){
 
@@ -133,10 +133,10 @@ class IndexController extends Controller
         $status = $UserL->deleteInfo($userId);
 
         if($status！==false){
-           $this->success("删除成功", U('User/Index/index?p='.I('get.p'))); 
+           $this->success("删除成功", U('User/Index/index?',I('get.p'))); 
         }
         else{
-            $this->error("删除失败" , U('User/Index/index?p='.I('get.p')));
+            $this->error("删除失败" , U('User/Index/index?',I('get.p')));
         }
     }
 }

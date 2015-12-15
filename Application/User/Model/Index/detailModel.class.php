@@ -7,6 +7,7 @@ class detailModel
 	protected $userName = "";
 	protected $password = "";
 	protected $user = array();
+	
 
 	public function setUser($user)
 	{

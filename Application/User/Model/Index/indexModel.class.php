@@ -10,6 +10,8 @@ class indexModel
 {
 	protected $pageShow = ""; 
 	protected $users = array();
+	
+
 	public function setPageShow($pageShow)
 	{
 		$this->pageShow = (string)$pageShow;
