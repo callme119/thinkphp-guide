@@ -22,6 +22,12 @@ class IndexController extends Controller{
 
 		$this->display();
 	}
+        public function addAction(){
+                $AddModel=new addModel();
+                $this->assign('M',$AddModel);
+                $this->display();
+
+        }
 
 
 }
