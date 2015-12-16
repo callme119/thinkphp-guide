@@ -11,6 +11,7 @@ class IndexController extends Controller{
 		//获取列表
         $PostM = new PostModel();
         $posts = $PostM->getLists();
+        dump($posts);
 
         $IndexModel=new indexModel();
 

@@ -14,8 +14,9 @@
 		<tr>
 			<th>序号</th>
 			<?php $order = I('get.order') ?>
-			<th><a href="<eq name='order' value="desc"> {:U('index?order=asc', I('get.'))}  
-			<else/> {:U('index?order=desc', I('get.'))} </eq>">ID</a></th>	
+			<?php $by =I('get.by')?>
+			<th><a href="<eq name='order' value="desc"> {:U('index?order=asc&by=id', I('get.'))}  
+			<else/> {:U('index?order=desc&by=id', I('get.'))} </eq>">ID</a></th>	
 			<th>name</th>
 			<th>手机号</th>
 			<th>地址</th>

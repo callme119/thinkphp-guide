@@ -1,7 +1,7 @@
 <?php
 namespace Post\Model\Index;
 
-use Post\Model\Index\Postmodel;
+use Post\Model\Postmodel;
 
 class indexModel 
 {
