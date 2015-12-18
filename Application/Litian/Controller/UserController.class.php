@@ -12,7 +12,7 @@ class UserController extends Controller
         $UserM = new UserModel();
         //调用yunzhi里的getlists方法
         $users = $UserM->getLists();
-
+        // dump($users);
         $this->assign('users',$users);
         // 传入用户
         // $IndexM = new IndexModel();

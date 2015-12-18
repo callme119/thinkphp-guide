@@ -12,7 +12,8 @@
     <thead>
         <tr>
             <th>序号</th>
-            <th><a href="M:getOrder()">ID</a></th>
+            <th><a href="<eq name='order' value="desc"> {:U('index?by=id&order=asc', I('get.'))}
+            <else/> {:U('index?by=id&order=desc', I('get.'))} </eq>">ID</a></th>
             <th>NAME</th>
             <th>EMAIL</th>
             <th>PHONE</th>
