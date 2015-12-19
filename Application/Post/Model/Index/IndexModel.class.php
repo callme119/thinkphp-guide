@@ -1,9 +1,9 @@
 <?php
 namespace Post\Model\Index;
 
-use Post\Model\Postmodel;
+use Post\Model\PostModel;
 
-class indexModel 
+class IndexModel 
 {
 	protected $posts=array();
 
