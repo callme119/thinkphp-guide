@@ -1,9 +1,7 @@
 <?php
 namespace Post\Model\Index;
 
-use Post\Model\PostModel;
-
-class AddPostModel
+class addPostModel
 {
 	protected $id=0;
 	protected $postName="";

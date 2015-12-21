@@ -3,9 +3,7 @@ namespace Post\Controller;
 
 use Think\Controller;
 use Post\Model\Index\IndexModel;
-use Post\Model\Index\AddPostModel;
 use Post\Model\PostModel;
-
 
 class IndexController extends Controller{
 	public function indexAction(){
@@ -25,7 +23,7 @@ class IndexController extends Controller{
 		$this->display();
 	}
         public function addAction(){
-                $AddModel=new AddPostModel();
+                $AddModel=new addModel();
                 $this->assign('M',$AddModel);
                 $this->display();
 
