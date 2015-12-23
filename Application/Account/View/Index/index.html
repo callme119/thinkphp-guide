@@ -1,0 +1,28 @@
+财务概览
+	<div>
+        <a class="button"  href="{:U('add',I('get.'))}" >添加财务信息</a>
+    </div>
+<table>
+	<tr>
+		<th>序号</th>
+		<?php $order = I('get.order') ?>
+		<?php $by = I('get.by') ?>
+		<th><a href="<eq name='order' value="desc"> {:U('index?order=asc&by=id', I('get.'))}  
+		<else/> {:U('index?order=desc&by=id', I('get.'))} </eq>">ID</a></th>
+		<th>交易金额</th>	
+		<th>成本</th>
+		<th>状态</th>
+		<th></th>
+	</tr>
+	<foreach name="M:getAccount()" item="account" key="k">
+	<tr>
+		<td>{$k+1}</td>
+		<td>{$account[id]}</td>
+		<td>{$account[money]}</td>
+		<td>{$account[cost]}</td>
+		<td>{$account[status]}</td>
+	</tr>
+	</foreach>
+</table>
+
+<Yunzhi:page />

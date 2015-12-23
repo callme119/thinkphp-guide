@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>添加修改财务数据</title>
+</head>
+
+<body>
+	<form <eq name="Think.ACTION_NAME" value="add"> action="{:U('save',I('get'))}"<else />
+	action="{:U('update',I('get.'))}"</eq> method="post">
+
+	<input type="hidden" name="id" value="{$account.id}"></input>
+
+
+	<label>交易编号</label><input type ="text" name="id" value="{:$M->getAccountMoney()}" /></br>
+	<label>交易金额</label><input type ="text" name="money" value="{:$M->getAccountMoney()}" /></br>
+	<button type="submit">保存</button>
+	</form>
+</body>
+</html>
