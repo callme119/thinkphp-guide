@@ -54,5 +54,23 @@ class IndexController extends Controller
         }
         $this->success("操作成功" , U('Account/Index/index'));    
     }
+    public function editAction(){
+        //获取用户ID
+        $accountId=I('get.id');
+
+        //取用户信息 getListById()
+        
+        $AccountM=new AccountModel();
+        $account=$AccountM->getListbyId($accountId);
+        $AddModel=new AddModel();
+        $AddModel->setAccount($account);
+        dump($AddModel);
+       
+        //传给前台
+        $this->assign('M',$AddModel);
+        
+        //显示 display('add')
+        $this->display(); 
+    }
 
 }

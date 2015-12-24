@@ -20,7 +20,11 @@ class AddModel{
 
 	public function getAccountMoney()
 	{
-		return $this->account['name'];
+		return $this->account['money'];
+	}
+	public function getAccountDate()
+	{
+		return $this->account['date'];
 	}
 
 }

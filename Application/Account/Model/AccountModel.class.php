@@ -6,7 +6,8 @@ use Yunzhi\Model\YunzhiModel;
 class AccountModel extends YunzhiModel{
 	
 	protected  $errors = array();
-
+	protected  $account=array();
+	
 	public function getErrors()
 	{
 		return $this->errors;
@@ -19,6 +20,7 @@ class AccountModel extends YunzhiModel{
 	{
 		return $this->account['id'];
 	}
+
 	public function addList($list)
 	{
 		try{
@@ -39,5 +41,9 @@ class AccountModel extends YunzhiModel{
 			$this->errors[]=$e->getMessage();
 			return false;
 		}
-}
+	}
+	public function total()
+	{
+
+	}
 }
