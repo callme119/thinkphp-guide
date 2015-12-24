@@ -16,11 +16,14 @@ class IndexController extends Controller
         $AccountM = new AccountModel();
         $accounts = $AccountM->getLists();
 
-        $IndexModel=new indexModel();
+        
 
-        $IndexModel->setAccount($accounts);
+        $AccountM->setAccount($accounts);
+        $AccountM->MoneyTotal0();
 
-        $this->assign('M',$IndexModel);
+        $this->assign('M',$AccountM);
+
+
 
 
 		$this->display();

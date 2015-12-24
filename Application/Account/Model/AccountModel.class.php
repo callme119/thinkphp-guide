@@ -7,7 +7,8 @@ class AccountModel extends YunzhiModel{
 	
 	protected  $errors = array();
 	protected  $account=array();
-	
+	protected  $sum=0;
+
 	public function getErrors()
 	{
 		return $this->errors;
@@ -42,8 +43,22 @@ class AccountModel extends YunzhiModel{
 			return false;
 		}
 	}
-	public function total()
-	{
+
+
+	public function MoneyTotal0()
+	{	
+		$map['status']=0;
+		$datas=$this->where($map)->select();
+		dump($datas);
+		for ($i=0; $i < count($datas); $i++) { 
+			$sum=$sum+$datas[$i];
+			# code...
+		}
+		return $sum;
 
 	}
+	// public function getTotal0()
+	// {
+	// 	return $this->sum;
+	// }
 }

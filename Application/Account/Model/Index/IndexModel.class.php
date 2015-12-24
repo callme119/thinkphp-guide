@@ -21,5 +21,7 @@ class IndexModel
 		return $this->account['money'];
 	}
 
+
+
 }
 
