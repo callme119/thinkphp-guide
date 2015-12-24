@@ -41,9 +41,13 @@ class IndexController extends Controller {
 
     	//seesion userId
     	session('userId',$user['id']);  
+        dump($user['dep_id']);
+        if($user['dep_id']==2)
+            {$this->success("操作成功" , U('Account/Index/index'));}
+        else if($user['dep_id']==1)
+    	   {$this->success("操作成功" , U('Home/Index/index'));}
 
-    	//跳转至首页
-    	$this->success("操作成功" , U('Home/Index/index'));
+       
     }
 
     public function logoutAction()
