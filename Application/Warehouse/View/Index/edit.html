@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>添加修改仓库数据</title>
+</head>
+
+<body>
+	<form <eq name="Think.ACTION_NAME" value="add"> action="{:U('save',I('get'))}"<else />
+	action="{:U('update',I('get.'))}"</eq> method="post">
+
+	<input type="hidden" name="id" value="{$warehouse.id}"></input>
+
+
+	<label>时间</label><input type ="text" name="date" value="{:$M->getDate()}" /></br>
+	<label>货物改变量</label><input type ="text" name="change" value="{:$M->getChange()}" /></br>
+	<label>剩余库存</label><input type ="text" name="surplus" value="{:$M->getSurplus()}" /></br>
+
+	<button type="submit">保存</button>
+	</form>
+</body>
+</html>

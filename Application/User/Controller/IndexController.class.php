@@ -121,7 +121,7 @@ class IndexController extends Controller
              return false;
             
         }
-            $this->success("操作成功" , U('User/Index/index?',I('get.')));
+            $this->success("操作成功" , U('User/Index/index?',I('get.')),20);
     }
     public function deleteAction(){
 

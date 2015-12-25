@@ -1,4 +1,4 @@
-财务概览
+仓库概览
 	<div>
         <a class="button"  href="{:U('add',I('get.'))}" >添加仓库信息</a>
     </div>
@@ -9,13 +9,13 @@
 		<?php $by = I('get.by') ?>
 		<th><a href="<eq name='order' value="desc"> {:U('index?order=asc&by=id', I('get.'))}  
 		<else/> {:U('index?order=desc&by=id', I('get.'))} </eq>">ID</a></th>
-		<th>交易金额</th>	
-		<th>成本</th>
-		<th>利润</th>
-		<th>日期</th>
-		<th>状态</th>
+		<th>时间</th>	
+		
+		<th>仓库货物改变量</th>
+		<th>剩余库存</th>
+		
 		<th>操作</th>
-		<th>本期交易金额总计</th>
+		
 	</tr>
 	<tr>
 	<td></td>
@@ -27,17 +27,17 @@
 	<td></td>
 	<td></td>
 	</tr>
-	<foreach name="M:getWarehouse()" item="account" key="k">
+	<foreach name="M:getWarehouse()" item="warehouse" key="k">
 	<tr>
 		<td>{$k+1}</td>
-		<td>{$account[id]}</td>
-		<td>{$account[money]}</td>
-		<td>{$account[cost]}</td>
-		<td>{$account[date]}</td>
-		<td>{$account[status]}</td>
-		<td><a class="button" href="{:U('detail?id='.$user['id'],I('get.'))}">查看</a>&nbsp;&nbsp;
+		<td>{$warehouse[id]}</td>
+		<td>{$warehouse[date]}</td>
+		
+		<td>{$warehouse[change]}</td>
+		<td>{$warehouse[surplus]}</td>
+		<td><a class="button" href="{:U('detail?id='.$warehouse['id'],I('get.'))}">查看</a>&nbsp;&nbsp;
 		<a class="button" href="{:U('edit?id='.$warehouse['id'], I('get.'))}">编辑</a>&nbsp;&nbsp;
-		<a class="button" href="{:U('delete?id='.$account['id'],I('get.'))}">删除</a></td>
+		<a class="button" href="{:U('delete?id='.$warehouse['id'],I('get.'))}">删除</a></td>
 	</tr>
 	</foreach>
 	

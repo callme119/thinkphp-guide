@@ -42,10 +42,20 @@ class IndexController extends Controller {
     	//seesion userId
     	session('userId',$user['id']);  
         
-        if($user['dep_id']==2)
-            {$this->success("操作成功" , U('Account/Index/index'));}
-        else if($user['dep_id']==1)
+       
+        if($user['level']==1)
     	   {$this->success("操作成功" , U('Home/Index/index'));}
+        else 
+        {
+            if($user['dep_id']==1)
+            $this->success("操作成功",U('Home/Index/indexa'));
+            if($user['dep_id']==2)
+            $this->success("操作成功",U('Home/Index/indexb'));
+            if($user['dep_id']==3)
+            $this->success("操作成功",U('Home/Index/indexc'));
+            if($user['dep_id']==4)
+            $this->success("操作成功",U('Home/Index/indexd'));
+        }
 
        
     }
