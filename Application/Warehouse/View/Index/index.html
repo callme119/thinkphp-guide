@@ -1,6 +1,6 @@
 财务概览
 	<div>
-        <a class="button"  href="{:U('add',I('get.'))}" >添加财务信息</a>
+        <a class="button"  href="{:U('add',I('get.'))}" >添加仓库信息</a>
     </div>
 <table>
 	<tr>
@@ -25,9 +25,9 @@
 	<td></td>
 	<td></td>
 	<td></td>
-	<td>{:$M->MoneyTotal0()}</td>
+	<td></td>
 	</tr>
-	<foreach name="M:getAccount()" item="account" key="k">
+	<foreach name="M:getWarehouse()" item="account" key="k">
 	<tr>
 		<td>{$k+1}</td>
 		<td>{$account[id]}</td>
@@ -36,7 +36,7 @@
 		<td>{$account[date]}</td>
 		<td>{$account[status]}</td>
 		<td><a class="button" href="{:U('detail?id='.$user['id'],I('get.'))}">查看</a>&nbsp;&nbsp;
-		<a class="button" href="{:U('edit?id='.$account['id'], I('get.'))}">编辑</a>&nbsp;&nbsp;
+		<a class="button" href="{:U('edit?id='.$warehouse['id'], I('get.'))}">编辑</a>&nbsp;&nbsp;
 		<a class="button" href="{:U('delete?id='.$account['id'],I('get.'))}">删除</a></td>
 	</tr>
 	</foreach>

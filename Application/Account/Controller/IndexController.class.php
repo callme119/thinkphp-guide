@@ -16,22 +16,17 @@ class IndexController extends Controller
         $AccountM = new AccountModel();
         $accounts = $AccountM->getLists();
 
-        
-
         $AccountM->setAccount($accounts);
         $AccountM->MoneyTotal0();
 
         $this->assign('M',$AccountM);
 
-
-
-
 		$this->display();
 	}
     public function addAction(){
         //显示 display
-        $AddModel=new AddModel();
-        $this->assign('M',$AddModel);
+        $AccountModel=new AccountModel();
+        $this->assign('M',$AccountModel);
         $this->display('edit');
     }  
     public function saveAction(){
@@ -65,15 +60,51 @@ class IndexController extends Controller
         
         $AccountM=new AccountModel();
         $account=$AccountM->getListbyId($accountId);
-        $AddModel=new AddModel();
-        $AddModel->setAccount($account);
-        dump($AddModel);
        
+        $AccountM->setAccount($account);
+        
         //传给前台
-        $this->assign('M',$AddModel);
+        $this->assign('M',$AccountM);
         
         //显示 display('add')
         $this->display(); 
+    }
+    public function updateAction(){
+        //取用户信息
+        $data = I('post.');
+
+        //传给M层
+        $AccountM = new AccountModel();
+        $AccountM->saveList($data);
+
+        //判断异常
+        if(count($errors=$AccountM->getErrors())!==0)
+        {
+            //数组变字符串
+            $error =implode('<br/>', $errors);
+            
+            
+            //显示错误
+             $this->error("添加失败，原因：".$error,U('Account/Index/index?',I('get.p')));
+
+             return false;
+            
+        }
+            $this->success("操作成功" , U('Account/Index/index?',I('get.')));
+    }
+    public function deleteAction(){
+
+        $userId = I('get.id');
+
+        $AccountM = new AccountModel();
+        $status = $AccountM->deleteInfo($userId);
+
+        if($status！==false){
+           $this->success("删除成功", U('Account/Index/index?',I('get.p'))); 
+        }
+        else{
+            $this->error("删除失败" , U('Account/Index/index?',I('get.p')));
+        }
     }
 
 }

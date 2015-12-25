@@ -9,6 +9,7 @@ class AccountModel extends YunzhiModel{
 	protected  $account=array();
 	protected  $sum=0;
 
+
 	public function getErrors()
 	{
 		return $this->errors;
@@ -17,11 +18,15 @@ class AccountModel extends YunzhiModel{
 	{
 		$this->account=$account;
 	}
+
 	public function getAccountId()
 	{
 		return $this->account['id'];
 	}
-
+	public function getAccount()
+	{
+		return $this->account;
+	}
 	public function addList($list)
 	{
 		try{
@@ -43,19 +48,57 @@ class AccountModel extends YunzhiModel{
 			return false;
 		}
 	}
-
-
+	public function saveList($list){
+		try{
+			if($this->create($list))
+			{
+				$id=$this->save();
+				return $id;
+			}
+			else
+			{
+				$this->errors[]=$this->getError();
+				return false;
+			}
+		}
+		catch(\Think\Exception $e)
+		{
+			$this->errors[]=$e->getMessage();
+			return false;
+		}
+	}
+	public function getAccountMoney()
+	{
+		return $this->account['money'];
+	}
+	public function getAccountDate()
+	{
+		return $this->account['date'];
+	}
+	public function getAccountProfit()
+	{
+		return $this->account['profit'];
+	}
 	public function MoneyTotal0()
 	{	
+		$sum=0;
 		$map['status']=0;
 		$datas=$this->where($map)->select();
-		dump($datas);
+		
 		for ($i=0; $i < count($datas); $i++) { 
-			$sum=$sum+$datas[$i];
+			$sum=$sum+$datas[$i]['money'];
 			# code...
 		}
+		
 		return $sum;
 
+	}
+
+	public function deleteInfo($id)
+	{
+		$map['id'] = $id;
+		$datas=$this->where($map)->delete();
+		return $datas;
 	}
 	// public function getTotal0()
 	// {

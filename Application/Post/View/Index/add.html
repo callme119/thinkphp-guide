@@ -9,7 +9,7 @@
 	<form <eq name="Think.ACTION_NAME" value="add"> action="{:U('save',I('get'))}"<else />
 	action="{:U('update',I('get.'))}"</eq> method="post">
 
-	<input 
+	<label>岗位</label><input type ="text" name="post" value="{:$M->getPostName()}" /></br>
 
 
 

@@ -11,8 +11,7 @@ class IndexController extends Controller{
 		//获取列表
         $PostM = new PostModel();
         $posts = $PostM->getLists();
-        dump($posts);
-
+        
         $IndexModel=new indexModel();
 
         $IndexModel->setPosts($posts);
@@ -23,8 +22,8 @@ class IndexController extends Controller{
 		$this->display();
 	}
         public function addAction(){
-                $AddModel=new addModel();
-                $this->assign('M',$AddModel);
+                $PostModel=new PostModel();
+                $this->assign('M',$PostModel);
                 $this->display();
         }
 
