@@ -1,0 +1,49 @@
+财务概览
+	<div>
+        <a class="button"  href="{:U('add',I('get.'))}" >添加交易信息</a>
+    </div>
+<table>
+	<tr>
+
+		<th>序号</th>
+		<?php $order = I('get.order') ?>
+		<?php $by = I('get.by') ?>		
+		<th><a href="<eq name='order' value="desc"> {:U('index?order=asc&by=id', I('get.'))}  
+		<else/> {:U('index?order=desc&by=id', I('get.'))} </eq>">ID</a>
+		</th>
+		<th>销售员工姓名</th>
+		<th>销售数量</th>
+		<th>销售金额</th>
+		<th>销售日期</th>
+
+	</tr>
+	<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	</tr>
+	<foreach name=	"M:getSale()" item="sale" key="k">  
+	<!-- 定义了getSale返回的值还还有K次循环 -->
+	<tr>
+		<td>{$k+1}</td>
+		<td>{$sale[id]}</td>
+		<td>{$sale[name]}</td>
+		<td>{$sale[count]}</td>
+		<td>{$sale[sum_money]}</td>
+		<td>{$sale[date]}</td>
+        <td>
+		<a class="button" href="{:U('edit?id='.$sale['id'], I('get.'))}">编辑</a>&nbsp;&nbsp;
+		<a class="button" href="{:U('delete?id='.$sale['id'],I('get.'))}">删除</a>
+		</td>
+	</tr>
+	</foreach>	
+</table>
+<Yunzhi:page />
+<style type="text/css">
+	td
+	{
+		text-align: center;
+	}
+</style>

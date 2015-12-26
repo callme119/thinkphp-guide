@@ -1,0 +1,25 @@
+<form <eq name="Think.ACTION_NAME" value="edit"> action="{:U('update')}"<else />action="{:U('save')}"</eq> method="post">  <!-- 一个判断，如果点edit进来，进行的是update操作，如果点add进来进行的是save操作。 -->
+
+    <input type="hidden" name="id" value="{$user.id}"></input>
+    <input type="hidden" name="p" value="{$p}"></input>
+
+
+    <label for="id">销售编号：</label>
+    <input type="text" name="id" value="{$user.id}"/><br />
+
+    <label for="name">销售员工姓名：</label>
+    <input type="text" name="name" value="{$user.name}" /><br />
+
+    <label for="count">销售数量：</label>
+    <input type = "text" name="count" value="{$user.count}"  /></br>
+
+    <label for="sum_money">销售金额：</label>
+    <input type="text" name="sum_money" value="{$user.sum_money}"/><br />
+
+    <label for="date">销售日期：</label>
+    <input type="text"  name="date"  value="{$user.date}"/><br />
+
+
+
+    <button type="submit">保存</button>
+</form>
