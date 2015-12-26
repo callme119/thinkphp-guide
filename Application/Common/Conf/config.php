@@ -16,9 +16,10 @@ return array(
     'TAGLIB_PRE_LOAD' =>'Yunzhi',
 
     'TMPL_PARSE_STRING' => array(
-        '__IMG__'       => __ROOT__ . '/Public/img',
-        '__CSS__'       => __ROOT__ . '/Public/css',
-        '__JS__'        => __ROOT__ . '/Public/js',
+        '__IMG__'       => __ROOT__ . '/Public/bman/img',
+        '__CSS__'       => __ROOT__ . '/Public/bman/css',
+        '__JS__'        => __ROOT__ . '/Public/bman/js',
         '__LIB__'       => __ROOT__ . '/Public/lib',
+        
       )
 );
