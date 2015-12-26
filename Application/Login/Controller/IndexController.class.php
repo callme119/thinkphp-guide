@@ -41,7 +41,7 @@ class IndexController extends Controller {
 
     	//seesion userId
     	session('userId',$user['id']);  
-        
+        dump($userName);
        
         if($user['level']==1)
     	   {$this->success("操作成功" , U('Home/Index/index'));}
