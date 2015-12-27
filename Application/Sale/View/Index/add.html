@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>添加销售信息</title>
+</head>
+
+<body>
+    <form <eq name="Think.ACTION_NAME" value="add"> action="{:U('save',I('get'))}"<else />
+    action="{:U('update',I('get'))}"</eq> method="post">
+
+    <!-- <input type="hidden" name="id" value="{$sale.id}"></input> -->
+
+    <label>交易编号</label><input type ="text" name="id" value="{:$M->getSaleId()}" /></br>
+    <label>销售员工姓名</label><input type ="text" name="name" value="{:$M->getSaleName()}" /></br>
+    <label>销售数量</label><input type ="text" name="count" value="{:$M->getSaleCount()}" /></br>
+    <label>销售金额</label><input type ="text" name="sum_money" value="{:$M->getSaleSum_money()}" /></br>
+    <label>销售日期</label><input type ="text" name="date" value="{:$M->getSaleDate()}" /></br>
+    <button type="submit">保存</button>
+    </form>
+</body>
+</html>
