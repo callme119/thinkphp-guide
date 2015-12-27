@@ -13,7 +13,7 @@ class YunzhiModel extends Model
     protected $bys          = array("id");          //排序字段
     protected $maps         = array();              //查询条件
     protected $keywords     = "";                   //查询关键字
-    protected $field        = "title";              //查询字段
+    protected $field        = "name";              //查询字段
 
     public function __construct()
     {

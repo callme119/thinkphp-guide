@@ -37,7 +37,7 @@ class IndexController extends Controller
         
         //添加 add()
         $SaleModel->addList($sale);
-        $this->success("操作成功" , U('Sale/Index/index')); 
+        $this->success("操作成功" , U('Sale/Index/index'),20); 
     }
 
     public function deleteAction()
@@ -77,8 +77,22 @@ class IndexController extends Controller
 
         //传给M层
         $SaleM = new SaleModel();
-        $SaleM->addList($data);
-        $this->success("操作成功" , U('Sale/Index/index?',I('get.')));
+        $SaleM->saveList($data);
+
+        //判断异常
+        if(count($errors=$SaleM->getErrors())!==0)
+        {
+            //数组变字符串
+            $error =implode('<br/>', $errors);
+            
+            
+            //显示错误
+             $this->error("添加失败，原因：".$error,U('Sale/Index/index?',I('get.p')));
+
+             return false;
+            
+        }
+            $this->success("操作成功" , U('Sale/Index/index?',I('get.')));
     }
 
 }

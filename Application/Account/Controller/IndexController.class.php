@@ -47,7 +47,7 @@ class IndexController extends Controller
             
             
             //显示错误
-             $this->error("添加失败，原因：".$error,U('Account/Index/index'),100);
+             $this->error("添加失败，原因：".$error,U('Account/Index/index'));
             
         }
         $this->success("操作成功" , U('Account/Index/index'));    

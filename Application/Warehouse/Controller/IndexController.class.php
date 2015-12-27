@@ -49,17 +49,17 @@ class IndexController extends Controller
     }
     public function editAction(){
         //获取用户ID
-        $accountId=I('get.id');
+        $warehouseId=I('get.id');
 
         //取用户信息 getListById()
         
-        $AccountM=new AccountModel();
-        $account=$AccountM->getListbyId($accountId);
+        $WarehouseModel=new WarehouseModel();
+        $warehouse=$WarehouseModel->getListbyId($warehouseId);
        
-        $AccountM->setAccount($account);
+        $WarehouseModel->setWarehouse($warehouse);
         
         //传给前台
-        $this->assign('M',$AccountM);
+        $this->assign('M',$WarehouseModel);
         
         //显示 display('add')
         $this->display(); 
@@ -69,11 +69,11 @@ class IndexController extends Controller
         $data = I('post.');
 
         //传给M层
-        $AccountM = new AccountModel();
-        $AccountM->saveList($data);
+        $WarehouseModel = new WarehouseModel();
+        $WarehouseModel->saveList($data);
 
         //判断异常
-        if(count($errors=$AccountM->getErrors())!==0)
+        if(count($errors=$WarehouseModel->getErrors())!==0)
         {
             //数组变字符串
             $error =implode('<br/>', $errors);
@@ -89,10 +89,10 @@ class IndexController extends Controller
     }
     public function deleteAction(){
 
-        $userId = I('get.id');
+        $warehouseId = I('get.id');
 
-        $AccountM = new AccountModel();
-        $status = $AccountM->deleteInfo($userId);
+        $WarehouseModel = new WarehouseModel();
+        $status = $WarehouseModel->deleteInfo($warehouseId);
 
         if($status！==false){
            $this->success("删除成功", U('Warehouse/Index/index?',I('get.p'))); 

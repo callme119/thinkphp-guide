@@ -33,6 +33,10 @@ class WarehouseModel extends YunzhiModel
 	{
 		return $this->warehouse['surplus'];
 	}
+	public function getId()
+	{
+		return $this->warehouse['id'];
+	}
 	public function addList($list)
 	{
 		try{
@@ -72,6 +76,12 @@ class WarehouseModel extends YunzhiModel
 			$this->errors[]=$e->getMessage();
 			return false;
 		}
+	}
+		public function deleteInfo($id)
+	{
+		$map['id'] = $id;
+		$datas=$this->where($map)->delete();
+		return $datas;
 	}
 }
 	

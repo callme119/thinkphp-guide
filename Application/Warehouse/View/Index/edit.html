@@ -9,7 +9,7 @@
 	<form <eq name="Think.ACTION_NAME" value="add"> action="{:U('save',I('get'))}"<else />
 	action="{:U('update',I('get.'))}"</eq> method="post">
 
-	<input type="hidden" name="id" value="{$warehouse.id}"></input>
+	<input type="hidden" name="id" value="{:$M->getId()}"></input>
 
 
 	<label>时间</label><input type ="text" name="date" value="{:$M->getDate()}" /></br>

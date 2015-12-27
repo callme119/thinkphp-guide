@@ -2,10 +2,18 @@
 namespace Sale\Model;
 
 use Yunzhi\Model\YunzhiModel;
+use Warehouse\Model\WarehouseModel;
 
 class SaleModel extends YunzhiModel
 {
 	protected $sale=array(); 
+	protected $errors=array();
+
+	public function getErrors()
+	{
+		return $this->errors;
+	}
+
 	public function setSale($sale)
 	{
 		//把$去掉,用的是当前类的对象的变量
@@ -55,18 +63,38 @@ class SaleModel extends YunzhiModel
         return $data;
     }
 
-    public function saveList($list)
-    {
-		return $this->list;
-	}
-
 	public function addList($list)
 	{
 		try{
-			dump($this->create($list));
+			
 			if($this->create($list))
 			{
 				$id=$this->add();
+
+				$WarehouseM = new WarehouseModel();
+				$WarehouseM->setWarehouse($list);
+				dump($list);
+
+				return $id;
+			}
+			else
+			{
+				$this->errors[]=$this->getError();
+				return false;
+			}
+		}
+		catch(\Think\Exception $e)
+		{
+			$this->errors[]=$e->getMessage();
+			return false;
+		}
+	}
+		public function saveList($list){
+		try{
+			if($this->create($list))
+			{
+				
+				$id=$this->save();
 				return $id;
 			}
 			else

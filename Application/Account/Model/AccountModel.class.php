@@ -8,6 +8,7 @@ class AccountModel extends YunzhiModel{
 	protected  $errors = array();
 	protected  $account=array();
 	protected  $sum=0;
+	protected  $id=0;
 
 
 	public function getErrors()
@@ -52,6 +53,7 @@ class AccountModel extends YunzhiModel{
 		try{
 			if($this->create($list))
 			{
+				dump($list);
 				$id=$this->save();
 				return $id;
 			}
