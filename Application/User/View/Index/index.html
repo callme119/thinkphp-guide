@@ -1,5 +1,7 @@
+<link rel="stylesheet" type="text/css" href="__CSS__/bootstrap.min.css">
+<h1>职工信息表</h1>
 	<div>
-        <a class="button"  href="{:U('add',I('get.'))}" >添加用户</a>
+        <a  href="{:U('add',I('get.'))}" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i>添加用户</a>
     </div>
     <div>
         <a class="button"  href="{:U('Post/Index/index',I('get.'))}" >查看岗位</a>
@@ -11,7 +13,7 @@
          ></input>
     	<button id="search" type="submit">搜索</button>
     </div>
-	<table>
+	<table class="table table-bordered table-striped table-hover">
 		<tr>
 			<th>序号</th>
 			<?php $order = I('get.order') ?>

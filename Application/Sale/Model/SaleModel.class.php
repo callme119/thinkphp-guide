@@ -41,11 +41,6 @@ class SaleModel extends YunzhiModel
 		return $this->sale['date'];
 	}
 
-	public function addList($list)
-	{
-		return $this->list;
-	}
-
 		public function deleteInfo($id)
 	{
 		$map['id'] = $id;

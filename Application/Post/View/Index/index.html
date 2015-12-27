@@ -1,8 +1,9 @@
-岗位概览
+<link rel="stylesheet" type="text/css" href="__CSS__/bootstrap.min.css">
+<h1>岗位概览</h1>
 	<div>
-        <a class="button"  href="{:U('add',I('get.'))}" >添加岗位</a>
+        <a  href="{:U('add',I('get.'))}" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i>添加岗位</a>
     </div>
-<table>
+<table class="table table-bordered table-striped table-hover">
 	<tr>
 		<th>序号</th>
 		<?php $order = I('get.order') ?>

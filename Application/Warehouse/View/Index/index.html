@@ -1,8 +1,9 @@
-仓库概览
+<link rel="stylesheet" type="text/css" href="__CSS__/bootstrap.min.css">
+<h1>仓库概览</h1>
 	<div>
-        <a class="button"  href="{:U('add',I('get.'))}" >添加仓库信息</a>
+        <a  href="{:U('add',I('get.'))}" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i>添加仓库信息</a>
     </div>
-<table>
+<table class="table table-bordered table-striped table-hover">
 	<tr>
 		<th>序号</th>
 		<?php $order = I('get.order') ?>
@@ -46,7 +47,7 @@
 
 <Yunzhi:page />
 <style type="text/css">
-	td
+	td,th
 	{
 		text-align: center;
 	}
