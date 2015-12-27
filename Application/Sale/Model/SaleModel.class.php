@@ -3,6 +3,7 @@ namespace Sale\Model;
 
 use Yunzhi\Model\YunzhiModel;
 use Warehouse\Model\WarehouseModel;
+use Account\Model\AccountModel;
 
 class SaleModel extends YunzhiModel
 {
@@ -72,8 +73,19 @@ class SaleModel extends YunzhiModel
 				$id=$this->add();
 
 				$WarehouseM = new WarehouseModel();
-				$WarehouseM->setWarehouse($list);
-				dump($list);
+				
+				// $array['id']=$list['id'];
+				// $array['count']=-$list['count'];
+				// $array['date']=$list['date'];
+				$warehouse['count']=-$list['count'];
+				$WarehouseM->addList($warehouse);
+
+				$accountM = new AccountModel();
+				$array['money']=$list['sum_money'];
+				$array['date']=$list['date'];
+				$array['cost']=$list['count']*1;
+				$accountM->addList($array);
+				
 
 				return $id;
 			}
