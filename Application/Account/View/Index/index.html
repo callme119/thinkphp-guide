@@ -1,8 +1,9 @@
+<link rel="stylesheet" type="text/css" href="__CSS__/bootstrap.min.css">
 财务概览
 	<div>
         <a class="button"  href="{:U('add',I('get.'))}" >添加财务信息</a>
     </div>
-<table>
+<table class="table table-bordered table-striped table-hover">
 	<tr>
 		<th>序号</th>
 		<?php $order = I('get.order') ?>
@@ -25,6 +26,7 @@
 	<td></td>
 	<td></td>
 	<td></td>
+	<td></td>
 	<td>{:$M->MoneyTotal0()}</td>
 	</tr>
 	<foreach name="M:getAccount()" item="account" key="k">
@@ -32,6 +34,7 @@
 		<td>{$k+1}</td>
 		<td>{$account[id]}</td>
 		<td>{$account[money]}</td>
+		<td>{$account[profit]}</td>
 		<td>{$account[cost]}</td>
 		<td>{$account[date]}</td>
 		<td>{$account[status]}</td>
@@ -46,7 +49,7 @@
 
 <Yunzhi:page />
 <style type="text/css">
-	td
+	td,th
 	{
 		text-align: center;
 	}
