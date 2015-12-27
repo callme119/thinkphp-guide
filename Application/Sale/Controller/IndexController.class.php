@@ -12,7 +12,6 @@ class IndexController extends Controller
         $sales = $SaleM->getLists();
 
         $SaleM->setSale($sales);
-        // $SaleM->MoneyTotal0();
 
         $this->assign('M',$SaleM);
 
@@ -21,27 +20,65 @@ class IndexController extends Controller
 
 	public function addAction()
 	{
-		$AddModel=new addModel();
+		$SaleModel=new SaleModel();
 
-        $this->assign('M',$AddModel);
+        $this->assign('M',$SaleModel);
 		
 		$this->display();
 	}
 
-	public function editAction()
+    public function saveAction()
     {
+        //取用户信息
 
-        $userId=I('get.id');
-        $userP=I('get.p');//传给C页号
+        $sale = I('post.');
+         
+        $SaleModel = new SaleModel();
         
-
-        $UserM = new UserModel();
-        $user =$UserM->getListById($userId);
-
-
-        $this->assign('p',$userP);//传给V层页号
-        $this->assign('user',$user);
-
-        $this->display();
+        //添加 add()
+        $SaleModel->addList($sale);
+        $this->success("操作成功" , U('Sale/Index/index')); 
     }
+
+    public function deleteAction()
+    {
+        $saleId = I('get.id');
+        $SaleM = new SaleModel();
+        $status = $SaleM->deleteInfo($saleId);
+        if($status！==false)
+        {
+           $this->success("删除成功", U('Sale/Index/index?',I('get.p'))); 
+        }
+        else
+        {
+            $this->error("删除失败" , U('Sale/Index/index?',I('get.p')));
+        }
+    }
+
+    public function editAction(){
+        //获取用户ID
+        $saleId = I('get.id');
+
+        //取用户信息 getListById()
+        $SaleM = new SaleModel();
+        $sale = $SaleM->getListById($saleId);
+
+        $SaleModel=new saleModel();
+        $SaleModel->setSale($sale);
+
+        $this->assign('M',$SaleModel);
+        
+        //显示 display('sale')
+        $this->display('add'); 
+    }
+    public function updateAction(){
+        //取用户信息
+        $data = I('post.');
+
+        //传给M层
+        $SaleM = new SaleModel();
+        $SaleM->addList($data);
+        $this->success("操作成功" , U('Sale/Index/index?',I('get.')));
+    }
+
 }
