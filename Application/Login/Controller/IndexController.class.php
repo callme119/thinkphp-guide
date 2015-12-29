@@ -44,17 +44,17 @@ class IndexController extends Controller {
         dump($userName);
        
         if($user['level']==1)
-    	   {$this->success("操作成功" , U('Home/Index/index'));}
+    	   {$this->success("操作成功" , U('Home/Index/index?a=1'));}
         else 
         {
             if($user['dep_id']==1)
-            $this->success("操作成功",U('Home/Index/indexa'));
+            $this->success("操作成功",U('Home/Index/indexa?a=1'));
             if($user['dep_id']==2)
-            $this->success("操作成功",U('Home/Index/indexb'));
+            $this->success("操作成功",U('Home/Index/indexb?a=2'));
             if($user['dep_id']==3)
-            $this->success("操作成功",U('Home/Index/indexc'));
+            $this->success("操作成功",U('Home/Index/indexc?a=3'));
             if($user['dep_id']==4)
-            $this->success("操作成功",U('Home/Index/indexd'));
+            $this->success("操作成功",U('Home/Index/indexd?a=4'));
         }
 
        

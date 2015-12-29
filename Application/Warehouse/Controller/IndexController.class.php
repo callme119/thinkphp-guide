@@ -28,11 +28,26 @@ class IndexController extends Controller
         //取用户信息
 
         $warehouse = I('post.');
-         
+        // $warehouseId=$warehouse['id']-1;
+        // dump($warehouseId);
+
         $WarehouseModel = new WarehouseModel();
         
-        //添加 add()
-        $WarehouseModel->addList($warehouse);
+   
+
+
+        
+        (int)$currentId=$WarehouseModel->addList($warehouse);
+        
+        $warehouse['id']=$currentId;
+        (int)$warehouseId=$warehouse['id']-1;
+        dump((int)100);
+        $warehouseLast=$WarehouseModel->getListById((int)$warehouseId);
+        dump($warehouseLast);
+        $warehouse['surplus']=$warehouseLast['surplus']+$warehouse['count'];
+        dump($warehouseLast['surplus']);
+        
+        $WarehouseModel->saveList($warehouse);
 
         //判断异常
         if(count($errors=$WarehouseModel->getErrors())!==0)
@@ -42,10 +57,10 @@ class IndexController extends Controller
             
             
             //显示错误
-             $this->error("添加失败，原因：".$error,U('Warehouse/Index/index'),100);
+             $this->error("添加失败，原因：".$error,U('Warehouse/Index/index'),5);
             
         }
-        $this->success("操作成功" , U('Warehouse/Index/index'));    
+        $this->success("操作成功" , U('Warehouse/Index/index'),10);    
     }
     public function editAction(){
         //获取用户ID

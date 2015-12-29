@@ -33,6 +33,18 @@ class WarehouseModel extends YunzhiModel
 	{
 		return $this->warehouse['surplus'];
 	}
+    public function getListById($id)
+    {
+        $map['id']=$id;
+        $data=$this->where($map)->find();
+        return $data;
+    }
+	// public function getLastListById($id)
+	// {
+	// 	$map['id']=(int)($id-1);
+	// 	$list=$this->where($map)->find();
+	// 	return $list;
+	// }
 	public function getId()
 	{
 		return $this->warehouse['id'];
@@ -40,7 +52,7 @@ class WarehouseModel extends YunzhiModel
 	public function addList($list)
 	{
 		try{
-			dump($this->create($list));
+			// dump($this->create($list));
 			if($this->create($list))
 			{
 				$id=$this->add();

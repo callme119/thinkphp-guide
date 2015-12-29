@@ -84,6 +84,7 @@ class SaleModel extends YunzhiModel
 				$array['money']=$list['sum_money'];
 				$array['date']=$list['date'];
 				$array['cost']=$list['count']*1;
+				$array['profit']=$array['money']-$array['cost'];
 				$accountM->addList($array);
 				
 

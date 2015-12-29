@@ -65,7 +65,7 @@ class IndexController extends Controller
     public function saveAction(){
         //取用户信息
         $user = I('post.');
-
+        dump($user);
         //添加 add()
         $UserL = new UserLogic();
         $UserL->addList($user);
@@ -103,7 +103,7 @@ class IndexController extends Controller
     public function updateAction(){
         //取用户信息
         $data = I('post.');
-
+        dump($data);
         //传给M层
         $UserL = new UserLogic();
         $UserL->saveList($data);

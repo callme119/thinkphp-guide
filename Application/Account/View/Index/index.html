@@ -10,8 +10,9 @@
 		<?php $by = I('get.by') ?>
 		<th><a href="<eq name='order' value="desc"> {:U('index?order=asc&by=id', I('get.'))}  
 		<else/> {:U('index?order=desc&by=id', I('get.'))} </eq>">ID</a></th>
-		<th>交易金额</th>	
+			
 		<th>成本</th>
+		<th>交易金额</th>
 		<th>利润</th>
 		<th>日期</th>
 		<th>状态</th>
@@ -33,9 +34,10 @@
 	<tr>
 		<td>{$k+1}</td>
 		<td>{$account[id]}</td>
+		<td>{$account[cost]}</td>
 		<td>{$account[money]}</td>
 		<td>{$account[profit]}</td>
-		<td>{$account[cost]}</td>
+		
 		<td>{$account[date]}</td>
 		<td>{$account[status]}</td>
 		<td><a class="button" href="{:U('detail?id='.$user['id'],I('get.'))}">查看</a>&nbsp;&nbsp;
