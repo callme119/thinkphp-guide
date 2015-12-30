@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <title>首页界面</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    
+    <!-- Bootstrap Stylesheet -->
+    <link rel="stylesheet" href="__CSS__/bootstrap.min.css">
+
+    <!-- Animate -->
+    <link rel="stylesheet" href="__CSS__/animate.min.css">
+
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="__CSS__/font-awesome.min.css">
+    
+    <!-- Normailize Stylesheet -->
+    <link rel="stylesheet" href="__CSS__/normalize.min.css">
+
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="__CSS__/templatemo_style.css">
+
+    <script src="__JS__/vendor/modernizr-2.6.2.min.js"></script>
+
+</head>
+<body>
+
+    <div id="responsive-menu">
+        <ul class="menu-holder">
+            <li><a href="#"><i class="fa fa-home"></i>Home</a></li>
+            <li><a href="#services"><i class="fa fa-cogs"></i>Services</a></li>
+            <li><a href="#products"><i class="fa fa-list"></i>Products</a></li>
+            <li><a href="#video"><i class="fa fa-list"></i>Video</a></li>
+            <li><a href="#contact"><i class="fa fa-envelope"></i>Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="container">
+            <div class="row">
+                <div class="menu-holder">
+                    <div class="col-md-3 col-sm-2 logo">
+                        <a href="#" title="templatemo 420 ocean">
+                            <img src="__IMG__/templatemo-logo.png" alt="templatemo 420 ocean">
+                        </a>
+                    </div>
+                    <div class="col-md-7 col-sm-8">
+                        <nav class="main-menu hidden-xs">
+                            <ul>
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#services">Services</a></li>
+                                <li><a href="#products">Products</a></li>
+                                <li><a href="#video">Video</a></li>
+                                <li><a href="#contact">Contact</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-md- col-sm-2 col-xs-12">
+                        <ul class="social-top">
+                            <li><a href="#"><i class="fa fa-twitter"></i><span class="hidden-xs">您好，</span></a></li>
+                            <li><a href="{:U('Login/Index/logout')}">   <i class="fa fa-user"></i><span class="hidden-xs">注销</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <div class="text-right visible-xs">
+                    <a href="#" id="mobile_menu"><span class="fa fa-bars"></span></a>
+                </div>
+            </div>
+        </div>
+    </header> <!-- .site-header -->
+     <div class="copyrights">Collect from <a href="http://www.cssmoban.com/"  title="网站模板">网站模板</a></div>
+    
+
+    <!-- HEADER -->
+        <div class="container">
+            <div>
+                <ul class="social-top">
+                    <li><a href="{:U('Login/Index/logout')}"><i class="fa fa-user"></i><span class="hidden-xs">注销</span></a></li>
+                </ul>
+            </div>
+            <div class="row">
+                <div class="text-right visible-xs">
+                    <a href="#" id="mobile_menu"><span class="fa fa-bars"></span></a>
+                </div>
+            </div>
+        </div>
+    
+    <!-- TOP CONTENT -->
+    <div class="top-c">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-offset-1 col-lg-5 col-md-5 col-xs-offset-1 col-sm-5 col-xs-8 col-xs-offset-2">
+                    <div class="topc-img">
+                        <img src="__IMG__/slide1.png" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <h3 class="topc-title">Welcome! </h3>
+                    <ul>
+                        <li><i class="fa fa-check"></i>You are able to modify the information.</li>
+                        <li><i class="fa fa-check"></i>You are able to watch the list about repository.</li>
+                        <li><i class="fa fa-check"></i>You are able to watch the account detail.</li>
+                        <li><i class="fa fa-check"></i>You are able to select the information about sale.</li>
+                        <li><i class="fa fa-check"></i>Find more information please contact us.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- SERVICES -->
+    <div class="content-section" id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-xs-6 text-center">
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <i class="fa fa-user"></i>
+                        </div>
+                        <a href="{:U('User/Index/index')}"><div><h3 class="service-title">人事信息</h3></div></a>                        
+                    </div> <!-- .service-item -->
+                </div> <!-- .col-md-3 -->
+                <div class="col-md-3 col-xs-6 text-center">
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <i class="fa fa-clipboard"></i>
+                        </div>
+                        <a href="{:U('Account/Index/index')}"><div><h3 class="service-title">财务信息</h3></div></a>                     
+                    </div> <!-- .service-item -->
+                </div> <!-- .col-md-3 -->
+                <div class="col-md-3 col-xs-6 text-center">
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <i class="fa fa-home"></i>
+                        </div>
+                        <a href="{:U('Warehouse/Index/index')}"><div><h3 class="service-title">仓库信息</h3></div></a>                   
+                    </div> <!-- .service-item -->
+                </div> <!-- .col-md-3 -->
+                <div class="col-md-3 col-xs-6 text-center">
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <i class="fa fa-list"></i>
+                        </div>
+                        <a href="{:U('Sale/Index/index')}"><div><h3 class="service-title">销售信息</h3></div></a>                        
+                    </div> <!-- .service-item -->
+                </div> <!-- .col-md-3 -->
+            </div> <!-- .row -->
+        </div> <!-- .container -->
+    </div> <!-- #services -->
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-right">
+                    <p>Copyright &copy; 2084 Your Company Name | Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a> - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> </p>
+                </div> <!-- .col-md-12 -->
+            </div> <!-- .row -->
+        </div> <!-- .container -->
+    </footer> <!-- .site-footer -->
+    
+
+    <script src="__JS__/vendor/jquery-1.10.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
+    
+    <script src="__JS__/bootstrap.min.js"></script>
+    <script src="__JS__/plugins.js"></script>
+    <script src="__JS__/templatemo_custom.js"></script> 
+    
+</body>
+</html>
