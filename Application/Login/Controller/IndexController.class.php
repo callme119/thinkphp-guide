@@ -44,7 +44,7 @@ class IndexController extends Controller {
         
        
         if($user['level']==1||$user['level']==2)
-    	   {$this->success("操作成功" , U('Home/Index/index?a=1'));}
+    	   {$this->success("操作成功" , U('Home/Index/index1?a=1'));}
         else    
         {
             if($user['dep_id']==1)
