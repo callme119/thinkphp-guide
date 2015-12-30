@@ -22,7 +22,6 @@
 			<else/> {:U('index?order=desc&by=id', I('get.'))} </eq>">ID</a></th>	
 			<th>name</th>
 			<th>手机号</th>
-			<th>地址</th>
 			<th>邮箱</th>
 			<th>部门</th>
 			<th>岗位</th>
@@ -34,15 +33,15 @@
 				<td>{$user[id]}</td>
 				<td>{$user[name]}</td>
 				<td>{$user[phonenumber]}</td>
-				<td>{$user[address]}</td>
 				<td>{$user[email]}</td>
-				<td><foreach name="M:getDepartmentsByUserId($user['id'])" item="department">
+				<td>
+				<foreach name="M:getDepartmentsByUserId($user['id'])" item="department">
 				<!-- {:dump($department)} -->
 				{:$department['department_name']}
 				<br />
-				</foreach></td>
+				</foreach>
+				</td>
 				<td><foreach name="M:getPostsByUserId($user['id'])" item="post">
-				<!-- {:dump($post)} -->
 				{:$post['post_name']}
 				<br />
 				</foreach></td>

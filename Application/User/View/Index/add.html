@@ -14,27 +14,28 @@
 	<label>手机号：</label><input type ="text" name="phonenumber" value="{:$M->getPhone()}" /></br>
 	<label>邮箱：</label><input type="text" name="phonenumber" value="{:$M->getMail()}" /></br>
 
-	
-	
-
-	<div><label>修改部门</label>
+	<?php $dep = $M->getDepartmentId(); ?>
+	<div>
+	<label>修改部门</label>
     <label>人事
-    <input type="radio" value="1"  name="dep_id" /></label>
+    <input type="radio" value="1"  name="dep_id" <eq name="dep" value="1">checked="checked" </eq>/></label>
     <label>财务
-    <input type="radio" value="2"  name="dep_id" /></label>
+    <input type="radio" value="2"  name="dep_id" <eq name="dep" value="2">checked="checked" </eq>/></label>
     <label>仓库
-    <input type="radio" value="3"  name="dep_id" /></label>
+    <input type="radio" value="3"  name="dep_id" <eq name="dep" value="3">checked="checked" </eq>/></label>
     <label>销售
-    <input type="radio" value=4  name="dep_id" /></label>
+    <input type="radio" value="4"  name="dep_id" <eq name="dep" value="4">checked="checked" </eq>/></label>
     </div>
-    <div><label>修改级别</label>
+
+	<?php $le = $M->getLevel(); ?>
+    <div>
+    <label>修改级别</label>
 	<label>经理</label>
-	<input type="radio" value="2"  name="level" /></label>
+	<input type="radio" value="2"  name="level" <eq name="le" value="2">checked="checked" </eq>/></label>
 	<label>普通员工</label>
-	<?php $le = 1; ?>
-	<input type="radio" value="1"  name="level" <eq name="level" value="le">checked="checked"</eq> /></label>
+	<input type="radio" value="0"  name="level" <eq name="le" value="0">checked="checked" </eq>/></label>
     </div>
 	<button type="submit">保存</button>
 	</form>
-	</body>
+</body>
 	</html>

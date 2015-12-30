@@ -18,6 +18,10 @@ class addModel
 		return $this->user['id'];
 		
 	}
+	public function getDepartmentId()
+	{
+		return $this->user['dep_id'];
+	}
 	public function getUserName()
 	{
 		return $this->user['name'];
@@ -33,5 +37,9 @@ class addModel
 	public function getMail()
 	{
 		return $this->user['mailbox'];
+	}
+	public function getLevel()
+	{
+		return $this->user['level'];
 	}
 }
