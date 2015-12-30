@@ -1,74 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Starnight - A Sexy As Hell Free HTML5/CSS3 Template</title>
+    <!-- Bootstrap -->
+    <link href="__CSS__/bootstrap.min.css" rel="stylesheet">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="__CSS__/flexslider.css" type="text/css">
+    <link href="__CSS__/styles.css?v=1.6" rel="stylesheet">
+    <link href="__CSS__/queries.css?v=1.6" rel="stylesheet">
+    <link href="__CSS__/jquery.fancybox.css" rel="stylesheet">
+    <!-- Fonts -->
+    <link href='http://fonts.useso.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+      <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+      <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+      <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
 
-<link rel="stylesheet" type="text/css" href="__CSS__/bootstrap.min.css">
-<!-- <form action="{:U('Login/Index/login')}" method="post">
-	<input type ="text" name="name" />
-	<input type = "password" name="password" />
-	<button type="submit" class="btn btn-default">Login</button>
-</form> -->
 
 
+  <style>
+  body{
+    font-family: 'microsoft yahei',Arial,sans-serif;
+    background-color: #222;
+  }
 
-<!-- <form class="form-horizontal" action="{:U('Login/Index/login')}" method="post">
-  <div class="form-group">
-    <label for="inputEmail3" class="col-sm-2 control-label">用戶名</label>
-    <div class="col-sm-8">
-      <input  type="text" class="form-control" id="inputEmail3" placeholder="用戶名" name="name" >
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="inputPassword3" class="col-sm-2 control-label">密码</label>
-    <div class="col-sm-8">
-      <input type="password" class="form-control" id="inputPassword3" placeholder="密码" name="password">
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <div class="checkbox">
-        <label>
-          <input type="checkbox"> Remember me
-        </label>
-      </div>
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-default">Sign in</button>
-    </div>
-  </div>
-</form> -->
+  .redborder {
+    border:2px solid #f96145;
+    border-radius:2px;
+  }
 
+  .row {
+    padding: 20px 0px;
+  }
+
+  .bigicon {
+    font-size: 97px;
+    color: #f08000;
+  }
+
+  .loginpanel {
+    text-align: center;
+    width: 300px;
+    border-radius: 0.5rem;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 10px auto;
+    background-color: #555;
+    padding: 20px;
+  }
+
+  input {
+    width: 100%;
+    margin-bottom: 17px;
+    padding: 15px;
+    background-color: #ECF4F4;
+    border-radius: 2px;
+    border: none;
+  }
+
+  h2 {
+    margin-bottom: 20px;
+    font-weight: normal;
+    color: #EFEFEF;
+  }
+
+  .btn {
+    border-radius: 2px;
+    padding: 10px;
+  }
+
+  .btn span {
+    font-size: 27px;
+    color: white;
+  }
+
+  .buttonwrapper{
+    position:relative;
+    overflow:hidden;
+    height:50px;
+  }
+
+  .lockbutton {
+    font-size: 27px;
+    color: #f96145;
+    padding: 10px;
+    width:100%;
+    position:absolute;
+    top:0;
+    left:0;
+  }
+
+  .loginbutton {
+    background-color: #f08000;
+    width: 100%;
+    -webkit-border-top-right-radius: 0;
+    -webkit-border-bottom-right-radius: 0;
+    -moz-border-radius-topright: 0;
+    -moz-border-radius-bottomright: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    left: -260px;
+    position:absolute;
+    top:0;
+  }
+  </style>
+    <script type="text/javascript" src="__JS__/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <section class="hero" id="hero">
     <div class="container">
-        <div class="row">
-            <div class="col-md-4 col-md-offset-4">
-                <div class="login-panel panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">请登录</h3>
-                    </div>
-                    <div class="panel-body">
-                        <!-- <form role="form"  id="loginform" method = 'post' action="{:U('Login/Index/login')}"> -->
-                            <form  action="{:U('Login/Index/login')}" method="post">
-                                <div class="form-group">
-                                    <input class="form-control" placeholder="用户名" name="name" id="username" value="{:cookie('username')}">
-                                </div>
-                                <div class="form-group">
-                                    <input class="form-control" placeholder="密码" name="password" id="password" type="password" value="{:cookie('password')}">
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                    <php>$isRemember = cookie('remember');</php>
-                                        <input type="checkbox" id="remember" <eq name="isRemember" value="1">checked="checked"</eq>>记住密码
-                                    </label>
-                                </div>
-                                <!-- Change this to a button or input when using this as a form -->
-                                <button class="btn btn-lg btn-success btn-block" id="login">登录</button>
-                                <php>if (APP_DEBUG==true): </php>
-                                <a href="{:U('Home/Index/index')}"  class="btn btn-lg btn-success btn-block">直接登录</a>
-                                <php>endif</php>
-                            </form>
-                        </form>
+      <div class="row">
+        <div class="col-md-12 text-right">
+          <a href="#"><i class="fa fa-navicon fa-2x nav_slide_button"></i></a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2 text-center">
+          <h1 class="animated bounceInDown">Welcome</h1>
+        </div>
+      </div>
 
-                    </div>
-                </div>
-            </div>
+    <div class="row">
+        <div class="loginpanel">
+          <i id="loading" class="hidden fa fa-spinner fa-spin bigicon"></i>
+          <h2>
+            <span class="fa fa-quote-left "></span> 登录 <span class="fa fa-quote-right "></span>
+          </h2>
+        <div>
+        <input id="username" type="text" placeholder="登录账号" onkeypress="check_values();">
+        <input id="password" type="password" placeholder="输入密码" onkeypress="check_values();">
+
+        <div class="buttonwrapper">
+          <button id="loginbtn" class="btn btn-warning loginbutton">
+            <span class="fa fa-check"></span>
+          </button>
+          <span id="lockbtn" class="fa fa-lock lockbutton redborder"></span>
         </div>
     </div>
+</div>
+       
+<script type="text/javascript">
+
+    function check_values()
+    {
+        if ($("#username").val().length != 0 && $("#password").val().length != 0) 
+        {
+            $("#loginbtn").animate({ left: '0' , duration: 'slow'});;
+            $("#lockbtn").animate({ left: '260px' , duration: 'slow'});;
+        }
+    }
+      
+  $("#loginbtn").click(function(){
+    $('#loading').removeClass('hidden');
+    //这里书写登录相关后台处理，例如: Ajax请求用户名和密码验证
+  });
+
+</script>
+
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+      <script src="http://ajax.useso.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+      <script src="__JS__/jquery.fancybox.pack.js"></script>
+      <!-- Include all compiled plugins (below), or include individual files as needed -->
+      <script src="__JS__/bootstrap.min.js"></script>
+      <script src="__JS__/scripts.js?v=1.7"></script>
+      <script src="__JS__/jquery.flexslider.js"></script>
+      <script src="__JS__/jquery.smooth-scroll.js"></script>
+      <script src="__JS__/modernizr.js"></script>
+      <script src="__JS__/waypoints.min.js"></script>
+    </body>
+  </html>
