@@ -1,11 +1,11 @@
-<?php 
-namespace UserPost\Model;
+<?php
+namespace UserDepartment\Model;
 
 use Think\Model;
 
-class UserPostModel extends Model
-{
-		public function addList($list)
+class UserDepartmentModel extends Model{
+
+	public function addList($list)
 	{
 		try{
 			if($this->create($list))
@@ -45,6 +45,5 @@ class UserPostModel extends Model
 			return false;
 		}
 	}
+	
 }
-
-

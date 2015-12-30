@@ -41,11 +41,11 @@ class IndexController extends Controller {
 
     	//seesion userId
     	session('userId',$user['id']);  
-        dump($userName);
+        
        
-        if($user['level']==1)
+        if($user['level']==1||$user['level']==2)
     	   {$this->success("操作成功" , U('Home/Index/index?a=1'));}
-        else 
+        else    
         {
             if($user['dep_id']==1)
             $this->success("操作成功",U('Home/Index/indexa?a=1'));

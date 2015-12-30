@@ -15,20 +15,9 @@
 		<th>交易金额</th>
 		<th>利润</th>
 		<th>日期</th>
-		<th>状态</th>
+		
 		<th>操作</th>
-		<th>本期交易金额总计</th>
-	</tr>
-	<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td>{:$M->MoneyTotal0()}</td>
+		
 	</tr>
 	<foreach name="M:getAccount()" item="account" key="k">
 	<tr>
@@ -39,12 +28,22 @@
 		<td>{$account[profit]}</td>
 		
 		<td>{$account[date]}</td>
-		<td>{$account[status]}</td>
-		<td><a class="button" href="{:U('detail?id='.$user['id'],I('get.'))}">查看</a>&nbsp;&nbsp;
+		
+		<td><!-- <a class="button" href="{:U('detail?id='.$user['id'],I('get.'))}">查看</a>&nbsp;&nbsp; -->
 		<a class="button" href="{:U('edit?id='.$account['id'], I('get.'))}">编辑</a>&nbsp;&nbsp;
 		<a class="button" href="{:U('delete?id='.$account['id'],I('get.'))}">删除</a></td>
 	</tr>
 	</foreach>
+	<tr>
+	<td>总计</td>
+	<td></td>
+	<td>{:$M->costTotal()}</td>
+	<td>{:$M->moneyTotal0()}</td>
+	<td>{:$M->profitTotal()}</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	</tr>
 	
 </table>
 

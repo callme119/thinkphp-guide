@@ -3,9 +3,7 @@ namespace Account\Controller;
 
 use Think\Controller;
 use Account\Model\AccountModel;
-use Account\Model\Index\IndexModel;
-use Account\Model\Index\AddModel;
-  
+
 
 class IndexController extends Controller
 {
@@ -31,11 +29,12 @@ class IndexController extends Controller
     }  
     public function saveAction(){
         //取用户信息
-
         $account = I('post.');
          
+         //存财务信息
         $AccountModel = new AccountModel();
-        
+        $account['profit']=$account['money']-$account['cost'];
+        dump($account);
         //添加 add()
         $AccountModel->addList($account);
 
@@ -92,19 +91,19 @@ class IndexController extends Controller
         }
             $this->success("操作成功" , U('Account/Index/index?',I('get.')));
     }
-    public function deleteAction(){
+    // public function deleteAction(){
 
-        $userId = I('get.id');
+    //     $userId = I('get.id');
 
-        $AccountM = new AccountModel();
-        $status = $AccountM->deleteInfo($userId);
+    //     $AccountM = new AccountModel();
+    //     $status = $AccountM->deleteInfo($userId);
 
-        if($status！==false){
-           $this->success("删除成功", U('Account/Index/index?',I('get.p'))); 
-        }
-        else{
-            $this->error("删除失败" , U('Account/Index/index?',I('get.p')));
-        }
-    }
+    //     if($status！==false){
+    //        $this->success("删除成功", U('Account/Index/index?',I('get.p'))); 
+    //     }
+    //     else{
+    //         $this->error("删除失败" , U('Account/Index/index?',I('get.p')));
+    //     }
+    // }
 
 }

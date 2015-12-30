@@ -6,7 +6,7 @@
     <div>
         <a class="button"  href="{:U('Post/Index/index',I('get.'))}" >查看岗位</a>
     </div>
-    <div><a href="{:U('Account/Index/index')}">查看财务模块</a></div>
+   
     <form action="{:U('index?p=', I('get.'))}" method="get">
     <div>
     	<input type="text" placeholder="search" name="keywords" value ="{:I('get.keywords')}"
@@ -24,6 +24,7 @@
 			<th>手机号</th>
 			<th>地址</th>
 			<th>邮箱</th>
+			<th>部门</th>
 			<th>岗位</th>
 			<th>操作</th>
 		</tr>
@@ -35,12 +36,17 @@
 				<td>{$user[phonenumber]}</td>
 				<td>{$user[address]}</td>
 				<td>{$user[email]}</td>
+				<td><foreach name="M:getDepartmentsByUserId($user['id'])" item="department">
+				<!-- {:dump($department)} -->
+				{:$department['department_name']}
+				<br />
+				</foreach></td>
 				<td><foreach name="M:getPostsByUserId($user['id'])" item="post">
 				<!-- {:dump($post)} -->
 				{:$post['post_name']}
 				<br />
 				</foreach></td>
-				<td><a class="button" href="{:U('detail?id='.$user['id'],I('get.'))}">查看</a>&nbsp;&nbsp;
+				<td><!-- <a class="button" href="{:U('detail?id='.$user['id'],I('get.'))}">查看</a>&nbsp;&nbsp; -->
 				<a class="button" href="{:U('edit?id='.$user['id'], I('get.'))}">编辑</a>&nbsp;&nbsp;
 				<a class="button" href="{:U('delete?id='.$user['id'],I('get.'))}">删除</a></td>
 			</tr>

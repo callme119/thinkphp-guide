@@ -52,7 +52,7 @@ class WarehouseModel extends YunzhiModel
 	public function addList($list)
 	{
 		try{
-			// dump($this->create($list));
+			
 			if($this->create($list))
 			{
 				$id=$this->add();

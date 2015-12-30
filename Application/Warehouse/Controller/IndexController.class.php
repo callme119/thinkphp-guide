@@ -25,28 +25,18 @@ class IndexController extends Controller
         $this->display('edit');
     }  
     public function saveAction(){
-        //取用户信息
-
+    
+        //取库存信息
         $warehouse = I('post.');
-        // $warehouseId=$warehouse['id']-1;
-        // dump($warehouseId);
-
+      
         $WarehouseModel = new WarehouseModel();
-        
-   
-
-
         
         (int)$currentId=$WarehouseModel->addList($warehouse);
         
         $warehouse['id']=$currentId;
         (int)$warehouseId=$warehouse['id']-1;
-        dump((int)100);
         $warehouseLast=$WarehouseModel->getListById((int)$warehouseId);
-        dump($warehouseLast);
         $warehouse['surplus']=$warehouseLast['surplus']+$warehouse['count'];
-        dump($warehouseLast['surplus']);
-        
         $WarehouseModel->saveList($warehouse);
 
         //判断异常

@@ -5,6 +5,7 @@ use User\Model\UserModel;
 use UserPost\Model\UserPostModel;
 use Post\Model\PostModel;
 use UserPost\Model\UserPostViewModel;
+use UserDepartment\Model\UserDepartmentViewModel;
 
 class indexModel
 {
@@ -27,9 +28,28 @@ class indexModel
 
 		$UserPostViewM = new UserPostViewModel();
 		$lists = $UserPostViewM->where("user_id = $userId")->select();
+		// dump($lists);
 		 // echo $UserPostViewM->getLastSql();
 		return $lists;
 	}
+
+
+	public function getDepartmentsByUserId($userId)
+	{
+		$userId = (int)$userId;
+		$UserDepartmentViewM = new UserDepartmentViewModel();
+		$lists = $UserDepartmentViewM->where("user_id = $userId")->select();
+		// dump($lists);
+		// echo $UserPostViewM->getLastSql();
+		return $lists;
+	}
+
+
+
+
+
+
+
 
 	public function getNameByPostId($postId)
 	{

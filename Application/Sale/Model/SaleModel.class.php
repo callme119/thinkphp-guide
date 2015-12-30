@@ -74,11 +74,15 @@ class SaleModel extends YunzhiModel
 
 				$WarehouseM = new WarehouseModel();
 				
-				// $array['id']=$list['id'];
-				// $array['count']=-$list['count'];
-				// $array['date']=$list['date'];
 				$warehouse['count']=-$list['count'];
-				$WarehouseM->addList($warehouse);
+				$warehouse['date']=$list['date'];
+				(int)$currentId=$WarehouseM->addList($warehouse);
+				$warehouse['id']=$currentId;
+        		(int)$warehouseId=$warehouse['id']-1;
+        		$warehouseLast=$WarehouseM->getListById((int)$warehouseId);
+        		$warehouse['surplus']=$warehouseLast['surplus']+$warehouse['count'];
+        		$WarehouseM->saveList($warehouse);
+
 
 				$accountM = new AccountModel();
 				$array['money']=$list['sum_money'];
@@ -121,6 +125,36 @@ class SaleModel extends YunzhiModel
 			$this->errors[]=$e->getMessage();
 			return false;
 		}
+	}
+
+	public function SaleMoneyTotal0()
+	{	
+		$sum=0;
+		$map['status']=0;
+		$datas=$this->where($map)->select();
+		
+		for ($i=0; $i < count($datas); $i++) { 
+			$sum=$sum+$datas[$i]['sum_money'];
+			# code...
+		}
+		
+		return $sum;
+
+	}
+
+	public function SaleCountTotal0()
+	{	
+		$sum=0;
+		$map['status']=0;
+		$datas=$this->where($map)->select();
+		
+		for ($i=0; $i < count($datas); $i++) { 
+			$sum=$sum+$datas[$i]['count'];
+			# code...
+		}
+		
+		return $sum;
+
 	}
 
 }

@@ -17,17 +17,7 @@
 		
 		<th>操作</th>
 		
-	</tr>
-	<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	</tr>
+
 	<foreach name="M:getWarehouse()" item="warehouse" key="k">
 	<tr>
 		<td>{$k+1}</td>
@@ -36,7 +26,7 @@
 		
 		<td>{$warehouse[count]}</td>
 		<td>{$warehouse[surplus]}</td>
-		<td><a class="button" href="{:U('detail?id='.$warehouse['id'],I('get.'))}">查看</a>&nbsp;&nbsp;
+		<td><!-- <a class="button" href="{:U('detail?id='.$warehouse['id'],I('get.'))}">查看</a>&nbsp;&nbsp; -->
 		<a class="button" href="{:U('edit?id='.$warehouse['id'], I('get.'))}">编辑</a>&nbsp;&nbsp;
 		<a class="button" href="{:U('delete?id='.$warehouse['id'],I('get.'))}">删除</a></td>
 	</tr>

@@ -31,7 +31,6 @@ class AccountModel extends YunzhiModel{
 	public function addList($list)
 	{
 		try{
-			dump($this->create($list));
 			if($this->create($list))
 			{
 				$id=$this->add();
@@ -77,11 +76,16 @@ class AccountModel extends YunzhiModel{
 	{
 		return $this->account['date'];
 	}
+	public function getAccountCost()
+	{
+		return $this->account['cost'];
+	}
 	public function getAccountProfit()
 	{
+		
 		return $this->account['profit'];
 	}
-	public function MoneyTotal0()
+	public function moneyTotal0()
 	{	
 		$sum=0;
 		$map['status']=0;
@@ -106,4 +110,31 @@ class AccountModel extends YunzhiModel{
 	// {
 	// 	return $this->sum;
 	// }
+
+	public function costTotal()
+	{
+		$sum=0;
+		$map['status']=0;
+		$datas=$this->where($map)->select();
+		
+		for ($i=0; $i < count($datas); $i++) { 
+			$sum=$sum+$datas[$i]['cost'];
+			# code...
+		}
+		
+		return $sum;
+	}
+	public function profitTotal()
+	{
+		$sum=0;
+		$map['status']=0;
+		$datas=$this->where($map)->select();
+		
+		for ($i=0; $i < count($datas); $i++) { 
+			$sum=$sum+$datas[$i]['profit'];
+			# code...
+		}
+		
+		return $sum;
+	}
 }

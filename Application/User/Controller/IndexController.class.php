@@ -5,7 +5,9 @@ use Think\Controller;
 use User\Logic\UserLogic;       //用户表
 use User\Model\Index\indexModel;        //
 use User\Model\Index\addModel;
-use User\Model\Index\detailModel;     
+use User\Model\Index\detailModel;    
+use UserPost\Model\UserPostModel; 
+use UserDepartment\Model\UserDepartmentModel;
 
 class IndexController extends Controller
 {
@@ -14,8 +16,6 @@ class IndexController extends Controller
         //获取列表
         $UserL = new UserLogic();
         $users = $UserL->getLists();
-        
-    
         
         //判断异常
         if(count($errors=$UserL->getErrors())!==0)
@@ -32,7 +32,7 @@ class IndexController extends Controller
         $IndexModel = new indexModel();
         
         $IndexModel->setUsers($users);
-     
+        // dump($users);
         //传入列表
         $this->assign('M',$IndexModel);
         
@@ -65,10 +65,23 @@ class IndexController extends Controller
     public function saveAction(){
         //取用户信息
         $user = I('post.');
-        dump($user);
-        //添加 add()
+        
+        //添加用户信息
         $UserL = new UserLogic();
-        $UserL->addList($user);
+        $currentId=$UserL->addList($user);
+
+        //添加用户岗位
+        $UserPostModel= new UserPostModel();
+        $userpost['user_id']=$currentId;
+        $userpost['post_id']=$user['level'];
+        $UserPostModel->addList($userpost);
+
+        //添加用户部门
+        $UserDepartmentModel=new UserDepartmentModel();
+        $userdepartment['user_id']=$currentId;
+        $userdepartment['department_id']=$user['dep_id'];
+        $UserDepartmentModel->addList($userdepartment);
+
 
         //判断异常
         if(count($errors=$UserL->getErrors())!==0)
@@ -93,7 +106,7 @@ class IndexController extends Controller
 
         $AddModel=new addModel();
         $AddModel->setUser($user);
-        dump($AddModel);
+        
         //传给前台
         $this->assign('M',$AddModel);
         
@@ -101,12 +114,28 @@ class IndexController extends Controller
         $this->display('add'); 
     }
     public function updateAction(){
+
         //取用户信息
         $data = I('post.');
-        dump($data);
-        //传给M层
+        
+        //更新用户信息
         $UserL = new UserLogic();
-        $UserL->saveList($data);
+        $currentId=$UserL->saveList($data);
+
+        //更新用户岗位信息
+        $UserPostModel= new UserPostModel();
+        $map['user_id'] = I('get.id');
+        $userpost = $UserPostModel->where($map)->find();
+        $userpost['post_id'] = $data['level'];
+        $UserPostModel->saveList($userpost);
+
+
+        //更新用户部门信息
+        $UserDepartmentModel=new UserDepartmentModel();
+        $map['user_id']=I('get.id');
+        $userdepartment=$UserDepartmentModel->where($map)->find();
+        $userdepartment['department_id']=$data['dep_id'];
+        $UserDepartmentModel->saveList($userdepartment);
 
         //判断异常
         if(count($errors=$UserL->getErrors())!==0)
@@ -121,7 +150,7 @@ class IndexController extends Controller
              return false;
             
         }
-            $this->success("操作成功" , U('User/Index/index?',I('get.')),20);
+            $this->success("操作成功" , U('User/Index/index?',I('get.')),5);
     }
     public function deleteAction(){
 

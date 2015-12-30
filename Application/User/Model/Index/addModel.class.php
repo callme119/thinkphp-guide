@@ -16,6 +16,7 @@ class addModel
 	public function getId()
 	{
 		return $this->user['id'];
+		
 	}
 	public function getUserName()
 	{
@@ -24,5 +25,13 @@ class addModel
 	public function getPassword()
 	{
 		return $this->user['password'];
+	}
+	public function getPhone()
+	{
+		return $this->user['phonenumber'];
+	}
+	public function getMail()
+	{
+		return $this->user['mailbox'];
 	}
 }

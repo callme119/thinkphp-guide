@@ -3,6 +3,7 @@ namespace Sale\Controller;
 
 use Think\Controller;
 use Sale\Model\SaleModel;
+use Warehouse\Model\WarehouseModel;
 
 class IndexController extends Controller
 {
@@ -29,15 +30,16 @@ class IndexController extends Controller
 
     public function saveAction()
     {
-        //取用户信息
-
+        //取销售信息
         $sale = I('post.');
          
         $SaleModel = new SaleModel();
         
-        //添加 add()
+        //存销售信息
         $SaleModel->addList($sale);
-        $this->success("操作成功" , U('Sale/Index/index'),20); 
+        //存库存信息
+       
+        $this->success("操作成功" , U('Sale/Index/index'),5); 
     }
 
     public function deleteAction()
