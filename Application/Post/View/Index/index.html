@@ -17,6 +17,9 @@
 		<td>{$k+1}</td>
 		<td>{$post[id]}</td>
 		<td>{$post[name]}</td>
+		<td>
+		<a class="button" href="{:U('edit?id='.$post['id'], I('get.'))}">编辑</a>&nbsp;&nbsp;
+		<a class="button" href="{:U('delete?id='.$post['id'],I('get.'))}">删除</a></td>
 	</tr>
 	</foreach>
 
