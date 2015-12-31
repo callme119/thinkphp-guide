@@ -39,7 +39,7 @@ class IndexController extends Controller
         $SaleModel->addList($sale);
         //存库存信息
        
-        $this->success("操作成功" , U('Sale/Index/index'),5); 
+        $this->success("操作成功" , U('Sale/Index/index')); 
     }
 
     public function deleteAction()

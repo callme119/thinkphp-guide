@@ -34,7 +34,7 @@ class IndexController extends Controller
          //存财务信息
         $AccountModel = new AccountModel();
         $account['profit']=$account['money']-$account['cost'];
-        dump($account);
+        
         //添加 add()
         $AccountModel->addList($account);
 

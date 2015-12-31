@@ -47,10 +47,10 @@ class IndexController extends Controller
             
             
             //显示错误
-             $this->error("添加失败，原因：".$error,U('Warehouse/Index/index'),5);
+             $this->error("添加失败，原因：".$error,U('Warehouse/Index/index'));
             
         }
-        $this->success("操作成功" , U('Warehouse/Index/index'),10);    
+        $this->success("操作成功" , U('Warehouse/Index/index'));    
     }
     public function editAction(){
         //获取用户ID
