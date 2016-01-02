@@ -70,20 +70,20 @@ class SaleModel extends YunzhiModel
 			
 			if($this->create($list))
 			{
+				//存销售记录
 				$id=$this->add();
-
+				//存库存记录
 				$WarehouseM = new WarehouseModel();
-				
 				$warehouse['count']=-$list['count'];
 				$warehouse['date']=$list['date'];
-				(int)$currentId=$WarehouseM->addList($warehouse);
+				$currentId=$WarehouseM->addList($warehouse);
+				//更新库存记录
 				$warehouse['id']=$currentId;
-        		(int)$warehouseId=$warehouse['id']-1;
+        		$warehouseId=$warehouse['id']-1;
         		$warehouseLast=$WarehouseM->getListById((int)$warehouseId);
         		$warehouse['surplus']=$warehouseLast['surplus']+$warehouse['count'];
         		$WarehouseM->saveList($warehouse);
-
-
+        		//存财务信息
 				$accountM = new AccountModel();
 				$array['money']=$list['sum_money'];
 				$array['date']=$list['date'];

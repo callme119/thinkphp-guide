@@ -1,0 +1,15 @@
+{
+	"folders":
+	[
+		{
+			"path": "H:\\xampp\\htdocs\\Ethan-Wechat"
+		}
+	],
+	"settings":
+	{
+		"xdebug":
+		{
+			"url": "http://localhost/thinkphp-guide/thinkphp-guide/index.php"
+		}
+	}
+}
